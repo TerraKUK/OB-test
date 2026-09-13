@@ -53,33 +53,52 @@ def find_bos(df):
 
 def find_all_fvgs(df):
     """
-    Return list of (fvg_type, gap_index) for all FVGs.
-    bullish: close[k+1] > high[k+2] and low[k] > high[k+2]  -> gap_index = k+2
-    bearish: close[k+1] < low[k+2]  and high[k] < low[k+2]  -> gap_index = k+2
+    Pine FVG logic:
+    Bullish FVG (on candle i):
+      high[i-2] < low[i]
+      and high[i-2] < high[i-1]
+      and low[i-2]  < low[i]
+      and (low[i] - high[i-2]) / low[i] * 100 > 0.2
+    Bearish FVG (on candle i):
+      low[i-2] > high[i]
+      and low[i-2] > low[i-1]
+      and high[i-2] > high[i]
+      and (low[i-2] - high[i]) / low[i-2] * 100 > 0.2
+    Returns list of (fvg_type, gap_index) where gap_index = i (the right candle index).
+    For OB filter we use gap_index = i (right candle of the gap).
     """
     fvgs = []
-    for k in range(0, len(df) - 2):
-        if (df["close"].iloc[k + 1] > df["high"].iloc[k + 2]
-                and df["low"].iloc[k] > df["high"].iloc[k + 2]):
-            fvgs.append(("bullish", k + 2))
+    fvg_filter_pct = 0.2
 
-        if (df["close"].iloc[k + 1] < df["low"].iloc[k + 2]
-                and df["high"].iloc[k] < df["low"].iloc[k + 2]):
-            fvgs.append(("bearish", k + 2))
+    for i in range(2, len(df)):
+        # Bullish FVG
+        if (df["high"].iloc[i - 2] < df["low"].iloc[i]
+                and df["high"].iloc[i - 2] < df["high"].iloc[i - 1]
+                and df["low"].iloc[i - 2] < df["low"].iloc[i]):
+            filt_up = (df["low"].iloc[i] - df["high"].iloc[i - 2]) / df["low"].iloc[i] * 100
+            if filt_up > fvg_filter_pct:
+                fvgs.append(("bullish", i))
+
+        # Bearish FVG
+        if (df["low"].iloc[i - 2] > df["high"].iloc[i]
+                and df["low"].iloc[i - 2] > df["low"].iloc[i - 1]
+                and df["high"].iloc[i - 2] > df["high"].iloc[i]):
+            filt_dn = (df["low"].iloc[i - 2] - df["high"].iloc[i]) / df["low"].iloc[i - 2] * 100
+            if filt_dn > fvg_filter_pct:
+                fvgs.append(("bearish", i))
 
     return fvgs
 
 
 def has_fvg_nearby(fvgs, ob_idx, ob_type, max_distance=3):
     """
-    Pine: _filterFvg = (gapIndex > 0 and idx > 0 and idx - gapIndex >= 0 and idx - gapIndex <= fvgDistance)
-    i.e. OB is at or after FVG, within max_distance candles.
+    Check if FVG is within max_distance from OB.
+    Both directions (OB before FVG or after).
     """
     for fvg_type, gap_index in fvgs:
         if fvg_type != ob_type:
             continue
-        dist = ob_idx - gap_index
-        if 0 <= dist <= max_distance:
+        if abs(ob_idx - gap_index) <= max_distance:
             return True
     return False
 
@@ -168,7 +187,7 @@ if __name__ == "__main__":
             flush=True
         )
 
-    # Total BOS count
+    # BOS count
     print(f"\n=== BOS COUNT ===", flush=True)
     print(f"Bullish BOS: {df['break_high'].sum()}", flush=True)
     print(f"Bearish BOS: {df['break_low'].sum()}", flush=True)
