@@ -3,7 +3,6 @@ import pandas as pd
 
 
 def find_regular_fractals(df):
-    """3-bar fractals. Mark on center candle."""
     df = df.copy()
     df["fractal_high"] = False
     df["fractal_low"] = False
@@ -18,7 +17,6 @@ def find_regular_fractals(df):
 
 
 def bullish_imb(df, k):
-    """close[k+1] > high[k+2] and low[k] > high[k+2]"""
     if k + 2 >= len(df):
         return False
     return (df["close"].iloc[k + 1] > df["high"].iloc[k + 2]
@@ -26,7 +24,6 @@ def bullish_imb(df, k):
 
 
 def bearish_imb(df, k):
-    """close[k+1] < low[k+2] and high[k] < low[k+2]"""
     if k + 2 >= len(df):
         return False
     return (df["close"].iloc[k + 1] < df["low"].iloc[k + 2]
@@ -34,11 +31,6 @@ def bearish_imb(df, k):
 
 
 def find_all_obs(df):
-    """
-    Full Pine replication.
-    Stores ALL fractals. For each candle, checks ALL fractals.
-    Removes fractal after first BOS (regardless of FVG filter).
-    """
     df = df.copy()
     df["ob_top"] = None
     df["ob_bottom"] = None
@@ -46,13 +38,12 @@ def find_all_obs(df):
     df["ob_time"] = None
     df["ob_fractal_time"] = None
 
-    fractal_highs = []   # list of (value, index)
+    fractal_highs = []
     fractal_lows = []
 
     fvg_distance = 3
 
     for i in range(len(df)):
-        # Update fractal arrays
         if df["fractal_high"].iloc[i]:
             fractal_highs.append((df["high"].iloc[i], i))
         if df["fractal_low"].iloc[i]:
@@ -60,12 +51,17 @@ def find_all_obs(df):
 
         current_close = df["close"].iloc[i]
 
-        # --- BULLISH OB: break of fractal high ---
+        # --- BULLISH OB ---
         j = 0
         while j < len(fractal_highs):
             fractal_high, fractal_idx = fractal_highs[j]
 
             if current_close > fractal_high:
+                # DEBUG print
+                if pd.Timestamp("2026-02-20") <= df["ts"].iloc[i] <= pd.Timestamp("2026-03-20"):
+                    print(f"\n[{str(df['ts'].iloc[i])[:10]}] BOS HIGH! fractal_high={fractal_high:.2f} (fractal ts={str(df['ts'].iloc[fractal_idx])[:10]})", flush=True)
+                    print(f"  fractal_highs array size BEFORE: {len(fractal_highs)}", flush=True)
+
                 idx = None
                 min_low = df["high"].iloc[i]
                 gap_index = None
@@ -83,6 +79,9 @@ def find_all_obs(df):
                 else:
                     filter_fvg = False
 
+                if pd.Timestamp("2026-02-20") <= df["ts"].iloc[i] <= pd.Timestamp("2026-03-20"):
+                    print(f"  idx={idx} gap_index={gap_index} filter_fvg={filter_fvg}", flush=True)
+
                 if idx is not None and idx != i and filter_fvg:
                     df.at[df.index[i], "ob_top"] = df["open"].iloc[idx]
                     df.at[df.index[i], "ob_bottom"] = df["low"].iloc[idx]
@@ -90,17 +89,21 @@ def find_all_obs(df):
                     df.at[df.index[i], "ob_time"] = df["ts"].iloc[idx]
                     df.at[df.index[i], "ob_fractal_time"] = df["ts"].iloc[fractal_idx]
 
-                # remove fractal regardless of FVG result (Pine: array.remove outside if)
                 fractal_highs.pop(j)
+                if pd.Timestamp("2026-02-20") <= df["ts"].iloc[i] <= pd.Timestamp("2026-03-20"):
+                    print(f"  fractal_highs array size AFTER pop: {len(fractal_highs)}", flush=True)
             else:
                 j += 1
 
-        # --- BEARISH OB: break of fractal low ---
+        # --- BEARISH OB ---
         j = 0
         while j < len(fractal_lows):
             fractal_low, fractal_idx = fractal_lows[j]
 
             if current_close < fractal_low:
+                if pd.Timestamp("2026-02-20") <= df["ts"].iloc[i] <= pd.Timestamp("2026-03-20"):
+                    print(f"\n[{str(df['ts'].iloc[i])[:10]}] BOS LOW! fractal_low={fractal_low:.2f}", flush=True)
+
                 idx = None
                 max_high = df["low"].iloc[i]
                 gap_index = None
@@ -157,13 +160,10 @@ if __name__ == "__main__":
             flush=True
         )
 
-    # Debug: September 2026
-    print(f"\n=== OB in September 2026 ===", flush=True)
-    for _, row in obs.iterrows():
-        ts = row["ob_time"]
-        if pd.Timestamp("2026-09-01") <= ts <= pd.Timestamp("2026-09-30"):
-            print(
-                f"{str(row['ob_time'])[:10]} | {row['ob_type']} | "
-                f"top={row['ob_top']:.2f} | bottom={row['ob_bottom']:.2f}",
-                flush=True
-            )
+    print(f"\n=== FRACTALS 2026-02-20 to 2026-03-20 ===", flush=True)
+    for i, row in df.iterrows():
+        ts = row["ts"]
+        if pd.Timestamp("2026-02-20") <= ts <= pd.Timestamp("2026-03-20"):
+            fh = "FH" if row["fractal_high"] else "  "
+            fl = "FL" if row["fractal_low"] else "  "
+            print(f"{str(ts)[:10]} | C={row['close']:.2f} | {fh} {fl}", flush=True)
