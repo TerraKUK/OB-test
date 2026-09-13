@@ -54,9 +54,13 @@ def find_bos(df):
 
 
 def find_ob_for_bos(df):
-    """For each BOS, find OB candle (iterate BACK from BOS to fractal)."""
+    """
+    For each BOS, find OB candle.
+    Borders: bullish -> top=open, bottom=low; bearish -> top=high, bottom=open.
+    """
     df = df.copy()
-    df["ob_price"] = None
+    df["ob_top"] = None
+    df["ob_bottom"] = None
     df["ob_type"] = None
     df["ob_idx"] = None
     df["ob_time"] = None
@@ -78,7 +82,8 @@ def find_ob_for_bos(df):
                         best_idx = k
             if best_idx is not None:
                 df.at[df.index[i], "ob_idx"] = best_idx
-                df.at[df.index[i], "ob_price"] = df["high"].iloc[best_idx]
+                df.at[df.index[i], "ob_top"] = df["open"].iloc[best_idx]
+                df.at[df.index[i], "ob_bottom"] = df["low"].iloc[best_idx]
                 df.at[df.index[i], "ob_type"] = "bullish"
                 df.at[df.index[i], "ob_time"] = df["ts"].iloc[best_idx]
 
@@ -96,7 +101,8 @@ def find_ob_for_bos(df):
                         best_idx = k
             if best_idx is not None:
                 df.at[df.index[i], "ob_idx"] = best_idx
-                df.at[df.index[i], "ob_price"] = df["low"].iloc[best_idx]
+                df.at[df.index[i], "ob_top"] = df["high"].iloc[best_idx]
+                df.at[df.index[i], "ob_bottom"] = df["open"].iloc[best_idx]
                 df.at[df.index[i], "ob_type"] = "bearish"
                 df.at[df.index[i], "ob_time"] = df["ts"].iloc[best_idx]
 
@@ -124,26 +130,12 @@ if __name__ == "__main__":
 
     print(f"\n=== TOTAL OB: {len(obs)} ===\n", flush=True)
 
-    print(f"{'#':<3} {'OB date':<12} {'Type':<9} {'OB price':<12} {'BOS date':<12}")
-    print("-" * 55)
+    print(f"{'#':<3} {'OB date':<12} {'Type':<9} {'Top':<10} {'Bottom':<10} {'BOS date':<12}")
+    print("-" * 65)
     for i, row in obs.iterrows():
         print(
             f"{i+1:<3} {str(row['ob_time'])[:10]:<12} "
-            f"{row['ob_type'].upper():<9} {row['ob_price']:<12.4f} "
-            f"{str(row['ts'])[:10]:<12}",
-            flush=True
-        )
-
-    # === DEBUG: data around July-August 2026 ===
-    print("\n=== DATA: 2026-07-28 to 2026-08-10 ===", flush=True)
-    mask = (df["ts"] >= "2026-07-28") & (df["ts"] <= "2026-08-10")
-    for _, row in df[mask].iterrows():
-        fh = "FH" if row["fractal_high"] else "  "
-        fl = "FL" if row["fractal_low"] else "  "
-        bh = "BOSup" if row["break_high"] else "     "
-        bl = "BOSdn" if row["break_low"] else "     "
-        print(
-            f"{str(row['ts'])[:10]} | O={row['open']:.2f} H={row['high']:.2f} "
-            f"L={row['low']:.2f} C={row['close']:.2f} | {fh} {fl} | {bh} {bl}",
+            f"{row['ob_type'].upper():<9} {row['ob_top']:<10.2f} "
+            f"{row['ob_bottom']:<10.2f} {str(row['ts'])[:10]:<12}",
             flush=True
         )
