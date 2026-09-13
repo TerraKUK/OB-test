@@ -34,6 +34,11 @@ jobs:
       - name: Install dependencies
         run: python -m pip install requests pandas
 
+      - name: Check Bybit Kazakhstan Linear API
+        run: |
+          curl --fail --silent --show-error \
+            "https://api.bybit.kz/v5/market/kline?category=linear&symbol=BTCUSDT&interval=D&limit=2"
+
       - name: Download closed daily candles
         run: python scripts/download_data.py
 
@@ -50,6 +55,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/raw data/state
+          git add data/raw
+          test ! -d data/state || git add data/state
           git diff --cached --quiet || git commit -m "Update daily OB state"
           git push
