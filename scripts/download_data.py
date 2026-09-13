@@ -1,9 +1,14 @@
+"""Download closed daily USDT perpetual candles from Bybit Linear."""
+
 import os
-import requests
-import pandas as pd
 from datetime import datetime, timedelta, timezone
 
-API_BASE_URL = "https://api.binance.us"
+import pandas as pd
+import requests
+
+
+API_BASE_URL = "https://api.bybit.com"
+MARKET_CATEGORY = "linear"
 RAW_DATA_DIR = "data/raw"
 
 PAIRS = [
@@ -25,73 +30,66 @@ PAIRS = [
     "BLURUSDT", "GRAMUSDT",
 ]
 
-STABLECOINS = {
-    "USDC", "BUSD", "DAI", "TUSD", "USDP", "USDD",
-    "USD1", "FDUSD", "PYUSD", "USDE", "USDS", "USDF", "GUSD",
-    "UST", "USTC", "FRAX", "LUSD", "SUSD", "MIM", "ALUSD",
-}
-
-INTERVAL = "1d"
+INTERVAL = "D"
+FILE_INTERVAL = "1d"
 DAYS_BACK = 365
+DAY_MS = 24 * 60 * 60 * 1000
 
 os.makedirs(RAW_DATA_DIR, exist_ok=True)
 
 
-def fetch_klines(pair):
-    base = pair.replace("USDT", "")
-    if base in STABLECOINS:
-        print(f"Skip {pair}: stablecoin")
-        return None
-
-    endpoint = f"{API_BASE_URL}/api/v3/klines"
-    start_date = datetime.now(timezone.utc) - timedelta(days=DAYS_BACK)
+def fetch_klines(pair: str) -> pd.DataFrame | None:
+    """Fetch only completed D1 candles; Bybit returns newest candles first."""
     params = {
+        "category": MARKET_CATEGORY,
         "symbol": pair,
         "interval": INTERVAL,
-        "startTime": int(start_date.timestamp() * 1000),
-        "limit": 1000
+        "start": int((datetime.now(timezone.utc) - timedelta(days=DAYS_BACK)).timestamp() * 1000),
+        "limit": 1000,
     }
-
-    all_data = []
-    while True:
-        response = requests.get(endpoint, params=params, timeout=30)
-        response.raise_for_status()
-        batch = response.json()
-        if not batch:
-            break
-        all_data.extend(batch)
-        params["startTime"] = batch[-1][0] + 1
-
-    if not all_data:
-        print(f"Skip {pair}: exchange returned no candles")
+    response = requests.get(f"{API_BASE_URL}/v5/market/kline", params=params, timeout=30)
+    response.raise_for_status()
+    payload = response.json()
+    if payload.get("retCode") != 0:
+        print(f"Skip {pair}: Bybit error {payload.get('retMsg', 'unknown error')}")
         return None
 
-    df = pd.DataFrame(all_data, columns=[
-        "ts", "open", "high", "low", "close", "volume", "close_time",
-        "quote_asset_volume", "num_trades", "taker_buy_base",
-        "taker_buy_quote", "ignore"
-    ])
-    df["ts"] = pd.to_datetime(df["ts"], unit='ms')
-    df[["open", "high", "low", "close"]] = df[["open", "high", "low", "close"]].astype(float)
+    rows = payload.get("result", {}).get("list", [])
+    if not rows:
+        print(f"Skip {pair}: Bybit returned no candles")
+        return None
+
+    # Bybit: startTime, open, high, low, close, volume, turnover.
+    df = pd.DataFrame(rows, columns=["ts", "open", "high", "low", "close", "volume", "quote_asset_volume"])
+    df["ts"] = pd.to_numeric(df["ts"], errors="coerce")
+    for column in ("open", "high", "low", "close", "volume", "quote_asset_volume"):
+        df[column] = pd.to_numeric(df[column], errors="coerce")
+    df = df.dropna().sort_values("ts").drop_duplicates("ts")
+    df["close_time"] = df["ts"] + DAY_MS - 1
+    df["num_trades"] = None
+    df["taker_buy_base"] = None
+    df["taker_buy_quote"] = None
+    df["ignore"] = None
 
     now_ms = datetime.now(timezone.utc).timestamp() * 1000
-    df = df[df["close_time"] < now_ms]
-    df = df.reset_index(drop=True)
+    df = df[df["close_time"] < now_ms].copy()
+    df["ts"] = pd.to_datetime(df["ts"], unit="ms", utc=True)
+    return df.reset_index(drop=True)
 
-    return df
 
-
-def main():
+def main() -> None:
     for pair in PAIRS:
         try:
             df = fetch_klines(pair)
             if df is None:
                 continue
-            output = f"{RAW_DATA_DIR}/{pair}_{INTERVAL}.csv"
+            output = f"{RAW_DATA_DIR}/{pair}_{FILE_INTERVAL}.csv"
             df.to_csv(output, index=False)
-            print(f"Saved {pair}: {len(df)} candles -> {output}")
-        except Exception as e:
-            print(f"Failed {pair}: {e}")
+            print(f"Saved {pair}: {len(df)} Bybit Linear candles -> {output}")
+        except requests.RequestException as error:
+            print(f"Failed {pair}: {error}")
+        except (TypeError, ValueError) as error:
+            print(f"Failed {pair}: invalid Bybit response ({error})")
 
 
 if __name__ == "__main__":
