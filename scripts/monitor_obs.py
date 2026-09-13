@@ -12,7 +12,8 @@ from state_store import load_state, save_state
 from telegram_client import send_message
 
 
-API_BASE_URL = "https://api.bybit.com"
+# Official Bybit Kazakhstan mainnet host for Kazakhstan accounts.
+API_BASE_URL = "https://api.bybit.kz"
 MARKET_CATEGORY = "linear"
 MAX_ZONE_AGE_DAYS = int(os.getenv("MAX_ZONE_AGE_DAYS", "45"))
 DRY_RUN = os.getenv("DRY_RUN", "false").lower() == "true"
