@@ -36,7 +36,7 @@ def format_new_message(zone: dict) -> str:
 
 
 def format_new_digest(zones: list[dict]) -> str:
-    lines = [f"📊 Новые сильные OB (1D): {len(zones)}"]
+    lines = [f"📊 Новые сильные OB (Bybit Linear, 1D): {len(zones)}"]
     for zone in zones[:10]:
         arrow = "🟢" if zone["direction"] == "bullish" else "🔴"
         lines.append(
