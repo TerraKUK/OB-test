@@ -64,14 +64,11 @@ def find_all_fvgs(df):
       and low[i-2] > low[i-1]
       and high[i-2] > high[i]
       and (low[i-2] - high[i]) / low[i-2] * 100 > 0.2
-    Returns list of (fvg_type, gap_index) where gap_index = i (the right candle index).
-    For OB filter we use gap_index = i (right candle of the gap).
     """
     fvgs = []
     fvg_filter_pct = 0.2
 
     for i in range(2, len(df)):
-        # Bullish FVG
         if (df["high"].iloc[i - 2] < df["low"].iloc[i]
                 and df["high"].iloc[i - 2] < df["high"].iloc[i - 1]
                 and df["low"].iloc[i - 2] < df["low"].iloc[i]):
@@ -79,7 +76,6 @@ def find_all_fvgs(df):
             if filt_up > fvg_filter_pct:
                 fvgs.append(("bullish", i))
 
-        # Bearish FVG
         if (df["low"].iloc[i - 2] > df["high"].iloc[i]
                 and df["low"].iloc[i - 2] > df["low"].iloc[i - 1]
                 and df["high"].iloc[i - 2] > df["high"].iloc[i]):
@@ -91,10 +87,6 @@ def find_all_fvgs(df):
 
 
 def has_fvg_nearby(fvgs, ob_idx, ob_type, max_distance=3):
-    """
-    Check if FVG is within max_distance from OB.
-    Both directions (OB before FVG or after).
-    """
     for fvg_type, gap_index in fvgs:
         if fvg_type != ob_type:
             continue
@@ -114,7 +106,6 @@ def find_ob_for_bos(df, fvgs):
     for i in range(len(df)):
         row = df.iloc[i]
 
-        # BULLISH BOS
         if row["break_high"] and row["fractal_high_idx"] is not None:
             start = i
             end = int(row["fractal_high_idx"])
@@ -133,7 +124,6 @@ def find_ob_for_bos(df, fvgs):
                 df.at[df.index[i], "ob_type"] = "bullish"
                 df.at[df.index[i], "ob_time"] = df["ts"].iloc[best_idx]
 
-        # BEARISH BOS
         if row["break_low"] and row["fractal_low_idx"] is not None:
             start = i
             end = int(row["fractal_low_idx"])
@@ -171,7 +161,6 @@ if __name__ == "__main__":
     df = find_regular_fractals(df)
     df = find_bos(df)
 
-    # Find all FVGs
     fvgs = find_all_fvgs(df)
     bull_fvgs = [g for t, g in fvgs if t == "bullish"]
     bear_fvgs = [g for t, g in fvgs if t == "bearish"]
@@ -179,26 +168,10 @@ if __name__ == "__main__":
     print(f"Bullish FVGs: {len(bull_fvgs)}", flush=True)
     print(f"Bearish FVGs: {len(bear_fvgs)}", flush=True)
 
-    # Show first 10 FVGs
-    print(f"\n=== FIRST 10 FVGs ===", flush=True)
-    for fvg_type, gap_index in fvgs[:10]:
-        print(
-            f"{str(df['ts'].iloc[gap_index])[:10]} | {fvg_type} | gap_index={gap_index}",
-            flush=True
-        )
-
-    # BOS count
-    print(f"\n=== BOS COUNT ===", flush=True)
-    print(f"Bullish BOS: {df['break_high'].sum()}", flush=True)
-    print(f"Bearish BOS: {df['break_low'].sum()}", flush=True)
-
-    # Find OB
     df = find_ob_for_bos(df, fvgs)
-
     obs = df[df["ob_type"].notna()].reset_index(drop=True)
 
     print(f"\n=== TOTAL OB (with FVG filter): {len(obs)} ===\n", flush=True)
-
     print(f"{'#':<3} {'OB date':<12} {'Type':<9} {'Top':<10} {'Bottom':<10} {'BOS date':<12}")
     print("-" * 65)
     for i, row in obs.iterrows():
@@ -206,5 +179,38 @@ if __name__ == "__main__":
             f"{i+1:<3} {str(row['ob_time'])[:10]:<12} "
             f"{row['ob_type'].upper():<9} {row['ob_top']:<10.2f} "
             f"{row['ob_bottom']:<10.2f} {str(row['ts'])[:10]:<12}",
+            flush=True
+        )
+
+    # === DEBUG: FVGs in July-August 2026 ===
+    print(f"\n=== FVGs in July-August 2026 ===", flush=True)
+    for fvg_type, gap_index in fvgs:
+        ts = df['ts'].iloc[gap_index]
+        if pd.Timestamp("2026-07-01") <= ts <= pd.Timestamp("2026-08-31"):
+            print(
+                f"{str(ts)[:10]} | {fvg_type} | gap_index={gap_index}",
+                flush=True
+            )
+
+    # === DEBUG: BOS in July-August 2026 ===
+    print(f"\n=== BOS in July-August 2026 ===", flush=True)
+    for i, row in df.iterrows():
+        ts = row['ts']
+        if pd.Timestamp("2026-07-01") <= ts <= pd.Timestamp("2026-08-31"):
+            if row['break_high'] or row['break_low']:
+                kind = "BOSup" if row['break_high'] else "BOSdn"
+                print(f"{str(ts)[:10]} | {kind} | close={row['close']:.2f}", flush=True)
+
+    # === DEBUG: DATA with fractals around July-August 2026 ===
+    print(f"\n=== DATA: 2026-07-25 to 2026-08-25 ===", flush=True)
+    mask = (df["ts"] >= "2026-07-25") & (df["ts"] <= "2026-08-25")
+    for _, row in df[mask].iterrows():
+        fh = "FH" if row["fractal_high"] else "  "
+        fl = "FL" if row["fractal_low"] else "  "
+        bh = "BOSup" if row["break_high"] else "     "
+        bl = "BOSdn" if row["break_low"] else "     "
+        print(
+            f"{str(row['ts'])[:10]} | O={row['open']:.2f} H={row['high']:.2f} "
+            f"L={row['low']:.2f} C={row['close']:.2f} | {fh} {fl} | {bh} {bl}",
             flush=True
         )
