@@ -12,35 +12,34 @@ from state_store import load_state, save_state
 from telegram_client import send_message
 
 
-# Official Bybit Kazakhstan mainnet host for Kazakhstan accounts.
-API_BASE_URL = "https://api.bybit.kz"
-MARKET_CATEGORY = "linear"
+API_BASE_URL = "https://www.okx.com"
 MAX_ZONE_AGE_DAYS = int(os.getenv("MAX_ZONE_AGE_DAYS", "45"))
 DRY_RUN = os.getenv("DRY_RUN", "false").lower() == "true"
 
 
 def fetch_price(symbol: str) -> float | None:
+    inst_id = f"{symbol.removesuffix('USDT')}-USDT-SWAP"
     response = requests.get(
-        f"{API_BASE_URL}/v5/market/tickers",
-        params={"category": MARKET_CATEGORY, "symbol": symbol},
+        f"{API_BASE_URL}/api/v5/market/ticker",
+        params={"instId": inst_id},
         timeout=20,
     )
     response.raise_for_status()
     payload = response.json()
-    if payload.get("retCode") != 0:
-        print(f"Skip {symbol}: Bybit error {payload.get('retMsg', 'unknown error')}")
+    if payload.get("code") != "0":
+        print(f"Skip {symbol}: OKX error {payload.get('msg', 'unknown error')}")
         return None
-    tickers = payload.get("result", {}).get("list", [])
+    tickers = payload.get("data", [])
     if not tickers:
-        print(f"Skip {symbol}: unavailable on Bybit Linear")
+        print(f"Skip {symbol}: unavailable on OKX Swap")
         return None
-    return float(tickers[0]["lastPrice"])
+    return float(tickers[0]["last"])
 
 
 def message(kind: str, zone: dict, price: float | None = None) -> str:
     icon = {"approach": "👀", "touch": "⚡", "invalidated": "⛔", "expired": "⌛"}[kind]
     text = (
-        f"{icon} {kind.upper()} — {zone['symbol']} (Bybit Linear, 1D)\n"
+        f"{icon} {kind.upper()} — {zone['symbol']} (OKX Swap, 1D)\n"
         f"{zone['direction']} OB: {format_price(zone['bottom'])} – {format_price(zone['top'])}"
     )
     if price is not None:
@@ -78,7 +77,7 @@ def main() -> None:
 
         try:
             price = fetch_price(zone["symbol"])
-        except requests.RequestException as error:
+        except (KeyError, ValueError, requests.RequestException) as error:
             print(f"Price request failed for {zone['symbol']}: {error}")
             continue
         if price is None:
