@@ -26,7 +26,7 @@ def format_price(value: float) -> str:
 def format_new_message(zone: dict) -> str:
     emoji = "🟢" if zone["direction"] == "bullish" else "🔴"
     return (
-        f"{emoji} Новый {zone['direction']} OB — {zone['symbol']} (1D)\n"
+        f"{emoji} Новый {zone['direction']} OB — {zone['symbol']} (OKX Swap, 1D)\n"
         f"Зона: {format_price(zone['bottom'])} – {format_price(zone['top'])}\n"
         f"OB: {zone['ob_time']} | BOS: {zone['bos_time']}\n"
         f"Оценка: {zone['score']}/5\n"
@@ -36,7 +36,7 @@ def format_new_message(zone: dict) -> str:
 
 
 def format_new_digest(zones: list[dict]) -> str:
-    lines = [f"📊 Новые сильные OB (Bybit Linear, 1D): {len(zones)}"]
+    lines = [f"📊 Новые сильные OB (OKX Swap, 1D): {len(zones)}"]
     for zone in zones[:10]:
         arrow = "🟢" if zone["direction"] == "bullish" else "🔴"
         lines.append(
@@ -52,7 +52,7 @@ def format_new_digest(zones: list[dict]) -> str:
 def format_confirmation_message(zone: dict, close: float) -> str:
     emoji = "✅"
     return (
-        f"{emoji} Подтверждение реакции — {zone['symbol']} (1D)\n"
+        f"{emoji} Подтверждение реакции — {zone['symbol']} (OKX Swap, 1D)\n"
         f"{zone['direction']} OB: {format_price(zone['bottom'])} – {format_price(zone['top'])}\n"
         f"Закрытие D1: {format_price(close)}\n"
         "Зона уже была протестирована, закрытие дня произошло в ожидаемую сторону."
