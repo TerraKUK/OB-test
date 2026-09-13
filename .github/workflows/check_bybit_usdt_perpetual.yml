@@ -1,0 +1,37 @@
+name: Check Bybit USDT Perpetual Swaps API
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check-global:
+    name: Bybit Global Linear
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request BTCUSDT perpetual daily candles
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error \
+            "https://api.bybit.com/v5/market/kline?category=linear&symbol=BTCUSDT&interval=D&limit=2"
+
+      - name: Request BTCUSDT perpetual last price
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error \
+            "https://api.bybit.com/v5/market/tickers?category=linear&symbol=BTCUSDT"
+
+  check-kazakhstan:
+    name: Bybit Kazakhstan Linear
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request BTCUSDT perpetual daily candles
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error \
+            "https://api.bybit.kz/v5/market/kline?category=linear&symbol=BTCUSDT&interval=D&limit=2"
+
+      - name: Request BTCUSDT perpetual last price
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error \
+            "https://api.bybit.kz/v5/market/tickers?category=linear&symbol=BTCUSDT"
