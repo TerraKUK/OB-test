@@ -37,6 +37,7 @@ def find_all_obs(df):
     """
     Full Pine replication.
     Stores ALL fractals. For each candle, checks ALL fractals.
+    Removes fractal after first BOS (regardless of FVG filter).
     """
     df = df.copy()
     df["ob_top"] = None
@@ -51,7 +52,7 @@ def find_all_obs(df):
     fvg_distance = 3
 
     for i in range(len(df)):
-        # Update fractal arrays on current candle
+        # Update fractal arrays
         if df["fractal_high"].iloc[i]:
             fractal_highs.append((df["high"].iloc[i], i))
         if df["fractal_low"].iloc[i]:
@@ -59,16 +60,14 @@ def find_all_obs(df):
 
         current_close = df["close"].iloc[i]
 
-        # --- Check BULLISH OB (break of fractal high) ---
-        # Iterate from newest fractal to oldest
-        j = len(fractal_highs) - 1
-        while j >= 0:
+        # --- BULLISH OB: break of fractal high ---
+        j = 0
+        while j < len(fractal_highs):
             fractal_high, fractal_idx = fractal_highs[j]
 
             if current_close > fractal_high:
-                # BOS! Search OB: from current bar BACK to fractal
                 idx = None
-                min_low = df["high"].iloc[i]   # initial (Pine: minLow = high)
+                min_low = df["high"].iloc[i]
                 gap_index = None
 
                 for k in range(i, fractal_idx - 1, -1):
@@ -79,7 +78,6 @@ def find_all_obs(df):
                     if bullish_imb(df, k):
                         gap_index = k + 2
 
-                # FVG filter
                 if gap_index is not None and idx is not None:
                     filter_fvg = (0 <= idx - gap_index <= fvg_distance)
                 else:
@@ -91,17 +89,20 @@ def find_all_obs(df):
                     df.at[df.index[i], "ob_type"] = "bullish"
                     df.at[df.index[i], "ob_time"] = df["ts"].iloc[idx]
                     df.at[df.index[i], "ob_fractal_time"] = df["ts"].iloc[fractal_idx]
-                    fractal_highs.pop(j)   # remove processed fractal
-            j -= 1
 
-        # --- Check BEARISH OB (break of fractal low) ---
-        j = len(fractal_lows) - 1
-        while j >= 0:
+                # remove fractal regardless of FVG result (Pine: array.remove outside if)
+                fractal_highs.pop(j)
+            else:
+                j += 1
+
+        # --- BEARISH OB: break of fractal low ---
+        j = 0
+        while j < len(fractal_lows):
             fractal_low, fractal_idx = fractal_lows[j]
 
             if current_close < fractal_low:
                 idx = None
-                max_high = df["low"].iloc[i]   # initial (Pine: maxHigh = low)
+                max_high = df["low"].iloc[i]
                 gap_index = None
 
                 for k in range(i, fractal_idx - 1, -1):
@@ -123,8 +124,10 @@ def find_all_obs(df):
                     df.at[df.index[i], "ob_type"] = "bearish"
                     df.at[df.index[i], "ob_time"] = df["ts"].iloc[idx]
                     df.at[df.index[i], "ob_fractal_time"] = df["ts"].iloc[fractal_idx]
-                    fractal_lows.pop(j)
-            j -= 1
+
+                fractal_lows.pop(j)
+            else:
+                j += 1
 
     return df
 
