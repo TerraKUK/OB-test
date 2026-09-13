@@ -3,7 +3,6 @@ import pandas as pd
 
 
 def find_regular_fractals(df):
-    """Find 3-bar fractals."""
     df = df.copy()
     df["fractal_high"] = False
     df["fractal_low"] = False
@@ -22,7 +21,6 @@ def find_regular_fractals(df):
 
 
 def find_bos(df):
-    """Track last fractal, mark breakouts by close."""
     df = df.copy()
     df["break_high"] = False
     df["break_low"] = False
@@ -53,11 +51,35 @@ def find_bos(df):
     return df
 
 
+def has_fvg_nearby(df, ob_idx, ob_type, max_distance=3):
+    """
+    Check if FVG is within max_distance candles from OB.
+    Pine:
+      bullish FVG: close[k+1] > high[k+2] and low[k] > high[k+2]
+      bearish FVG: close[k+1] < low[k+2]  and high[k] < low[k+2]
+    gapIndex = k+2
+    Condition: 0 <= (idx - gapIndex) <= max_distance
+    idx = ob_idx
+    """
+    for k in range(0, len(df) - 2):
+        if ob_type == "bullish":
+            if (df["close"].iloc[k + 1] > df["high"].iloc[k + 2]
+                    and df["low"].iloc[k] > df["high"].iloc[k + 2]):
+                gap_index = k + 2
+                dist = ob_idx - gap_index
+                if 0 <= dist <= max_distance:
+                    return True
+        elif ob_type == "bearish":
+            if (df["close"].iloc[k + 1] < df["low"].iloc[k + 2]
+                    and df["high"].iloc[k] < df["low"].iloc[k + 2]):
+                gap_index = k + 2
+                dist = ob_idx - gap_index
+                if 0 <= dist <= max_distance:
+                    return True
+    return False
+
+
 def find_ob_for_bos(df):
-    """
-    For each BOS, find OB candle.
-    Borders: bullish -> top=open, bottom=low; bearish -> top=high, bottom=open.
-    """
     df = df.copy()
     df["ob_top"] = None
     df["ob_bottom"] = None
@@ -80,7 +102,7 @@ def find_ob_for_bos(df):
                     if candle["low"] < min_low:
                         min_low = candle["low"]
                         best_idx = k
-            if best_idx is not None:
+            if best_idx is not None and has_fvg_nearby(df, best_idx, "bullish"):
                 df.at[df.index[i], "ob_idx"] = best_idx
                 df.at[df.index[i], "ob_top"] = df["open"].iloc[best_idx]
                 df.at[df.index[i], "ob_bottom"] = df["low"].iloc[best_idx]
@@ -99,7 +121,7 @@ def find_ob_for_bos(df):
                     if candle["high"] > max_high:
                         max_high = candle["high"]
                         best_idx = k
-            if best_idx is not None:
+            if best_idx is not None and has_fvg_nearby(df, best_idx, "bearish"):
                 df.at[df.index[i], "ob_idx"] = best_idx
                 df.at[df.index[i], "ob_top"] = df["high"].iloc[best_idx]
                 df.at[df.index[i], "ob_bottom"] = df["open"].iloc[best_idx]
@@ -128,7 +150,7 @@ if __name__ == "__main__":
 
     obs = df[df["ob_type"].notna()].reset_index(drop=True)
 
-    print(f"\n=== TOTAL OB: {len(obs)} ===\n", flush=True)
+    print(f"\n=== TOTAL OB (with FVG filter): {len(obs)} ===\n", flush=True)
 
     print(f"{'#':<3} {'OB date':<12} {'Type':<9} {'Top':<10} {'Bottom':<10} {'BOS date':<12}")
     print("-" * 65)
@@ -137,19 +159,5 @@ if __name__ == "__main__":
             f"{i+1:<3} {str(row['ob_time'])[:10]:<12} "
             f"{row['ob_type'].upper():<9} {row['ob_top']:<10.2f} "
             f"{row['ob_bottom']:<10.2f} {str(row['ts'])[:10]:<12}",
-            flush=True
-        )
-
-    # === DEBUG: fractals and BOS around July-August 2026 ===
-    print("\n=== DATA: 2026-07-25 to 2026-08-25 ===", flush=True)
-    mask = (df["ts"] >= "2026-07-25") & (df["ts"] <= "2026-08-25")
-    for _, row in df[mask].iterrows():
-        fh = "FH" if row["fractal_high"] else "  "
-        fl = "FL" if row["fractal_low"] else "  "
-        bh = "BOSup" if row["break_high"] else "     "
-        bl = "BOSdn" if row["break_low"] else "     "
-        print(
-            f"{str(row['ts'])[:10]} | O={row['open']:.2f} H={row['high']:.2f} "
-            f"L={row['low']:.2f} C={row['close']:.2f} | {fh} {fl} | {bh} {bl}",
             flush=True
         )
