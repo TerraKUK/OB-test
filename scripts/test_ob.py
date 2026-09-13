@@ -21,7 +21,6 @@ def find_regular_fractals(df):
 
 
 def find_bos(df):
-    """Track last fractal, mark breakouts. Store fractal index for later."""
     df = df.copy()
     df["break_high"] = False
     df["break_low"] = False
@@ -53,11 +52,6 @@ def find_bos(df):
 
 
 def find_ob_for_bos(df):
-    """
-    For each BOS, find the OB candle:
-    - Bullish BOS: find red candle with lowest low between fractal and breakout
-    - Bearish BOS: find green candle with highest high between fractal and breakout
-    """
     df = df.copy()
     df["ob_price"] = None
     df["ob_type"] = None
@@ -67,7 +61,6 @@ def find_ob_for_bos(df):
     for i in range(len(df)):
         row = df.iloc[i]
 
-        # BULLISH BOS: find OB between fractal_high_idx and i
         if row["break_high"] and row["fractal_high_idx"] is not None:
             start = int(row["fractal_high_idx"])
             end = i
@@ -75,17 +68,16 @@ def find_ob_for_bos(df):
             min_low = float("inf")
             for k in range(start, end + 1):
                 candle = df.iloc[k]
-                if candle["close"] < candle["open"]:   # red candle
+                if candle["close"] < candle["open"]:
                     if candle["low"] < min_low:
                         min_low = candle["low"]
                         best_idx = k
             if best_idx is not None:
                 df.at[df.index[i], "ob_idx"] = best_idx
-                df.at[df.index[i], "ob_price"] = df["high"].iloc[best_idx]  # body top
+                df.at[df.index[i], "ob_price"] = df["high"].iloc[best_idx]
                 df.at[df.index[i], "ob_type"] = "bullish"
                 df.at[df.index[i], "ob_time"] = df["ts"].iloc[best_idx]
 
-        # BEARISH BOS: find OB between fractal_low_idx and i
         if row["break_low"] and row["fractal_low_idx"] is not None:
             start = int(row["fractal_low_idx"])
             end = i
@@ -93,13 +85,13 @@ def find_ob_for_bos(df):
             max_high = -float("inf")
             for k in range(start, end + 1):
                 candle = df.iloc[k]
-                if candle["close"] > candle["open"]:   # green candle
+                if candle["close"] > candle["open"]:
                     if candle["high"] > max_high:
                         max_high = candle["high"]
                         best_idx = k
             if best_idx is not None:
                 df.at[df.index[i], "ob_idx"] = best_idx
-                df.at[df.index[i], "ob_price"] = df["low"].iloc[best_idx]   # body bottom
+                df.at[df.index[i], "ob_price"] = df["low"].iloc[best_idx]
                 df.at[df.index[i], "ob_type"] = "bearish"
                 df.at[df.index[i], "ob_time"] = df["ts"].iloc[best_idx]
 
@@ -123,13 +115,15 @@ if __name__ == "__main__":
     df = find_bos(df)
     df = find_ob_for_bos(df)
 
-    obs = df[df["ob_type"].notna()]
-    print(f"\n=== RESULTS ===")
-    print(f"Total OB detected: {len(obs)}")
+    obs = df[df["ob_type"].notna()].reset_index(drop=True)
 
-    print(f"\n=== LAST 15 OB ===")
-    for _, row in obs.tail(15).iterrows():
+    print(f"\n=== TOTAL OB: {len(obs)} ===\n")
+
+    print(f"{'#':<3} {'OB date':<12} {'Type':<9} {'OB price':<12} {'BOS date':<12}")
+    print("-" * 55)
+    for i, row in obs.iterrows():
         print(
-            f"{row['ob_time']} | {row['ob_type'].upper():8} | "
-            f"OB price={row['ob_price']:.4f} | BOS at {row['ts']}"
+            f"{i+1:<3} {str(row['ob_time'])[:10]:<12} "
+            f"{row['ob_type'].upper():<9} {row['ob_price']:<12.4f} "
+            f"{str(row['ts'])[:10]:<12}"
         )
