@@ -54,13 +54,17 @@ def fetch_klines(pair):
 
     all_data = []
     while True:
-        response = requests.get(endpoint, params=params)
+        response = requests.get(endpoint, params=params, timeout=30)
         response.raise_for_status()
         batch = response.json()
         if not batch:
             break
         all_data.extend(batch)
         params["startTime"] = batch[-1][0] + 1
+
+    if not all_data:
+        print(f"Skip {pair}: exchange returned no candles")
+        return None
 
     df = pd.DataFrame(all_data, columns=[
         "ts", "open", "high", "low", "close", "volume", "close_time",
