@@ -139,3 +139,17 @@ if __name__ == "__main__":
             f"{row['ob_bottom']:<10.2f} {str(row['ts'])[:10]:<12}",
             flush=True
         )
+
+    # === DEBUG: fractals and BOS around July-August 2026 ===
+    print("\n=== DATA: 2026-07-25 to 2026-08-25 ===", flush=True)
+    mask = (df["ts"] >= "2026-07-25") & (df["ts"] <= "2026-08-25")
+    for _, row in df[mask].iterrows():
+        fh = "FH" if row["fractal_high"] else "  "
+        fl = "FL" if row["fractal_low"] else "  "
+        bh = "BOSup" if row["break_high"] else "     "
+        bl = "BOSdn" if row["break_low"] else "     "
+        print(
+            f"{str(row['ts'])[:10]} | O={row['open']:.2f} H={row['high']:.2f} "
+            f"L={row['low']:.2f} C={row['close']:.2f} | {fh} {fl} | {bh} {bl}",
+            flush=True
+        )
