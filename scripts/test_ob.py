@@ -20,127 +20,105 @@ def find_regular_fractals(df):
     return df
 
 
-def find_bos(df):
-    df = df.copy()
-    df["break_high"] = False
-    df["break_low"] = False
-    df["fractal_high_idx"] = None
-    df["fractal_low_idx"] = None
-
-    last_high_idx = None
-    last_low_idx = None
-
-    for i in range(len(df)):
-        row = df.iloc[i]
-
-        if row["fractal_high"]:
-            last_high_idx = i
-        if row["fractal_low"]:
-            last_low_idx = i
-
-        if last_high_idx is not None and row["close"] > df["high"].iloc[last_high_idx]:
-            df.at[df.index[i], "break_high"] = True
-            df.at[df.index[i], "fractal_high_idx"] = last_high_idx
-            last_high_idx = None
-
-        if last_low_idx is not None and row["close"] < df["low"].iloc[last_low_idx]:
-            df.at[df.index[i], "break_low"] = True
-            df.at[df.index[i], "fractal_low_idx"] = last_low_idx
-            last_low_idx = None
-
-    return df
+def bullish_imb(df, k):
+    if k + 2 >= len(df):
+        return False
+    return (df["close"].iloc[k + 1] > df["high"].iloc[k + 2]
+            and df["low"].iloc[k] > df["high"].iloc[k + 2])
 
 
-def find_all_fvgs(df):
+def bearish_imb(df, k):
+    if k + 2 >= len(df):
+        return False
+    return (df["close"].iloc[k + 1] < df["low"].iloc[k + 2]
+            and df["high"].iloc[k] < df["low"].iloc[k + 2])
+
+
+def find_all_obs(df):
     """
-    Pine FVG logic:
-    Bullish FVG (on candle i):
-      high[i-2] < low[i]
-      and high[i-2] < high[i-1]
-      and low[i-2]  < low[i]
-      and (low[i] - high[i-2]) / low[i] * 100 > 0.2
-    Bearish FVG (on candle i):
-      low[i-2] > high[i]
-      and low[i-2] > low[i-1]
-      and high[i-2] > high[i]
-      and (low[i-2] - high[i]) / low[i-2] * 100 > 0.2
+    Full replication of Pine logic.
+    For each BOS (on any candle, for any fractal in array), find OB.
     """
-    fvgs = []
-    fvg_filter_pct = 0.2
-
-    for i in range(2, len(df)):
-        if (df["high"].iloc[i - 2] < df["low"].iloc[i]
-                and df["high"].iloc[i - 2] < df["high"].iloc[i - 1]
-                and df["low"].iloc[i - 2] < df["low"].iloc[i]):
-            filt_up = (df["low"].iloc[i] - df["high"].iloc[i - 2]) / df["low"].iloc[i] * 100
-            if filt_up > fvg_filter_pct:
-                fvgs.append(("bullish", i))
-
-        if (df["low"].iloc[i - 2] > df["high"].iloc[i]
-                and df["low"].iloc[i - 2] > df["low"].iloc[i - 1]
-                and df["high"].iloc[i - 2] > df["high"].iloc[i]):
-            filt_dn = (df["low"].iloc[i - 2] - df["high"].iloc[i]) / df["low"].iloc[i - 2] * 100
-            if filt_dn > fvg_filter_pct:
-                fvgs.append(("bearish", i))
-
-    return fvgs
-
-
-def has_fvg_nearby(fvgs, ob_idx, ob_type, max_distance=3):
-    for fvg_type, gap_index in fvgs:
-        if fvg_type != ob_type:
-            continue
-        if abs(ob_idx - gap_index) <= max_distance:
-            return True
-    return False
-
-
-def find_ob_for_bos(df, fvgs):
     df = df.copy()
     df["ob_top"] = None
     df["ob_bottom"] = None
     df["ob_type"] = None
     df["ob_idx"] = None
     df["ob_time"] = None
+    df["ob_bos_idx"] = None
+
+    fractal_highs = []   # list of (value, index)
+    fractal_lows = []
+
+    fvg_distance = 3
+    bars_back = 500
 
     for i in range(len(df)):
-        row = df.iloc[i]
+        # Update fractal arrays
+        if df["fractal_high"].iloc[i]:
+            fractal_highs.append((df["high"].iloc[i], i))
+        if df["fractal_low"].iloc[i]:
+            fractal_lows.append((df["low"].iloc[i], i))
 
-        if row["break_high"] and row["fractal_high_idx"] is not None:
-            start = i
-            end = int(row["fractal_high_idx"])
-            best_idx = None
-            min_low = float("inf")
-            for k in range(start, end - 1, -1):
-                candle = df.iloc[k]
-                if candle["close"] < candle["open"]:
-                    if candle["low"] < min_low:
-                        min_low = candle["low"]
-                        best_idx = k
-            if best_idx is not None and has_fvg_nearby(fvgs, best_idx, "bullish"):
-                df.at[df.index[i], "ob_idx"] = best_idx
-                df.at[df.index[i], "ob_top"] = df["open"].iloc[best_idx]
-                df.at[df.index[i], "ob_bottom"] = df["low"].iloc[best_idx]
-                df.at[df.index[i], "ob_type"] = "bullish"
-                df.at[df.index[i], "ob_time"] = df["ts"].iloc[best_idx]
+        current_close = df["close"].iloc[i]
+        current_high = df["high"].iloc[i]
+        current_low = df["low"].iloc[i]
 
-        if row["break_low"] and row["fractal_low_idx"] is not None:
-            start = i
-            end = int(row["fractal_low_idx"])
-            best_idx = None
-            max_high = -float("inf")
-            for k in range(start, end - 1, -1):
-                candle = df.iloc[k]
-                if candle["close"] > candle["open"]:
-                    if candle["high"] > max_high:
-                        max_high = candle["high"]
-                        best_idx = k
-            if best_idx is not None and has_fvg_nearby(fvgs, best_idx, "bearish"):
-                df.at[df.index[i], "ob_idx"] = best_idx
-                df.at[df.index[i], "ob_top"] = df["high"].iloc[best_idx]
-                df.at[df.index[i], "ob_bottom"] = df["open"].iloc[best_idx]
-                df.at[df.index[i], "ob_type"] = "bearish"
-                df.at[df.index[i], "ob_time"] = df["ts"].iloc[best_idx]
+        # Check all fractal highs (bullish OB) - iterate from newest to oldest
+        for j in range(len(fractal_highs) - 1, -1, -1):
+            fractal_high, fractal_idx = fractal_highs[j]
+            if current_close > fractal_high:   # BOS!
+                idx = None
+                min_low = current_high   # initial
+                gap_index = None
+                # cycle from current to fractal
+                for k in range(i, fractal_idx - 1, -1):
+                    c = df.iloc[k]
+                    if c["close"] < c["open"] and c["low"] < min_low:
+                        idx = k
+                        min_low = c["low"]
+                    if bullish_imb(df, k):
+                        gap_index = k + 2
+                # FVG filter
+                filter_fvg = (gap_index is not None and idx is not None
+                              and idx - gap_index >= 0
+                              and idx - gap_index <= fvg_distance)
+                if idx is not None and idx != i and filter_fvg:
+                    df.at[df.index[i], "ob_top"] = df["open"].iloc[idx]
+                    df.at[df.index[i], "ob_bottom"] = df["low"].iloc[idx]
+                    df.at[df.index[i], "ob_type"] = "bullish"
+                    df.at[df.index[i], "ob_idx"] = idx
+                    df.at[df.index[i], "ob_time"] = df["ts"].iloc[idx]
+                    df.at[df.index[i], "ob_bos_idx"] = i
+                    fractal_highs.pop(j)  # remove processed fractal
+                    break
+
+        # Check all fractal lows (bearish OB)
+        for j in range(len(fractal_lows) - 1, -1, -1):
+            fractal_low, fractal_idx = fractal_lows[j]
+            if current_close < fractal_low:   # BOS!
+                idx = None
+                max_high = current_low
+                gap_index = None
+                for k in range(i, fractal_idx - 1, -1):
+                    c = df.iloc[k]
+                    if c["close"] > c["open"] and c["high"] > max_high:
+                        idx = k
+                        max_high = c["high"]
+                    if bearish_imb(df, k):
+                        gap_index = k + 2
+                filter_fvg = (gap_index is not None and idx is not None
+                              and idx - gap_index >= 0
+                              and idx - gap_index <= fvg_distance)
+                if idx is not None and idx != i and filter_fvg:
+                    df.at[df.index[i], "ob_top"] = df["high"].iloc[idx]
+                    df.at[df.index[i], "ob_bottom"] = df["open"].iloc[idx]
+                    df.at[df.index[i], "ob_type"] = "bearish"
+                    df.at[df.index[i], "ob_idx"] = idx
+                    df.at[df.index[i], "ob_time"] = df["ts"].iloc[idx]
+                    df.at[df.index[i], "ob_bos_idx"] = i
+                    fractal_lows.pop(j)
+                    break
 
     return df
 
@@ -148,10 +126,6 @@ def find_ob_for_bos(df, fvgs):
 if __name__ == "__main__":
     raw_dir = "data/raw"
     files = [f for f in os.listdir(raw_dir) if f.endswith(".csv")]
-    if not files:
-        print("No CSV files in data/raw/")
-        exit(1)
-
     file_path = os.path.join(raw_dir, files[0])
     print(f"Loading: {file_path}", flush=True)
 
@@ -159,19 +133,11 @@ if __name__ == "__main__":
     print(f"Loaded {len(df)} candles", flush=True)
 
     df = find_regular_fractals(df)
-    df = find_bos(df)
+    df = find_all_obs(df)
 
-    fvgs = find_all_fvgs(df)
-    bull_fvgs = [g for t, g in fvgs if t == "bullish"]
-    bear_fvgs = [g for t, g in fvgs if t == "bearish"]
-    print(f"\n=== FVG COUNT ===", flush=True)
-    print(f"Bullish FVGs: {len(bull_fvgs)}", flush=True)
-    print(f"Bearish FVGs: {len(bear_fvgs)}", flush=True)
-
-    df = find_ob_for_bos(df, fvgs)
     obs = df[df["ob_type"].notna()].reset_index(drop=True)
+    print(f"\n=== TOTAL OB: {len(obs)} ===\n", flush=True)
 
-    print(f"\n=== TOTAL OB (with FVG filter): {len(obs)} ===\n", flush=True)
     print(f"{'#':<3} {'OB date':<12} {'Type':<9} {'Top':<10} {'Bottom':<10} {'BOS date':<12}")
     print("-" * 65)
     for i, row in obs.iterrows():
@@ -182,35 +148,14 @@ if __name__ == "__main__":
             flush=True
         )
 
-    # === DEBUG: FVGs in July-August 2026 ===
-    print(f"\n=== FVGs in July-August 2026 ===", flush=True)
-    for fvg_type, gap_index in fvgs:
-        ts = df['ts'].iloc[gap_index]
-        if pd.Timestamp("2026-07-01") <= ts <= pd.Timestamp("2026-08-31"):
+    # Debug: OB around September 2026
+    print(f"\n=== OB in September 2026 ===", flush=True)
+    for _, row in obs.iterrows():
+        ts = row["ob_time"]
+        if pd.Timestamp("2026-09-01") <= ts <= pd.Timestamp("2026-09-30"):
             print(
-                f"{str(ts)[:10]} | {fvg_type} | gap_index={gap_index}",
+                f"{str(row['ob_time'])[:10]} | {row['ob_type']} | "
+                f"top={row['ob_top']:.2f} | bottom={row['ob_bottom']:.2f} | "
+                f"BOS at {str(row['ts'])[:10]}",
                 flush=True
             )
-
-    # === DEBUG: BOS in July-August 2026 ===
-    print(f"\n=== BOS in July-August 2026 ===", flush=True)
-    for i, row in df.iterrows():
-        ts = row['ts']
-        if pd.Timestamp("2026-07-01") <= ts <= pd.Timestamp("2026-08-31"):
-            if row['break_high'] or row['break_low']:
-                kind = "BOSup" if row['break_high'] else "BOSdn"
-                print(f"{str(ts)[:10]} | {kind} | close={row['close']:.2f}", flush=True)
-
-    # === DEBUG: DATA with fractals around July-August 2026 ===
-    print(f"\n=== DATA: 2026-07-25 to 2026-08-25 ===", flush=True)
-    mask = (df["ts"] >= "2026-07-25") & (df["ts"] <= "2026-08-25")
-    for _, row in df[mask].iterrows():
-        fh = "FH" if row["fractal_high"] else "  "
-        fl = "FL" if row["fractal_low"] else "  "
-        bh = "BOSup" if row["break_high"] else "     "
-        bl = "BOSdn" if row["break_low"] else "     "
-        print(
-            f"{str(row['ts'])[:10]} | O={row['open']:.2f} H={row['high']:.2f} "
-            f"L={row['low']:.2f} C={row['close']:.2f} | {fh} {fl} | {bh} {bl}",
-            flush=True
-        )
