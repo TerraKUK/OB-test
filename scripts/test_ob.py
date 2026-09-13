@@ -51,35 +51,40 @@ def find_bos(df):
     return df
 
 
-def has_fvg_nearby(df, ob_idx, ob_type, max_distance=3):
+def find_all_fvgs(df):
     """
-    Check if FVG is within max_distance candles from OB.
-    Pine:
-      bullish FVG: close[k+1] > high[k+2] and low[k] > high[k+2]
-      bearish FVG: close[k+1] < low[k+2]  and high[k] < low[k+2]
-    gapIndex = k+2
-    Condition: 0 <= (idx - gapIndex) <= max_distance
-    idx = ob_idx
+    Return list of (fvg_type, gap_index) for all FVGs.
+    bullish: close[k+1] > high[k+2] and low[k] > high[k+2]  -> gap_index = k+2
+    bearish: close[k+1] < low[k+2]  and high[k] < low[k+2]  -> gap_index = k+2
     """
+    fvgs = []
     for k in range(0, len(df) - 2):
-        if ob_type == "bullish":
-            if (df["close"].iloc[k + 1] > df["high"].iloc[k + 2]
-                    and df["low"].iloc[k] > df["high"].iloc[k + 2]):
-                gap_index = k + 2
-                dist = ob_idx - gap_index
-                if 0 <= dist <= max_distance:
-                    return True
-        elif ob_type == "bearish":
-            if (df["close"].iloc[k + 1] < df["low"].iloc[k + 2]
-                    and df["high"].iloc[k] < df["low"].iloc[k + 2]):
-                gap_index = k + 2
-                dist = ob_idx - gap_index
-                if 0 <= dist <= max_distance:
-                    return True
+        if (df["close"].iloc[k + 1] > df["high"].iloc[k + 2]
+                and df["low"].iloc[k] > df["high"].iloc[k + 2]):
+            fvgs.append(("bullish", k + 2))
+
+        if (df["close"].iloc[k + 1] < df["low"].iloc[k + 2]
+                and df["high"].iloc[k] < df["low"].iloc[k + 2]):
+            fvgs.append(("bearish", k + 2))
+
+    return fvgs
+
+
+def has_fvg_nearby(fvgs, ob_idx, ob_type, max_distance=3):
+    """
+    Pine: _filterFvg = (gapIndex > 0 and idx > 0 and idx - gapIndex >= 0 and idx - gapIndex <= fvgDistance)
+    i.e. OB is at or after FVG, within max_distance candles.
+    """
+    for fvg_type, gap_index in fvgs:
+        if fvg_type != ob_type:
+            continue
+        dist = ob_idx - gap_index
+        if 0 <= dist <= max_distance:
+            return True
     return False
 
 
-def find_ob_for_bos(df):
+def find_ob_for_bos(df, fvgs):
     df = df.copy()
     df["ob_top"] = None
     df["ob_bottom"] = None
@@ -102,7 +107,7 @@ def find_ob_for_bos(df):
                     if candle["low"] < min_low:
                         min_low = candle["low"]
                         best_idx = k
-            if best_idx is not None and has_fvg_nearby(df, best_idx, "bullish"):
+            if best_idx is not None and has_fvg_nearby(fvgs, best_idx, "bullish"):
                 df.at[df.index[i], "ob_idx"] = best_idx
                 df.at[df.index[i], "ob_top"] = df["open"].iloc[best_idx]
                 df.at[df.index[i], "ob_bottom"] = df["low"].iloc[best_idx]
@@ -121,7 +126,7 @@ def find_ob_for_bos(df):
                     if candle["high"] > max_high:
                         max_high = candle["high"]
                         best_idx = k
-            if best_idx is not None and has_fvg_nearby(df, best_idx, "bearish"):
+            if best_idx is not None and has_fvg_nearby(fvgs, best_idx, "bearish"):
                 df.at[df.index[i], "ob_idx"] = best_idx
                 df.at[df.index[i], "ob_top"] = df["high"].iloc[best_idx]
                 df.at[df.index[i], "ob_bottom"] = df["open"].iloc[best_idx]
@@ -146,7 +151,30 @@ if __name__ == "__main__":
 
     df = find_regular_fractals(df)
     df = find_bos(df)
-    df = find_ob_for_bos(df)
+
+    # Find all FVGs
+    fvgs = find_all_fvgs(df)
+    bull_fvgs = [g for t, g in fvgs if t == "bullish"]
+    bear_fvgs = [g for t, g in fvgs if t == "bearish"]
+    print(f"\n=== FVG COUNT ===", flush=True)
+    print(f"Bullish FVGs: {len(bull_fvgs)}", flush=True)
+    print(f"Bearish FVGs: {len(bear_fvgs)}", flush=True)
+
+    # Show first 10 FVGs
+    print(f"\n=== FIRST 10 FVGs ===", flush=True)
+    for fvg_type, gap_index in fvgs[:10]:
+        print(
+            f"{str(df['ts'].iloc[gap_index])[:10]} | {fvg_type} | gap_index={gap_index}",
+            flush=True
+        )
+
+    # Total BOS count
+    print(f"\n=== BOS COUNT ===", flush=True)
+    print(f"Bullish BOS: {df['break_high'].sum()}", flush=True)
+    print(f"Bearish BOS: {df['break_low'].sum()}", flush=True)
+
+    # Find OB
+    df = find_ob_for_bos(df, fvgs)
 
     obs = df[df["ob_type"].notna()].reset_index(drop=True)
 
