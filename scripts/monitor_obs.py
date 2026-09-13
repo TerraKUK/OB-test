@@ -12,26 +12,34 @@ from state_store import load_state, save_state
 from telegram_client import send_message
 
 
-API_BASE_URL = "https://api.binance.us"
+API_BASE_URL = "https://api.bybit.com"
+MARKET_CATEGORY = "linear"
 MAX_ZONE_AGE_DAYS = int(os.getenv("MAX_ZONE_AGE_DAYS", "45"))
 DRY_RUN = os.getenv("DRY_RUN", "false").lower() == "true"
 
 
 def fetch_price(symbol: str) -> float | None:
     response = requests.get(
-        f"{API_BASE_URL}/api/v3/ticker/price", params={"symbol": symbol}, timeout=20
+        f"{API_BASE_URL}/v5/market/tickers",
+        params={"category": MARKET_CATEGORY, "symbol": symbol},
+        timeout=20,
     )
-    if response.status_code == 400:
-        print(f"Skip {symbol}: symbol is unavailable on Binance.US")
-        return None
     response.raise_for_status()
-    return float(response.json()["price"])
+    payload = response.json()
+    if payload.get("retCode") != 0:
+        print(f"Skip {symbol}: Bybit error {payload.get('retMsg', 'unknown error')}")
+        return None
+    tickers = payload.get("result", {}).get("list", [])
+    if not tickers:
+        print(f"Skip {symbol}: unavailable on Bybit Linear")
+        return None
+    return float(tickers[0]["lastPrice"])
 
 
 def message(kind: str, zone: dict, price: float | None = None) -> str:
     icon = {"approach": "👀", "touch": "⚡", "invalidated": "⛔", "expired": "⌛"}[kind]
     text = (
-        f"{icon} {kind.upper()} — {zone['symbol']} (1D)\n"
+        f"{icon} {kind.upper()} — {zone['symbol']} (Bybit Linear, 1D)\n"
         f"{zone['direction']} OB: {format_price(zone['bottom'])} – {format_price(zone['top'])}"
     )
     if price is not None:
