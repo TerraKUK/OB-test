@@ -4,20 +4,16 @@ import pandas as pd
 
 def find_regular_fractals(df):
     """
-    Pine: isRegularFractal
-    Buy:  high[0] < high[1] and (high[2] < high[1] or (high[2] == high[1] and high[3] < high[2]))
-    Sell: low[0] > low[1]  and (low[2] > low[1]  or (low[2] == low[1]  and low[3] > low[2]))
-    In Pine [0] = current bar. The fractal is confirmed at bar i (current),
-    and the center of the fractal is at bar i-1 (for 3-bar) -> offset -1 in plotshape.
-    So: fractal_high is True on bar i if high[i-1] is the local max.
-    We mark the CENTER candle (i-1) as fractal in our DataFrame.
+    Pine isRegularFractal for 3-bar:
+    Confirmed on bar [0] (current). Center of fractal is bar [1].
+    So on candle i (in Python), if high[i] > high[i-1] and high[i] > high[i+1],
+    then this candle is the CENTER. Mark it.
     """
     df = df.copy()
     df["fractal_high"] = False
     df["fractal_low"] = False
 
     for i in range(1, len(df) - 1):
-        # center candle is i, neighbors i-1 and i+1
         if df["high"].iloc[i] > df["high"].iloc[i - 1] and df["high"].iloc[i] > df["high"].iloc[i + 1]:
             df.at[df.index[i], "fractal_high"] = True
         if df["low"].iloc[i] < df["low"].iloc[i - 1] and df["low"].iloc[i] < df["low"].iloc[i + 1]:
@@ -26,31 +22,21 @@ def find_regular_fractals(df):
     return df
 
 
-def bullish_imb(df, k):
-    """
-    Pine: close[k+1] > high[k+2] and low[k] > high[k+2]
-    k = offset back from current bar (0 = current).
-    """
-    if k + 2 >= len(df):
-        return False
-    return (df["close"].iloc[k + 1] > df["high"].iloc[k + 2]
-            and df["low"].iloc[k] > df["high"].iloc[k + 2])
-
-
-def bearish_imb(df, k):
-    """
-    Pine: close[k+1] < low[k+2] and high[k] < low[k+2]
-    """
-    if k + 2 >= len(df):
-        return False
-    return (df["close"].iloc[k + 1] < df["low"].iloc[k + 2]
-            and df["high"].iloc[k] < df["low"].iloc[k + 2])
-
-
 def find_all_obs(df):
     """
-    Pine replication. Uses bar offsets back (0 = current bar).
-    Keeps duplicates (each BOS -> own OB).
+    Pine replication.
+
+    Pine uses bar offsets back (0 = current bar):
+      k = 0 -> current bar
+      k = 1 -> 1 bar back
+      ...
+
+    idx      - offset back to OB candle
+    gapIndex - offset back to left FVG candle
+    fractalTime - time of fractal center candle
+
+    Condition for FVG filter:
+      gapIndex > 0 AND idx > 0 AND 0 <= (idx - gapIndex) <= fvgDistance
     """
     df = df.copy()
     df["ob_top"] = None
@@ -61,7 +47,7 @@ def find_all_obs(df):
     df["ob_bos_idx"] = None
     df["ob_fractal_time"] = None
 
-    # Arrays of fractals: (value, abs_index)
+    # Arrays: list of dicts {value, ts, abs_idx}
     fractal_highs = []
     fractal_lows = []
 
@@ -69,116 +55,117 @@ def find_all_obs(df):
     bars_back = 500
 
     for i in range(len(df)):
-        # Push new fractals
+        # Push new fractals on candle i
         if df["fractal_high"].iloc[i]:
-            fractal_highs.append((df["high"].iloc[i], i))
+            fractal_highs.append({"value": df["high"].iloc[i], "ts": df["ts"].iloc[i], "abs_idx": i})
         if df["fractal_low"].iloc[i]:
-            fractal_lows.append((df["low"].iloc[i], i))
+            fractal_lows.append({"value": df["low"].iloc[i], "ts": df["ts"].iloc[i], "abs_idx": i})
 
         current_close = df["close"].iloc[i]
 
-        # ---------- BULLISH OB (fractal HIGH break) ----------
-        # Pine: for i = array.size - 1 downto 0 by 1
+        # ========== BULLISH OB (fractal HIGH break) ==========
+        # Pine: for i = array.size(fractal_highs) - 1 to 0 by 1
+        #       (iterate from end to start of array; check each; remove after check)
         j = len(fractal_highs) - 1
         while j >= 0:
-            fractal_high, fractal_idx = fractal_highs[j]
+            fh = fractal_highs[j]
+            fractal_high = fh["value"]
+            fractal_ts = fh["ts"]
+            fractal_abs_idx = fh["abs_idx"]
 
             if current_close > fractal_high:
-                # BOS. Search OB and FVG.
-                idx_abs = None         # abs index of OB candle
+                # BOS confirmed. Find OB and FVG.
+                idx = 0                # Pine: idx = 0
                 min_low = df["high"].iloc[i]   # Pine: minLow = high (current)
-                gap_idx_abs = None     # abs index of left FVG candle
+                gap_index = 0          # Pine: gapIndex = 0
 
+                # for k = 0 to bars_back
                 for k in range(0, bars_back):
-                    bar_abs = i - k
-                    if bar_abs < fractal_idx:
+                    abs_k = i - k
+                    if abs_k < 0:
                         break
-                    # condition: close[bar] < open[bar]
-                    if df["close"].iloc[bar_abs] < df["open"].iloc[bar_abs] and df["low"].iloc[bar_abs] < min_low:
-                        idx_abs = bar_abs
-                        min_low = df["low"].iloc[bar_abs]
-                    # bullishImb(k): compare abs i-k-1, i-k-2
+                    # if time[k] < fractalTime: break
+                    if df["ts"].iloc[abs_k] < fractal_ts:
+                        break
+                    # if close[k] < open[k] and low[k] < minLow
+                    if df["close"].iloc[abs_k] < df["open"].iloc[abs_k] and df["low"].iloc[abs_k] < min_low:
+                        idx = k
+                        min_low = df["low"].iloc[abs_k]
+                    # if bullishImb(k): gapIndex := k + 2
                     if k + 2 < len(df):
                         close_k1 = df["close"].iloc[i - k - 1]
                         high_k2 = df["high"].iloc[i - k - 2]
                         low_k = df["low"].iloc[i - k]
                         if close_k1 > high_k2 and low_k > high_k2:
-                            # Pine: gapIndex := k + 2 -> abs = i - (k + 2)
-                            gap_idx_abs = i - (k + 2)
+                            gap_index = k + 2
 
-                # FVG filter: idx != 0 (offset), gapIndex != 0 (offset),
-                # 0 <= idx_offset - gapIndex_offset <= fvg_distance
-                filter_fvg = False
-                if idx_abs is not None and gap_idx_abs is not None:
-                    idx_offset = i - idx_abs
-                    gap_offset = i - gap_idx_abs
-                    if gap_offset > 0 and idx_offset > 0:
-                        diff = idx_offset - gap_offset
-                        if 0 <= diff <= fvg_distance:
-                            filter_fvg = True
+                # _filterFvg = filterFvgs ? (gapIndex > 0 and idx > 0 and idx - gapIndex >= 0 and idx - gapIndex <= fvgDistance) : true
+                if gap_index > 0 and idx > 0 and 0 <= (idx - gap_index) <= fvg_distance:
+                    filter_fvg = True
+                else:
+                    filter_fvg = False
 
-                # Pine: if idx != 0 and _filterFvg
-                if idx_abs is not None and (i - idx_abs) > 0 and filter_fvg:
-                    df.at[df.index[i], "ob_top"] = df["open"].iloc[idx_abs]
-                    df.at[df.index[i], "ob_bottom"] = df["low"].iloc[idx_abs]
+                # if idx != 0 and _filterFvg
+                if idx != 0 and filter_fvg:
+                    ob_abs_idx = i - idx
+                    df.at[df.index[i], "ob_top"] = df["open"].iloc[ob_abs_idx]
+                    df.at[df.index[i], "ob_bottom"] = df["low"].iloc[ob_abs_idx]
                     df.at[df.index[i], "ob_type"] = "bullish"
-                    df.at[df.index[i], "ob_idx"] = idx_abs
-                    df.at[df.index[i], "ob_time"] = df["ts"].iloc[idx_abs]
+                    df.at[df.index[i], "ob_idx"] = ob_abs_idx
+                    df.at[df.index[i], "ob_time"] = df["ts"].iloc[ob_abs_idx]
                     df.at[df.index[i], "ob_bos_idx"] = i
-                    df.at[df.index[i], "ob_fractal_time"] = df["ts"].iloc[fractal_idx]
+                    df.at[df.index[i], "ob_fractal_time"] = fractal_ts
 
-                # Pine: array.remove (always)
+                # Pine: array.remove always
                 fractal_highs.pop(j)
-                j -= 1
-            else:
-                j -= 1
+            j -= 1
 
-        # ---------- BEARISH OB (fractal LOW break) ----------
+        # ========== BEARISH OB (fractal LOW break) ==========
         j = len(fractal_lows) - 1
         while j >= 0:
-            fractal_low, fractal_idx = fractal_lows[j]
+            fl = fractal_lows[j]
+            fractal_low = fl["value"]
+            fractal_ts = fl["ts"]
+            fractal_abs_idx = fl["abs_idx"]
 
             if current_close < fractal_low:
-                idx_abs = None
+                idx = 0
                 max_high = df["low"].iloc[i]   # Pine: maxHigh = low (current)
-                gap_idx_abs = None
+                gap_index = 0
 
                 for k in range(0, bars_back):
-                    bar_abs = i - k
-                    if bar_abs < fractal_idx:
+                    abs_k = i - k
+                    if abs_k < 0:
                         break
-                    if df["close"].iloc[bar_abs] > df["open"].iloc[bar_abs] and df["high"].iloc[bar_abs] > max_high:
-                        idx_abs = bar_abs
-                        max_high = df["high"].iloc[bar_abs]
+                    if df["ts"].iloc[abs_k] < fractal_ts:
+                        break
+                    if df["close"].iloc[abs_k] > df["open"].iloc[abs_k] and df["high"].iloc[abs_k] > max_high:
+                        idx = k
+                        max_high = df["high"].iloc[abs_k]
                     if k + 2 < len(df):
                         close_k1 = df["close"].iloc[i - k - 1]
                         low_k2 = df["low"].iloc[i - k - 2]
                         high_k = df["high"].iloc[i - k]
                         if close_k1 < low_k2 and high_k < low_k2:
-                            gap_idx_abs = i - (k + 2)
+                            gap_index = k + 2
 
-                filter_fvg = False
-                if idx_abs is not None and gap_idx_abs is not None:
-                    idx_offset = i - idx_abs
-                    gap_offset = i - gap_idx_abs
-                    if gap_offset > 0 and idx_offset > 0:
-                        diff = idx_offset - gap_offset
-                        if 0 <= diff <= fvg_distance:
-                            filter_fvg = True
+                if gap_index > 0 and idx > 0 and 0 <= (idx - gap_index) <= fvg_distance:
+                    filter_fvg = True
+                else:
+                    filter_fvg = False
 
-                if idx_abs is not None and (i - idx_abs) > 0 and filter_fvg:
-                    df.at[df.index[i], "ob_top"] = df["high"].iloc[idx_abs]
-                    df.at[df.index[i], "ob_bottom"] = df["open"].iloc[idx_abs]
+                if idx != 0 and filter_fvg:
+                    ob_abs_idx = i - idx
+                    df.at[df.index[i], "ob_top"] = df["high"].iloc[ob_abs_idx]
+                    df.at[df.index[i], "ob_bottom"] = df["open"].iloc[ob_abs_idx]
                     df.at[df.index[i], "ob_type"] = "bearish"
-                    df.at[df.index[i], "ob_idx"] = idx_abs
-                    df.at[df.index[i], "ob_time"] = df["ts"].iloc[idx_abs]
+                    df.at[df.index[i], "ob_idx"] = ob_abs_idx
+                    df.at[df.index[i], "ob_time"] = df["ts"].iloc[ob_abs_idx]
                     df.at[df.index[i], "ob_bos_idx"] = i
-                    df.at[df.index[i], "ob_fractal_time"] = df["ts"].iloc[fractal_idx]
+                    df.at[df.index[i], "ob_fractal_time"] = fractal_ts
 
                 fractal_lows.pop(j)
-                j -= 1
-            else:
-                j -= 1
+            j -= 1
 
     return df
 
