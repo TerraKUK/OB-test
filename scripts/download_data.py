@@ -6,7 +6,37 @@ from datetime import datetime, timedelta, timezone
 API_BASE_URL = "https://api.binance.us"
 RAW_DATA_DIR = "data/raw"
 
-PAIRS = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT", "INJUSDT"]
+PAIRS = [
+    "BTCUSDT", "ETHUSDT", "BNBUSDT", "XRPUSDT", "SOLUSDT",
+    "TRXUSDT", "HYPEUSDT", "ZECUSDT", "DOGEUSDT", "XMRUSDT",
+    "LINKUSDT", "ADAUSDT", "XLMUSDT", "BCHUSDT", "UNIUSDT",
+    "LTCUSDT", "TONUSDT", "HBARUSDT", "AVAXUSDT", "SUIUSDT",
+    "SHIBUSDT", "NEARUSDT", "TAOUSDT", "CROUSDT", "OKBUSDT",
+    "AAVEUSDT", "MNTUSDT", "ONDOUSDT", "WLFIUSDT", "ENAUSDT",
+    "DOTUSDT", "SKYUSDT", "PUMPUSDT", "WLDUSDT", "ICPUSDT",
+    "PEPEUSDT", "BGBUSDT", "MORPHOUSDT", "ARBUSDT", "ETCUSDT",
+    "PIUSDT", "POLUSDT", "JUPUSDT", "KASUSDT", "ALGOUSDT",
+    "ATOMUSDT", "RENDERUSDT", "QNTUSDT", "FILUSDT", "VETUSDT",
+    "XDCUSDT", "CRVUSDT", "FLRUSDT", "APTUSDT", "INJUSDT",
+    "STXUSDT", "PYTHUSDT", "ZROUSDT", "TIAUSDT", "FETUSDT",
+    "SEIUSDT", "PENDLEUSDT", "LDOUSDT", "RAYUSDT", "BSVUSDT",
+    "GNOUSDT", "IMXUSDT", "OPUSDT", "ENSUSDT", "FLOKIUSDT",
+    "STRKUSDT", "JASMYUSDT", "WIFUSDT", "GRTUSDT", "COMPUSDT",
+    "KAIAUSDT", "ARUSDT", "THETAUSDT", "AXSUSDT", "RUNEUSDT",
+    "NEOUSDT", "MANAUSDT", "CHZUSDT", "APEUSDT", "EGLDUSDT",
+    "1INCHUSDT", "SANDUSDT", "ZKUSDT", "GALAUSDT", "DYDXUSDT",
+    "MINAUSDT", "QTUMUSDT", "ORDIUSDT", "SUSDT", "TWTUSDT",
+    "CFXUSDT", "KITEUSDT", "KSMUSDT", "SNXUSDT", "BONKUSDT",
+    "RBUSDT", "BTRUSDT", "ASTERUSDT", "USELESSUSDT",
+    "BLURUSDT", "VVVUSDT", "APEXUSDT", "GRAMUSDT", "BRUSDT",
+]
+
+STABLECOINS = {
+    "USDC", "BUSD", "DAI", "TUSD", "USDP", "USDD",
+    "USD1", "FDUSD", "PYUSD", "USDE", "USDS", "USDF", "GUSD",
+    "UST", "USTC", "FRAX", "LUSD", "SUSD", "MIM", "ALUSD",
+}
+
 INTERVAL = "1d"
 DAYS_BACK = 365
 
@@ -14,6 +44,11 @@ os.makedirs(RAW_DATA_DIR, exist_ok=True)
 
 
 def fetch_klines(pair):
+    base = pair.replace("USDT", "")
+    if base in STABLECOINS:
+        print(f"Skip {pair}: stablecoin")
+        return None
+
     endpoint = f"{API_BASE_URL}/api/v3/klines"
     start_date = datetime.now(timezone.utc) - timedelta(days=DAYS_BACK)
     params = {
@@ -52,6 +87,8 @@ def main():
     for pair in PAIRS:
         try:
             df = fetch_klines(pair)
+            if df is None:
+                continue
             output = f"{RAW_DATA_DIR}/{pair}_{INTERVAL}.csv"
             df.to_csv(output, index=False)
             print(f"Saved {pair}: {len(df)} candles -> {output}")
