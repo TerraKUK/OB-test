@@ -7,7 +7,8 @@ import pandas as pd
 import requests
 
 
-API_BASE_URL = "https://api.bybit.com"
+# Official Bybit Kazakhstan mainnet host for Kazakhstan accounts.
+API_BASE_URL = "https://api.bybit.kz"
 MARKET_CATEGORY = "linear"
 RAW_DATA_DIR = "data/raw"
 
@@ -78,6 +79,7 @@ def fetch_klines(pair: str) -> pd.DataFrame | None:
 
 
 def main() -> None:
+    saved = 0
     for pair in PAIRS:
         try:
             df = fetch_klines(pair)
@@ -85,11 +87,15 @@ def main() -> None:
                 continue
             output = f"{RAW_DATA_DIR}/{pair}_{FILE_INTERVAL}.csv"
             df.to_csv(output, index=False)
+            saved += 1
             print(f"Saved {pair}: {len(df)} Bybit Linear candles -> {output}")
         except requests.RequestException as error:
             print(f"Failed {pair}: {error}")
         except (TypeError, ValueError) as error:
             print(f"Failed {pair}: invalid Bybit response ({error})")
+
+    if saved == 0:
+        raise SystemExit("Bybit Kazakhstan returned no data; stopping to avoid using stale CSV files.")
 
 
 if __name__ == "__main__":
