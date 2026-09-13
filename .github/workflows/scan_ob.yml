@@ -34,10 +34,10 @@ jobs:
       - name: Install dependencies
         run: python -m pip install requests pandas
 
-      - name: Check Bybit Kazakhstan Linear API
+      - name: Check OKX USDT Swap API
         run: |
           curl --fail --silent --show-error \
-            "https://api.bybit.kz/v5/market/kline?category=linear&symbol=BTCUSDT&interval=D&limit=2"
+            "https://www.okx.com/api/v5/market/candles?instId=BTC-USDT-SWAP&bar=1Dutc&limit=2"
 
       - name: Download closed daily candles
         run: python scripts/download_data.py
