@@ -3,12 +3,6 @@ import pandas as pd
 
 
 def find_regular_fractals(df):
-    """
-    Pine isRegularFractal for 3-bar:
-    Confirmed on bar [0] (current). Center of fractal is bar [1].
-    So on candle i (in Python), if high[i] > high[i-1] and high[i] > high[i+1],
-    then this candle is the CENTER. Mark it.
-    """
     df = df.copy()
     df["fractal_high"] = False
     df["fractal_low"] = False
@@ -23,21 +17,6 @@ def find_regular_fractals(df):
 
 
 def find_all_obs(df):
-    """
-    Pine replication.
-
-    Pine uses bar offsets back (0 = current bar):
-      k = 0 -> current bar
-      k = 1 -> 1 bar back
-      ...
-
-    idx      - offset back to OB candle
-    gapIndex - offset back to left FVG candle
-    fractalTime - time of fractal center candle
-
-    Condition for FVG filter:
-      gapIndex > 0 AND idx > 0 AND 0 <= (idx - gapIndex) <= fvgDistance
-    """
     df = df.copy()
     df["ob_top"] = None
     df["ob_bottom"] = None
@@ -47,7 +26,6 @@ def find_all_obs(df):
     df["ob_bos_idx"] = None
     df["ob_fractal_time"] = None
 
-    # Arrays: list of dicts {value, ts, abs_idx}
     fractal_highs = []
     fractal_lows = []
 
@@ -55,7 +33,6 @@ def find_all_obs(df):
     bars_back = 500
 
     for i in range(len(df)):
-        # Push new fractals on candle i
         if df["fractal_high"].iloc[i]:
             fractal_highs.append({"value": df["high"].iloc[i], "ts": df["ts"].iloc[i], "abs_idx": i})
         if df["fractal_low"].iloc[i]:
@@ -63,35 +40,27 @@ def find_all_obs(df):
 
         current_close = df["close"].iloc[i]
 
-        # ========== BULLISH OB (fractal HIGH break) ==========
-        # Pine: for i = array.size(fractal_highs) - 1 to 0 by 1
-        #       (iterate from end to start of array; check each; remove after check)
+        # ========== BULLISH OB ==========
         j = len(fractal_highs) - 1
         while j >= 0:
             fh = fractal_highs[j]
             fractal_high = fh["value"]
             fractal_ts = fh["ts"]
-            fractal_abs_idx = fh["abs_idx"]
 
             if current_close > fractal_high:
-                # BOS confirmed. Find OB and FVG.
-                idx = 0                # Pine: idx = 0
-                min_low = df["high"].iloc[i]   # Pine: minLow = high (current)
-                gap_index = 0          # Pine: gapIndex = 0
+                idx = 0
+                min_low = df["high"].iloc[i]
+                gap_index = 0
 
-                # for k = 0 to bars_back
                 for k in range(0, bars_back):
                     abs_k = i - k
                     if abs_k < 0:
                         break
-                    # if time[k] < fractalTime: break
                     if df["ts"].iloc[abs_k] < fractal_ts:
                         break
-                    # if close[k] < open[k] and low[k] < minLow
                     if df["close"].iloc[abs_k] < df["open"].iloc[abs_k] and df["low"].iloc[abs_k] < min_low:
                         idx = k
                         min_low = df["low"].iloc[abs_k]
-                    # if bullishImb(k): gapIndex := k + 2
                     if k + 2 < len(df):
                         close_k1 = df["close"].iloc[i - k - 1]
                         high_k2 = df["high"].iloc[i - k - 2]
@@ -99,13 +68,11 @@ def find_all_obs(df):
                         if close_k1 > high_k2 and low_k > high_k2:
                             gap_index = k + 2
 
-                # _filterFvg = filterFvgs ? (gapIndex > 0 and idx > 0 and idx - gapIndex >= 0 and idx - gapIndex <= fvgDistance) : true
                 if gap_index > 0 and idx > 0 and 0 <= (idx - gap_index) <= fvg_distance:
                     filter_fvg = True
                 else:
                     filter_fvg = False
 
-                # if idx != 0 and _filterFvg
                 if idx != 0 and filter_fvg:
                     ob_abs_idx = i - idx
                     df.at[df.index[i], "ob_top"] = df["open"].iloc[ob_abs_idx]
@@ -116,21 +83,19 @@ def find_all_obs(df):
                     df.at[df.index[i], "ob_bos_idx"] = i
                     df.at[df.index[i], "ob_fractal_time"] = fractal_ts
 
-                # Pine: array.remove always
                 fractal_highs.pop(j)
             j -= 1
 
-        # ========== BEARISH OB (fractal LOW break) ==========
+        # ========== BEARISH OB ==========
         j = len(fractal_lows) - 1
         while j >= 0:
             fl = fractal_lows[j]
             fractal_low = fl["value"]
             fractal_ts = fl["ts"]
-            fractal_abs_idx = fl["abs_idx"]
 
             if current_close < fractal_low:
                 idx = 0
-                max_high = df["low"].iloc[i]   # Pine: maxHigh = low (current)
+                max_high = df["low"].iloc[i]
                 gap_index = 0
 
                 for k in range(0, bars_back):
@@ -172,30 +137,56 @@ def find_all_obs(df):
 
 if __name__ == "__main__":
     raw_dir = "data/raw"
-    files = [f for f in os.listdir(raw_dir) if f.endswith(".csv")]
+    files = sorted([f for f in os.listdir(raw_dir) if f.endswith(".csv")])
     if not files:
         print("No CSV files in data/raw/")
         exit(1)
 
-    file_path = os.path.join(raw_dir, files[0])
-    print(f"Loading: {file_path}", flush=True)
+    all_results = []
+    total_ob = 0
 
-    df = pd.read_csv(file_path, parse_dates=["ts"])
-    print(f"Loaded {len(df)} candles", flush=True)
-    print(f"First: {df['ts'].iloc[0]} | Last: {df['ts'].iloc[-1]}", flush=True)
+    for file_name in files:
+        file_path = os.path.join(raw_dir, file_name)
+        asset = file_name.split("_")[0]
 
-    df = find_regular_fractals(df)
-    df = find_all_obs(df)
+        try:
+            df = pd.read_csv(file_path, parse_dates=["ts"])
+        except Exception as e:
+            print(f"Skip {asset}: {e}", flush=True)
+            continue
 
-    obs = df[df["ob_type"].notna()].reset_index(drop=True)
-    print(f"\n=== TOTAL OB: {len(obs)} ===\n", flush=True)
+        if len(df) < 50:
+            print(f"\n=== {asset}: skip (only {len(df)} candles) ===", flush=True)
+            continue
 
-    print(f"{'#':<3} {'OB date':<12} {'Type':<9} {'Top':<10} {'Bottom':<10} {'BOS date':<12}")
-    print("-" * 65)
-    for idx, row in obs.iterrows():
-        print(
-            f"{idx+1:<3} {str(row['ob_time'])[:10]:<12} "
-            f"{row['ob_type'].upper():<9} {row['ob_top']:<10.2f} "
-            f"{row['ob_bottom']:<10.2f} {str(row['ts'])[:10]:<12}",
-            flush=True
-        )
+        df = find_regular_fractals(df)
+        df = find_all_obs(df)
+
+        obs = df[df["ob_type"].notna()].reset_index(drop=True)
+
+        if len(obs) > 0:
+            print(f"\n=== {asset}: {len(obs)} OB ===", flush=True)
+            print(f"{'#':<3} {'OB date':<12} {'Type':<9} {'Top':<10} {'Bottom':<10} {'BOS date':<12}")
+            print("-" * 65)
+            for idx, row in obs.iterrows():
+                print(
+                    f"{idx+1:<3} {str(row['ob_time'])[:10]:<12} "
+                    f"{row['ob_type'].upper():<9} {row['ob_top']:<10.2f} "
+                    f"{row['ob_bottom']:<10.2f} {str(row['ts'])[:10]:<12}",
+                    flush=True
+                )
+                all_results.append({
+                    "asset": asset,
+                    "ob_time": str(row["ob_time"])[:10],
+                    "ob_type": row["ob_type"],
+                    "ob_top": row["ob_top"],
+                    "ob_bottom": row["ob_bottom"],
+                    "bos_time": str(row["ts"])[:10],
+                })
+            total_ob += len(obs)
+        else:
+            print(f"\n=== {asset}: 0 OB ===", flush=True)
+
+    print(f"\n{'='*60}", flush=True)
+    print(f"TOTAL: {total_ob} OB across {len(files)} pairs", flush=True)
+    print(f"{'='*60}", flush=True)
