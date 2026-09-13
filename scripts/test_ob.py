@@ -136,3 +136,10 @@ if __name__ == "__main__":
             f"{str(row['ts'])[:10]:<12}",
             flush=True
         )
+    for i, row in obs.iterrows():
+        print(
+            f"{i+1:<3} {str(row['ob_time'])[:10]:<12} "
+            f"{row['ob_type'].upper():<9} {row['ob_price']:<12.4f} "
+            f"{str(row['ts'])[:10]:<12}",
+            flush=True
+        )
