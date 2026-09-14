@@ -7,7 +7,7 @@ from datetime import date, datetime, timezone
 
 import requests
 
-from scan_obs import format_price
+from scan_obs import format_price, tradingview_url
 from state_store import load_state, save_state
 from telegram_client import send_message
 
@@ -44,6 +44,7 @@ def message(kind: str, zone: dict, price: float | None = None) -> str:
     )
     if price is not None:
         text += f"\nТекущая цена: {format_price(price)}"
+    text += f"\nГрафик OKX D1: {tradingview_url(zone['symbol'])}"
     descriptions = {
         "approach": "Цена подошла к зоне. Это не сигнал на вход.",
         "touch": "Первое попадание цены в зону OB.",
