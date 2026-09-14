@@ -21,5 +21,12 @@ def send_message(text: str, dry_run: bool = False) -> bool:
         json={"chat_id": chat_id, "text": text, "disable_web_page_preview": True},
         timeout=30,
     )
-    response.raise_for_status()
+    try:
+        response.raise_for_status()
+    except requests.HTTPError as error:
+        try:
+            description = response.json().get("description", response.text)
+        except ValueError:
+            description = response.text
+        raise RuntimeError(f"Telegram sendMessage failed: {description}") from error
     return True
