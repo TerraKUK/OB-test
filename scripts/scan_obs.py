@@ -23,6 +23,11 @@ def format_price(value: float) -> str:
     return f"{value:,.8f}".rstrip("0").rstrip(".")
 
 
+def tradingview_url(symbol: str) -> str:
+    """Return the D1 TradingView chart for the same OKX perpetual used by the bot."""
+    return f"https://www.tradingview.com/chart/?symbol=OKX%3A{symbol}.P&interval=D"
+
+
 def format_new_message(zone: dict) -> str:
     emoji = "🟢" if zone["direction"] == "bullish" else "🔴"
     return (
@@ -31,6 +36,7 @@ def format_new_message(zone: dict) -> str:
         f"OB: {zone['ob_time']} | BOS: {zone['bos_time']}\n"
         f"Оценка: {zone['score']}/5\n"
         f"Причины: {', '.join(zone['reasons'])}\n"
+        f"График OKX D1: {tradingview_url(zone['symbol'])}\n"
         "Статус: ожидание первого касания"
     )
 
@@ -41,7 +47,8 @@ def format_new_digest(zones: list[dict]) -> str:
         arrow = "🟢" if zone["direction"] == "bullish" else "🔴"
         lines.append(
             f"{arrow} {zone['symbol']} {zone['direction']} | "
-            f"{format_price(zone['bottom'])}–{format_price(zone['top'])} | {zone['score']}/5"
+            f"{format_price(zone['bottom'])}–{format_price(zone['top'])} | {zone['score']}/5\n"
+            f"📈 {tradingview_url(zone['symbol'])}"
         )
     if len(zones) > 10:
         lines.append(f"…ещё {len(zones) - 10} зон сохранено для мониторинга.")
@@ -55,6 +62,7 @@ def format_confirmation_message(zone: dict, close: float) -> str:
         f"{emoji} Подтверждение реакции — {zone['symbol']} (OKX Swap, 1D)\n"
         f"{zone['direction']} OB: {format_price(zone['bottom'])} – {format_price(zone['top'])}\n"
         f"Закрытие D1: {format_price(close)}\n"
+        f"График OKX D1: {tradingview_url(zone['symbol'])}\n"
         "Зона уже была протестирована, закрытие дня произошло в ожидаемую сторону."
     )
 
