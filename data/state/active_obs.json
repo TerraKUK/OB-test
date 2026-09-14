@@ -82,6 +82,33 @@
       "timeframe": "1D",
       "top": 0.0134
     },
+    "FILUSDT-1D-bullish-2026-08-30-2026-09-13": {
+      "atr": 0.062444999999999994,
+      "bos_time": "2026-09-13",
+      "bottom": 0.6449,
+      "created_at": "2026-09-13",
+      "direction": "bullish",
+      "fractal_time": "2026-08-22",
+      "id": "FILUSDT-1D-bullish-2026-08-30-2026-09-13",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-08-30",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "FILUSDT",
+      "timeframe": "1D",
+      "top": 0.6819
+    },
     "GALAUSDT-1D-bearish-2026-08-28-2026-09-10": {
       "atr": 0.00015695,
       "bos_time": "2026-09-10",
@@ -299,6 +326,33 @@
       "timeframe": "1D",
       "top": 1.574
     },
+    "RENDERUSDT-1D-bearish-2026-09-06-2026-09-13": {
+      "atr": 0.0862,
+      "bos_time": "2026-09-13",
+      "bottom": 1.465,
+      "created_at": "2026-09-13",
+      "direction": "bearish",
+      "fractal_time": "2026-08-30",
+      "id": "RENDERUSDT-1D-bearish-2026-09-06-2026-09-13",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-06",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "RENDERUSDT",
+      "timeframe": "1D",
+      "top": 1.574
+    },
     "SANDUSDT-1D-bearish-2026-09-07-2026-09-10": {
       "atr": 0.0034549999999999997,
       "bos_time": "2026-09-10",
@@ -415,6 +469,33 @@
       "direction": "bearish",
       "fractal_time": "2026-09-04",
       "id": "SUIUSDT-1D-bearish-2026-09-07-2026-09-10",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-07",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "SUIUSDT",
+      "timeframe": "1D",
+      "top": 0.8445
+    },
+    "SUIUSDT-1D-bearish-2026-09-07-2026-09-13": {
+      "atr": 0.04889500000000001,
+      "bos_time": "2026-09-13",
+      "bottom": 0.8115,
+      "created_at": "2026-09-13",
+      "direction": "bearish",
+      "fractal_time": "2026-09-02",
+      "id": "SUIUSDT-1D-bearish-2026-09-07-2026-09-13",
       "notifications": {
         "approach": false,
         "confirmed": false,
