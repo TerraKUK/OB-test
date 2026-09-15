@@ -246,7 +246,7 @@
       "last_price": 0.07488,
       "notifications": {
         "approach": false,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -258,7 +258,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "MANAUSDT",
       "timeframe": "1D",
       "top": 0.07756,
