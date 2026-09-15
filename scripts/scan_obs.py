@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from divergence_detector import find_regular_rsi_divergences
 from ob_detector import find_all_obs, has_been_touched_or_invalidated
 from state_store import load_state, save_state
 from telegram_client import send_message
@@ -17,6 +18,12 @@ RAW_DATA_DIR = Path("data/raw")
 MIN_SCORE = int(os.getenv("MIN_OB_SCORE", "4"))
 LOOKBACK_DAYS = int(os.getenv("NEW_OB_LOOKBACK_DAYS", "3"))
 DRY_RUN = os.getenv("DRY_RUN", "false").lower() == "true"
+RSI_PERIOD = int(os.getenv("RSI_PERIOD", "14"))
+DIVERGENCE_PIVOT_LEFT = int(os.getenv("DIVERGENCE_PIVOT_LEFT", "5"))
+DIVERGENCE_PIVOT_RIGHT = int(os.getenv("DIVERGENCE_PIVOT_RIGHT", "5"))
+DIVERGENCE_MIN_BARS = int(os.getenv("DIVERGENCE_MIN_BARS", "5"))
+DIVERGENCE_MAX_BARS = int(os.getenv("DIVERGENCE_MAX_BARS", "60"))
+DIVERGENCE_LOOKBACK_DAYS = int(os.getenv("DIVERGENCE_LOOKBACK_DAYS", "3"))
 
 
 def format_price(value: float) -> str:
@@ -53,6 +60,25 @@ def format_new_digest(zones: list[dict]) -> str:
     if len(zones) > 10:
         lines.append(f"…ещё {len(zones) - 10} зон сохранено для мониторинга.")
     lines.append("Новые зоны добавлены в мониторинг первого касания.")
+    return "\n".join(lines)
+
+
+def format_divergence_digest(divergences: list[dict]) -> str:
+    lines = [f"🟣 Новые regular RSI-дивергенции (OKX Swap, 1D): {len(divergences)}"]
+    for divergence in divergences[:10]:
+        icon = "🟢" if divergence["direction"] == "bullish" else "🔴"
+        price_label = "LL" if divergence["direction"] == "bullish" else "HH"
+        rsi_label = "HL" if divergence["direction"] == "bullish" else "LH"
+        lines.append(
+            f"{icon} {divergence['symbol']} {divergence['direction']} | "
+            f"цена {price_label}: {format_price(divergence['first_price'])}→{format_price(divergence['price'])} | "
+            f"RSI {rsi_label}: {divergence['first_rsi']:.1f}→{divergence['rsi']:.1f}\n"
+            f"Пивот: {divergence['pivot_time']} | подтверждён: {divergence['confirmed_time']}\n"
+            f"📈 {tradingview_url(divergence['symbol'])}"
+        )
+    if len(divergences) > 10:
+        lines.append(f"…ещё {len(divergences) - 10} дивергенций сохранено без повторных уведомлений.")
+    lines.append("Это раннее наблюдение, а не сигнал на вход. OB-подтверждение будет отслеживаться отдельно.")
     return "\n".join(lines)
 
 
@@ -94,6 +120,7 @@ def main() -> None:
     state = load_state()
     changed = False
     new_zones: list[dict] = []
+    new_divergences: list[dict] = []
     frames: dict[str, pd.DataFrame] = {}
     cutoff = date.today() - timedelta(days=LOOKBACK_DAYS)
 
@@ -104,6 +131,26 @@ def main() -> None:
             print(f"Skip {symbol}: less than 205 candles")
             continue
         frames[symbol] = frame
+
+        divergence_cutoff = date.today() - timedelta(days=DIVERGENCE_LOOKBACK_DAYS)
+        for divergence in find_regular_rsi_divergences(
+            frame,
+            symbol,
+            rsi_period=RSI_PERIOD,
+            pivot_left=DIVERGENCE_PIVOT_LEFT,
+            pivot_right=DIVERGENCE_PIVOT_RIGHT,
+            min_bars_between=DIVERGENCE_MIN_BARS,
+            max_bars_between=DIVERGENCE_MAX_BARS,
+        ):
+            signal = divergence.to_dict()
+            confirmed_date = date.fromisoformat(signal["confirmed_time"])
+            if confirmed_date < divergence_cutoff or signal["id"] in state["divergences"]:
+                continue
+            signal["created_at"] = signal["confirmed_time"]
+            state["divergences"][signal["id"]] = signal
+            new_divergences.append(signal)
+            print(f"DIVERGENCE {signal['id']}")
+            changed = True
 
         for block in find_all_obs(frame, symbol):
             zone = block.to_dict()
@@ -122,6 +169,8 @@ def main() -> None:
 
     if new_zones:
         send_message(format_new_digest(new_zones), DRY_RUN)
+    if new_divergences:
+        send_message(format_divergence_digest(new_divergences), DRY_RUN)
 
     changed = update_confirmations(state, frames) or changed
     if changed and not DRY_RUN:
