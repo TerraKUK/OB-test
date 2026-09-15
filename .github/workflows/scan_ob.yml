@@ -49,6 +49,12 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
           MIN_OB_SCORE: "4"
           NEW_OB_LOOKBACK_DAYS: "3"
+          RSI_PERIOD: "14"
+          DIVERGENCE_PIVOT_LEFT: "5"
+          DIVERGENCE_PIVOT_RIGHT: "5"
+          DIVERGENCE_MIN_BARS: "5"
+          DIVERGENCE_MAX_BARS: "60"
+          DIVERGENCE_LOOKBACK_DAYS: "3"
         run: python scripts/scan_obs.py
 
       - name: Save downloaded candles and zone state
