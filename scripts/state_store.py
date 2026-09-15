@@ -1,4 +1,4 @@
-"""Persistent state for active Order Blocks."""
+"""Persistent state for active Order Blocks and divergence alerts."""
 
 from __future__ import annotations
 
@@ -11,11 +11,12 @@ STATE_PATH = Path("data/state/active_obs.json")
 
 def load_state(path: Path = STATE_PATH) -> dict:
     if not path.exists():
-        return {"version": 1, "zones": {}}
+        return {"version": 2, "zones": {}, "divergences": {}}
     with path.open(encoding="utf-8") as file:
         state = json.load(file)
-    state.setdefault("version", 1)
+    state.setdefault("version", 2)
     state.setdefault("zones", {})
+    state.setdefault("divergences", {})
     return state
 
 
