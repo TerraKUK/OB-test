@@ -153,6 +153,61 @@
   },
   "version": 1,
   "zones": {
+    "ALGOUSDT-1D-bearish-2026-09-08-2026-09-15": {
+      "atr": 0.005905500000000001,
+      "bos_time": "2026-09-15",
+      "bottom": 0.0973,
+      "created_at": "2026-09-15",
+      "direction": "bearish",
+      "fractal_time": "2026-09-04",
+      "id": "ALGOUSDT-1D-bearish-2026-09-08-2026-09-15",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-08",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 5,
+      "status": "armed",
+      "symbol": "ALGOUSDT",
+      "timeframe": "1D",
+      "top": 0.10314
+    },
+    "APEUSDT-1D-bearish-2026-09-07-2026-09-15": {
+      "atr": 0.007984999999999997,
+      "bos_time": "2026-09-15",
+      "bottom": 0.14265,
+      "created_at": "2026-09-15",
+      "direction": "bearish",
+      "fractal_time": "2026-08-30",
+      "id": "APEUSDT-1D-bearish-2026-09-07-2026-09-15",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-07",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "APEUSDT",
+      "timeframe": "1D",
+      "top": 0.14797
+    },
     "AXSUSDT-1D-bearish-2026-09-07-2026-09-10": {
       "atr": 0.05788000000000001,
       "bos_time": "2026-09-10",
@@ -386,6 +441,34 @@
       "timeframe": "1D",
       "top": 0.1366
     },
+    "LDOUSDT-1D-bearish-2026-09-06-2026-09-15": {
+      "atr": 0.02623499999999999,
+      "bos_time": "2026-09-15",
+      "bottom": 0.3976,
+      "created_at": "2026-09-15",
+      "direction": "bearish",
+      "fractal_time": "2026-09-02",
+      "id": "LDOUSDT-1D-bearish-2026-09-06-2026-09-15",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-06",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 5,
+      "status": "armed",
+      "symbol": "LDOUSDT",
+      "timeframe": "1D",
+      "top": 0.4339
+    },
     "MANAUSDT-1D-bearish-2026-09-06-2026-09-10": {
       "atr": 0.004221,
       "bos_time": "2026-09-10",
@@ -415,6 +498,34 @@
       "timeframe": "1D",
       "top": 0.07756,
       "touched_at": "2026-09-14T06:43:27.411271+00:00"
+    },
+    "ONDOUSDT-1D-bearish-2026-09-06-2026-09-15": {
+      "atr": 0.020445000000000005,
+      "bos_time": "2026-09-15",
+      "bottom": 0.3701,
+      "created_at": "2026-09-15",
+      "direction": "bearish",
+      "fractal_time": "2026-09-02",
+      "id": "ONDOUSDT-1D-bearish-2026-09-06-2026-09-15",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-06",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 5,
+      "status": "armed",
+      "symbol": "ONDOUSDT",
+      "timeframe": "1D",
+      "top": 0.3885
     },
     "OPUSDT-1D-bearish-2026-09-06-2026-09-10": {
       "atr": 0.008675500000000001,
@@ -619,6 +730,33 @@
       "timeframe": "1D",
       "top": 0.05032
     },
+    "SEIUSDT-1D-bearish-2026-09-08-2026-09-15": {
+      "atr": 0.00266,
+      "bos_time": "2026-09-15",
+      "bottom": 0.04885,
+      "created_at": "2026-09-15",
+      "direction": "bearish",
+      "fractal_time": "2026-08-30",
+      "id": "SEIUSDT-1D-bearish-2026-09-08-2026-09-15",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-08",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "SEIUSDT",
+      "timeframe": "1D",
+      "top": 0.05181
+    },
     "SNXUSDT-1D-bearish-2026-09-06-2026-09-10": {
       "atr": 0.007974999999999996,
       "bos_time": "2026-09-10",
@@ -706,6 +844,33 @@
       "timeframe": "1D",
       "top": 0.8445
     },
+    "SUIUSDT-1D-bearish-2026-09-07-2026-09-15": {
+      "atr": 0.04749000000000002,
+      "bos_time": "2026-09-15",
+      "bottom": 0.8115,
+      "created_at": "2026-09-15",
+      "direction": "bearish",
+      "fractal_time": "2026-08-30",
+      "id": "SUIUSDT-1D-bearish-2026-09-07-2026-09-15",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-07",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "SUIUSDT",
+      "timeframe": "1D",
+      "top": 0.8445
+    },
     "SUSDT-1D-bearish-2026-09-04-2026-09-10": {
       "atr": 0.0022879999999999997,
       "bos_time": "2026-09-10",
@@ -735,6 +900,33 @@
       "timeframe": "1D",
       "top": 0.03236
     },
+    "SUSDT-1D-bearish-2026-09-06-2026-09-15": {
+      "atr": 0.0019720000000000002,
+      "bos_time": "2026-09-15",
+      "bottom": 0.02975,
+      "created_at": "2026-09-15",
+      "direction": "bearish",
+      "fractal_time": "2026-09-03",
+      "id": "SUSDT-1D-bearish-2026-09-06-2026-09-15",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-06",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "SUSDT",
+      "timeframe": "1D",
+      "top": 0.03107
+    },
     "SUSDT-1D-bearish-2026-09-08-2026-09-10": {
       "atr": 0.0022879999999999997,
       "bos_time": "2026-09-10",
@@ -763,6 +955,33 @@
       "symbol": "SUSDT",
       "timeframe": "1D",
       "top": 0.03053
+    },
+    "TIAUSDT-1D-bearish-2026-09-06-2026-09-15": {
+      "atr": 0.029110000000000004,
+      "bos_time": "2026-09-15",
+      "bottom": 0.379,
+      "created_at": "2026-09-15",
+      "direction": "bearish",
+      "fractal_time": "2026-09-04",
+      "id": "TIAUSDT-1D-bearish-2026-09-06-2026-09-15",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-06",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "strong BOS"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "TIAUSDT",
+      "timeframe": "1D",
+      "top": 0.4475
     }
   }
 }
