@@ -161,8 +161,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-04",
       "id": "ALGOUSDT-1D-bearish-2026-09-08-2026-09-15",
-      "last_checked_at": "2026-09-18T00:26:17.341538+00:00",
-      "last_price": 0.08997,
+      "last_checked_at": "2026-09-18T01:18:49.971746+00:00",
+      "last_price": 0.09081,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -191,8 +191,8 @@
       "direction": "bearish",
       "fractal_time": "2026-08-30",
       "id": "APEUSDT-1D-bearish-2026-09-07-2026-09-15",
-      "last_checked_at": "2026-09-18T00:26:17.570920+00:00",
-      "last_price": 0.12888,
+      "last_checked_at": "2026-09-18T01:18:50.194827+00:00",
+      "last_price": 0.1293,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -250,8 +250,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-03",
       "id": "BONKUSDT-1D-bearish-2026-09-06-2026-09-10",
-      "last_checked_at": "2026-09-18T00:26:18.400502+00:00",
-      "last_price": 2.717e-06,
+      "last_checked_at": "2026-09-18T01:18:50.434366+00:00",
+      "last_price": 2.747e-06,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -309,8 +309,8 @@
       "direction": "bullish",
       "fractal_time": "2026-08-22",
       "id": "FILUSDT-1D-bullish-2026-08-30-2026-09-13",
-      "last_checked_at": "2026-09-18T00:26:18.628742+00:00",
-      "last_price": 0.833,
+      "last_checked_at": "2026-09-18T01:18:50.667956+00:00",
+      "last_price": 0.849,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -338,8 +338,8 @@
       "direction": "bearish",
       "fractal_time": "2026-08-28",
       "id": "GALAUSDT-1D-bearish-2026-08-28-2026-09-10",
-      "last_checked_at": "2026-09-18T00:26:18.873221+00:00",
-      "last_price": 0.001826,
+      "last_checked_at": "2026-09-18T01:18:50.866609+00:00",
+      "last_price": 0.001841,
       "notifications": {
         "approach": true,
         "confirmed": false,
@@ -427,8 +427,8 @@
       "direction": "bearish",
       "fractal_time": "2026-08-31",
       "id": "IMXUSDT-1D-bearish-2026-09-07-2026-09-10",
-      "last_checked_at": "2026-09-18T00:26:19.513218+00:00",
-      "last_price": 0.1203,
+      "last_checked_at": "2026-09-18T01:18:51.087900+00:00",
+      "last_price": 0.12083,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -457,8 +457,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-02",
       "id": "LDOUSDT-1D-bearish-2026-09-06-2026-09-15",
-      "last_checked_at": "2026-09-18T00:26:19.748146+00:00",
-      "last_price": 0.3575,
+      "last_checked_at": "2026-09-18T01:18:51.309055+00:00",
+      "last_price": 0.3632,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -517,6 +517,8 @@
       "direction": "bullish",
       "fractal_time": "2025-10-03",
       "id": "NEARUSDT-1D-bullish-2026-02-11-2026-09-17",
+      "last_checked_at": "2026-09-18T01:18:51.530018+00:00",
+      "last_price": 3.184,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -545,8 +547,8 @@
       "direction": "bullish",
       "fractal_time": "2026-06-16",
       "id": "NEARUSDT-1D-bullish-2026-07-29-2026-09-16",
-      "last_checked_at": "2026-09-18T00:26:19.948751+00:00",
-      "last_price": 3.082,
+      "last_checked_at": "2026-09-18T01:18:51.760592+00:00",
+      "last_price": 3.184,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -575,6 +577,8 @@
       "direction": "bullish",
       "fractal_time": "2026-06-03",
       "id": "NEARUSDT-1D-bullish-2026-07-29-2026-09-17",
+      "last_checked_at": "2026-09-18T01:18:51.975883+00:00",
+      "last_price": 3.184,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -603,6 +607,8 @@
       "direction": "bullish",
       "fractal_time": "2026-09-11",
       "id": "NEARUSDT-1D-bullish-2026-09-13-2026-09-17",
+      "last_checked_at": "2026-09-18T01:18:52.200483+00:00",
+      "last_price": 3.184,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -631,8 +637,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-02",
       "id": "ONDOUSDT-1D-bearish-2026-09-06-2026-09-15",
-      "last_checked_at": "2026-09-18T00:26:20.164836+00:00",
-      "last_price": 0.3768,
+      "last_checked_at": "2026-09-18T01:18:52.427548+00:00",
+      "last_price": 0.3852,
       "notifications": {
         "approach": true,
         "confirmed": false,
@@ -662,8 +668,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-04",
       "id": "OPUSDT-1D-bearish-2026-09-06-2026-09-10",
-      "last_checked_at": "2026-09-18T00:26:20.452966+00:00",
-      "last_price": 0.10089,
+      "last_checked_at": "2026-09-18T01:18:52.645270+00:00",
+      "last_price": 0.10257,
       "notifications": {
         "approach": true,
         "confirmed": false,
@@ -691,8 +697,8 @@
       "direction": "bullish",
       "fractal_time": "2026-08-22",
       "id": "QTUMUSDT-1D-bullish-2026-08-30-2026-09-12",
-      "last_checked_at": "2026-09-18T00:26:20.677349+00:00",
-      "last_price": 0.8708,
+      "last_checked_at": "2026-09-18T01:18:52.963730+00:00",
+      "last_price": 0.8753,
       "notifications": {
         "approach": true,
         "confirmed": false,
@@ -720,13 +726,13 @@
       "direction": "bearish",
       "fractal_time": "2026-09-02",
       "id": "RENDERUSDT-1D-bearish-2026-09-06-2026-09-12",
-      "last_checked_at": "2026-09-18T00:26:20.901479+00:00",
-      "last_price": 1.443,
+      "last_checked_at": "2026-09-18T01:18:53.176684+00:00",
+      "last_price": 1.477,
       "notifications": {
         "approach": true,
         "confirmed": false,
         "new": true,
-        "touch": false
+        "touch": true
       },
       "ob_time": "2026-09-06",
       "reasons": [
@@ -736,10 +742,11 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "armed",
+      "status": "touched",
       "symbol": "RENDERUSDT",
       "timeframe": "1D",
-      "top": 1.574
+      "top": 1.574,
+      "touched_at": "2026-09-18T01:18:53.176684+00:00"
     },
     "RENDERUSDT-1D-bearish-2026-09-06-2026-09-13": {
       "atr": 0.0862,
@@ -749,13 +756,13 @@
       "direction": "bearish",
       "fractal_time": "2026-08-30",
       "id": "RENDERUSDT-1D-bearish-2026-09-06-2026-09-13",
-      "last_checked_at": "2026-09-18T00:26:21.114798+00:00",
-      "last_price": 1.443,
+      "last_checked_at": "2026-09-18T01:18:53.759662+00:00",
+      "last_price": 1.477,
       "notifications": {
         "approach": true,
         "confirmed": false,
         "new": true,
-        "touch": false
+        "touch": true
       },
       "ob_time": "2026-09-06",
       "reasons": [
@@ -765,10 +772,11 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "armed",
+      "status": "touched",
       "symbol": "RENDERUSDT",
       "timeframe": "1D",
-      "top": 1.574
+      "top": 1.574,
+      "touched_at": "2026-09-18T01:18:53.759662+00:00"
     },
     "SANDUSDT-1D-bearish-2026-09-07-2026-09-10": {
       "atr": 0.0034549999999999997,
@@ -778,8 +786,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-05",
       "id": "SANDUSDT-1D-bearish-2026-09-07-2026-09-10",
-      "last_checked_at": "2026-09-18T00:26:21.703392+00:00",
-      "last_price": 0.03701,
+      "last_checked_at": "2026-09-18T01:18:54.297862+00:00",
+      "last_price": 0.03718,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -807,8 +815,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-02",
       "id": "SANDUSDT-1D-bearish-2026-09-08-2026-09-10",
-      "last_checked_at": "2026-09-18T00:26:21.930377+00:00",
-      "last_price": 0.037,
+      "last_checked_at": "2026-09-18T01:18:54.528786+00:00",
+      "last_price": 0.03718,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -836,8 +844,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-04",
       "id": "SEIUSDT-1D-bearish-2026-09-08-2026-09-10",
-      "last_checked_at": "2026-09-18T00:26:22.162077+00:00",
-      "last_price": 0.04408,
+      "last_checked_at": "2026-09-18T01:18:54.739645+00:00",
+      "last_price": 0.04459,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -865,8 +873,8 @@
       "direction": "bearish",
       "fractal_time": "2026-08-30",
       "id": "SEIUSDT-1D-bearish-2026-09-08-2026-09-15",
-      "last_checked_at": "2026-09-18T00:26:22.375390+00:00",
-      "last_price": 0.04408,
+      "last_checked_at": "2026-09-18T01:18:54.959845+00:00",
+      "last_price": 0.04459,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -894,8 +902,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-11",
       "id": "SKYUSDT-1D-bearish-2026-09-14-2026-09-16",
-      "last_checked_at": "2026-09-18T00:26:22.591922+00:00",
-      "last_price": 0.05906,
+      "last_checked_at": "2026-09-18T01:18:55.172535+00:00",
+      "last_price": 0.05943,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -923,8 +931,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-03",
       "id": "SNXUSDT-1D-bearish-2026-09-06-2026-09-10",
-      "last_checked_at": "2026-09-18T00:26:22.810040+00:00",
-      "last_price": 0.2119,
+      "last_checked_at": "2026-09-18T01:18:55.388763+00:00",
+      "last_price": 0.2134,
       "notifications": {
         "approach": true,
         "confirmed": false,
@@ -952,8 +960,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-04",
       "id": "SUIUSDT-1D-bearish-2026-09-07-2026-09-10",
-      "last_checked_at": "2026-09-18T00:26:23.059589+00:00",
-      "last_price": 0.7383,
+      "last_checked_at": "2026-09-18T01:18:55.594317+00:00",
+      "last_price": 0.7531,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -981,8 +989,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-02",
       "id": "SUIUSDT-1D-bearish-2026-09-07-2026-09-13",
-      "last_checked_at": "2026-09-18T00:26:23.289022+00:00",
-      "last_price": 0.7383,
+      "last_checked_at": "2026-09-18T01:18:55.819354+00:00",
+      "last_price": 0.7531,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -1010,8 +1018,8 @@
       "direction": "bearish",
       "fractal_time": "2026-08-30",
       "id": "SUIUSDT-1D-bearish-2026-09-07-2026-09-15",
-      "last_checked_at": "2026-09-18T00:26:23.517234+00:00",
-      "last_price": 0.7383,
+      "last_checked_at": "2026-09-18T01:18:56.042402+00:00",
+      "last_price": 0.7531,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -1039,8 +1047,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-02",
       "id": "SUSDT-1D-bearish-2026-09-04-2026-09-10",
-      "last_checked_at": "2026-09-18T00:26:23.717218+00:00",
-      "last_price": 0.027,
+      "last_checked_at": "2026-09-18T01:18:56.261343+00:00",
+      "last_price": 0.02722,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -1068,8 +1076,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-03",
       "id": "SUSDT-1D-bearish-2026-09-06-2026-09-15",
-      "last_checked_at": "2026-09-18T00:26:23.933671+00:00",
-      "last_price": 0.027,
+      "last_checked_at": "2026-09-18T01:18:56.471411+00:00",
+      "last_price": 0.02722,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -1097,8 +1105,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-07",
       "id": "SUSDT-1D-bearish-2026-09-08-2026-09-10",
-      "last_checked_at": "2026-09-18T00:26:24.173803+00:00",
-      "last_price": 0.027,
+      "last_checked_at": "2026-09-18T01:18:56.693124+00:00",
+      "last_price": 0.02722,
       "notifications": {
         "approach": true,
         "confirmed": false,
@@ -1126,8 +1134,8 @@
       "direction": "bearish",
       "fractal_time": "2026-09-04",
       "id": "TIAUSDT-1D-bearish-2026-09-06-2026-09-15",
-      "last_checked_at": "2026-09-18T00:26:24.397026+00:00",
-      "last_price": 0.353,
+      "last_checked_at": "2026-09-18T01:18:56.939300+00:00",
+      "last_price": 0.3598,
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -1155,6 +1163,8 @@
       "direction": "bullish",
       "fractal_time": "2026-09-11",
       "id": "USELESSUSDT-1D-bullish-2026-09-14-2026-09-17",
+      "last_checked_at": "2026-09-18T01:18:57.152234+00:00",
+      "last_price": 0.26045,
       "notifications": {
         "approach": false,
         "confirmed": false,
