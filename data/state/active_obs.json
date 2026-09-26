@@ -1517,6 +1517,33 @@
       "timeframe": "1D",
       "top": 0.01344
     },
+    "GRTUSDT-1D-bullish-2026-08-18-2026-09-25": {
+      "atr": 0.0017374999999999995,
+      "bos_time": "2026-09-25",
+      "bottom": 0.01295,
+      "created_at": "2026-09-25",
+      "direction": "bullish",
+      "fractal_time": "2026-06-01",
+      "id": "GRTUSDT-1D-bullish-2026-08-18-2026-09-25",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-08-18",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "GRTUSDT",
+      "timeframe": "1D",
+      "top": 0.01344
+    },
     "GRTUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.0012095,
       "bos_time": "2026-09-18",
@@ -2073,6 +2100,33 @@
       "timeframe": "1D",
       "top": 11.51
     },
+    "LINKUSDT-1D-bullish-2026-09-15-2026-09-25": {
+      "atr": 0.7972999999999998,
+      "bos_time": "2026-09-25",
+      "bottom": 10.786,
+      "created_at": "2026-09-25",
+      "direction": "bullish",
+      "fractal_time": "2026-09-07",
+      "id": "LINKUSDT-1D-bullish-2026-09-15-2026-09-25",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-15",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "LINKUSDT",
+      "timeframe": "1D",
+      "top": 11.51
+    },
     "LTCUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 2.404000000000001,
       "bos_time": "2026-09-18",
@@ -2171,6 +2225,33 @@
       "id": "MANAUSDT-1D-bullish-2026-06-30-2026-09-19",
       "last_checked_at": "2026-09-25T09:21:17.062141+00:00",
       "last_price": 0.09073,
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-06-30",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "MANAUSDT",
+      "timeframe": "1D",
+      "top": 0.06379
+    },
+    "MANAUSDT-1D-bullish-2026-06-30-2026-09-25": {
+      "atr": 0.0045655,
+      "bos_time": "2026-09-25",
+      "bottom": 0.06088,
+      "created_at": "2026-09-25",
+      "direction": "bullish",
+      "fractal_time": "2026-05-26",
+      "id": "MANAUSDT-1D-bullish-2026-06-30-2026-09-25",
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -2519,6 +2600,33 @@
       "timeframe": "1D",
       "top": 0.08419
     },
+    "OPUSDT-1D-bullish-2026-08-18-2026-09-25": {
+      "atr": 0.011179500000000004,
+      "bos_time": "2026-09-25",
+      "bottom": 0.08041,
+      "created_at": "2026-09-25",
+      "direction": "bullish",
+      "fractal_time": "2026-05-22",
+      "id": "OPUSDT-1D-bullish-2026-08-18-2026-09-25",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-08-18",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "OPUSDT",
+      "timeframe": "1D",
+      "top": 0.08419
+    },
     "OPUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.008531,
       "bos_time": "2026-09-18",
@@ -2829,6 +2937,33 @@
       "id": "SEIUSDT-1D-bullish-2026-08-18-2026-09-20",
       "last_checked_at": "2026-09-25T09:21:19.490188+00:00",
       "last_price": 0.06595,
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-08-18",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "SEIUSDT",
+      "timeframe": "1D",
+      "top": 0.03966
+    },
+    "SEIUSDT-1D-bullish-2026-08-18-2026-09-25": {
+      "atr": 0.004360000000000001,
+      "bos_time": "2026-09-25",
+      "bottom": 0.03816,
+      "created_at": "2026-09-25",
+      "direction": "bullish",
+      "fractal_time": "2026-06-01",
+      "id": "SEIUSDT-1D-bullish-2026-08-18-2026-09-25",
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -3244,6 +3379,33 @@
       "id": "SUIUSDT-1D-bullish-2026-08-18-2026-09-21",
       "last_checked_at": "2026-09-25T09:21:21.072765+00:00",
       "last_price": 1.034,
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-08-18",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "SUIUSDT",
+      "timeframe": "1D",
+      "top": 0.6746
+    },
+    "SUIUSDT-1D-bullish-2026-08-18-2026-09-25": {
+      "atr": 0.07492000000000001,
+      "bos_time": "2026-09-25",
+      "bottom": 0.631,
+      "created_at": "2026-09-25",
+      "direction": "bullish",
+      "fractal_time": "2026-05-21",
+      "id": "SUIUSDT-1D-bullish-2026-08-18-2026-09-25",
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -3718,7 +3880,7 @@
       "last_price": 0.33703,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -3730,7 +3892,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "TRXUSDT",
       "timeframe": "1D",
       "top": 0.33771,
@@ -3748,7 +3910,7 @@
       "last_price": 0.33703,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -3760,7 +3922,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "TRXUSDT",
       "timeframe": "1D",
       "top": 0.33771,
