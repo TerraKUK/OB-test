@@ -60,6 +60,21 @@
       "symbol": "AVAXUSDT",
       "timeframe": "1D"
     },
+    "BNBUSDT-1D-rsi-tv-regular-bearish-2026-09-05-2026-09-21": {
+      "confirmed_time": "2026-09-26",
+      "created_at": "2026-09-26",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-05",
+      "first_price": 781.9,
+      "first_rsi": 78.31470122294672,
+      "id": "BNBUSDT-1D-rsi-tv-regular-bearish-2026-09-05-2026-09-21",
+      "kind": "regular",
+      "pivot_time": "2026-09-21",
+      "price": 807.4,
+      "rsi": 72.375001152902,
+      "symbol": "BNBUSDT",
+      "timeframe": "1D"
+    },
     "CHZUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-13": {
       "confirmed_time": "2026-09-18",
       "created_at": "2026-09-18",
