@@ -60,6 +60,21 @@
       "symbol": "AVAXUSDT",
       "timeframe": "1D"
     },
+    "BLURUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-22": {
+      "confirmed_time": "2026-09-27",
+      "created_at": "2026-09-27",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-06",
+      "first_price": 0.01808,
+      "first_rsi": 69.88429658500559,
+      "id": "BLURUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-22",
+      "kind": "regular",
+      "pivot_time": "2026-09-22",
+      "price": 0.02063,
+      "rsi": 69.60998400385252,
+      "symbol": "BLURUSDT",
+      "timeframe": "1D"
+    },
     "BNBUSDT-1D-rsi-tv-regular-bearish-2026-09-05-2026-09-21": {
       "confirmed_time": "2026-09-26",
       "created_at": "2026-09-26",
@@ -135,6 +150,21 @@
       "symbol": "HBARUSDT",
       "timeframe": "1D"
     },
+    "HYPEUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-22": {
+      "confirmed_time": "2026-09-27",
+      "created_at": "2026-09-27",
+      "direction": "bearish",
+      "first_pivot_time": "2026-08-23",
+      "first_price": 83.446,
+      "first_rsi": 81.95239004152035,
+      "id": "HYPEUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-22",
+      "kind": "regular",
+      "pivot_time": "2026-09-22",
+      "price": 97.799,
+      "rsi": 70.4682251458274,
+      "symbol": "HYPEUSDT",
+      "timeframe": "1D"
+    },
     "IMXUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-07": {
       "confirmed_time": "2026-09-12",
       "created_at": "2026-09-12",
@@ -162,6 +192,21 @@
       "pivot_time": "2026-09-08",
       "price": 4.287,
       "rsi": 75.54128555833618,
+      "symbol": "KSMUSDT",
+      "timeframe": "1D"
+    },
+    "KSMUSDT-1D-rsi-tv-regular-bearish-2026-09-08-2026-09-22": {
+      "confirmed_time": "2026-09-27",
+      "created_at": "2026-09-27",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-08",
+      "first_price": 4.287,
+      "first_rsi": 75.54128555830384,
+      "id": "KSMUSDT-1D-rsi-tv-regular-bearish-2026-09-08-2026-09-22",
+      "kind": "regular",
+      "pivot_time": "2026-09-22",
+      "price": 4.751,
+      "rsi": 73.85916104750294,
       "symbol": "KSMUSDT",
       "timeframe": "1D"
     },
@@ -195,6 +240,21 @@
       "symbol": "NEOUSDT",
       "timeframe": "1D"
     },
+    "PEPEUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-22": {
+      "confirmed_time": "2026-09-27",
+      "created_at": "2026-09-27",
+      "direction": "bearish",
+      "first_pivot_time": "2026-08-21",
+      "first_price": 4.238e-06,
+      "first_rsi": 83.9821920464526,
+      "id": "PEPEUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-22",
+      "kind": "regular",
+      "pivot_time": "2026-09-22",
+      "price": 5.364e-06,
+      "rsi": 76.74990112769994,
+      "symbol": "PEPEUSDT",
+      "timeframe": "1D"
+    },
     "QTUMUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-13": {
       "confirmed_time": "2026-09-18",
       "created_at": "2026-09-18",
@@ -208,6 +268,51 @@
       "price": 0.9998,
       "rsi": 71.33838598617042,
       "symbol": "QTUMUSDT",
+      "timeframe": "1D"
+    },
+    "QTUMUSDT-1D-rsi-tv-regular-bearish-2026-09-13-2026-09-22": {
+      "confirmed_time": "2026-09-27",
+      "created_at": "2026-09-27",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-13",
+      "first_price": 0.9998,
+      "first_rsi": 71.33838598633027,
+      "id": "QTUMUSDT-1D-rsi-tv-regular-bearish-2026-09-13-2026-09-22",
+      "kind": "regular",
+      "pivot_time": "2026-09-22",
+      "price": 1.0175,
+      "rsi": 68.08136493566937,
+      "symbol": "QTUMUSDT",
+      "timeframe": "1D"
+    },
+    "UNIUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-22": {
+      "confirmed_time": "2026-09-27",
+      "created_at": "2026-09-27",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-06",
+      "first_price": 7.482,
+      "first_rsi": 84.32618603367368,
+      "id": "UNIUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-22",
+      "kind": "regular",
+      "pivot_time": "2026-09-22",
+      "price": 10.361,
+      "rsi": 81.56328565165636,
+      "symbol": "UNIUSDT",
+      "timeframe": "1D"
+    },
+    "USELESSUSDT-1D-rsi-tv-regular-bearish-2026-09-04-2026-09-22": {
+      "confirmed_time": "2026-09-27",
+      "created_at": "2026-09-27",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-04",
+      "first_price": 0.2885,
+      "first_rsi": 92.94846248129357,
+      "id": "USELESSUSDT-1D-rsi-tv-regular-bearish-2026-09-04-2026-09-22",
+      "kind": "regular",
+      "pivot_time": "2026-09-22",
+      "price": 0.35819,
+      "rsi": 69.76459704951132,
+      "symbol": "USELESSUSDT",
       "timeframe": "1D"
     },
     "XRPUSDT-1D-rsi-tv-regular-bearish-2026-09-03-2026-09-14": {
@@ -1559,6 +1664,33 @@
       "timeframe": "1D",
       "top": 0.01344
     },
+    "GRTUSDT-1D-bullish-2026-08-18-2026-09-27": {
+      "atr": 0.0021024999999999993,
+      "bos_time": "2026-09-27",
+      "bottom": 0.01295,
+      "created_at": "2026-09-27",
+      "direction": "bullish",
+      "fractal_time": "2026-05-26",
+      "id": "GRTUSDT-1D-bullish-2026-08-18-2026-09-27",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-08-18",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "GRTUSDT",
+      "timeframe": "1D",
+      "top": 0.01344
+    },
     "GRTUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.0012095,
       "bos_time": "2026-09-18",
@@ -1823,6 +1955,33 @@
       "timeframe": "1D",
       "top": 0.1061
     },
+    "IMXUSDT-1D-bullish-2026-08-18-2026-09-27": {
+      "atr": 0.010741999999999998,
+      "bos_time": "2026-09-27",
+      "bottom": 0.0976,
+      "created_at": "2026-09-27",
+      "direction": "bullish",
+      "fractal_time": "2026-06-01",
+      "id": "IMXUSDT-1D-bullish-2026-08-18-2026-09-27",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-08-18",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "IMXUSDT",
+      "timeframe": "1D",
+      "top": 0.1061
+    },
     "IMXUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.007285499999999998,
       "bos_time": "2026-09-18",
@@ -1967,6 +2126,34 @@
       "symbol": "INJUSDT",
       "timeframe": "1D",
       "top": 5.433
+    },
+    "JUPUSDT-1D-bullish-2026-02-11-2026-09-27": {
+      "atr": 0.026019999999999998,
+      "bos_time": "2026-09-27",
+      "bottom": 0.1357,
+      "created_at": "2026-09-27",
+      "direction": "bullish",
+      "fractal_time": "2025-11-07",
+      "id": "JUPUSDT-1D-bullish-2026-02-11-2026-09-27",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-02-11",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 5,
+      "status": "armed",
+      "symbol": "JUPUSDT",
+      "timeframe": "1D",
+      "top": 0.1424
     },
     "JUPUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.023840000000000004,
@@ -2700,6 +2887,62 @@
       "timeframe": "1D",
       "top": 2.326e-06
     },
+    "PUMPUSDT-1D-bullish-2026-09-15-2026-09-27": {
+      "atr": 0.00046025,
+      "bos_time": "2026-09-27",
+      "bottom": 0.003447,
+      "created_at": "2026-09-27",
+      "direction": "bullish",
+      "fractal_time": "2026-09-09",
+      "id": "PUMPUSDT-1D-bullish-2026-09-15-2026-09-27",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-15",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 5,
+      "status": "armed",
+      "symbol": "PUMPUSDT",
+      "timeframe": "1D",
+      "top": 0.00368
+    },
+    "PUMPUSDT-1D-bullish-2026-09-24-2026-09-27": {
+      "atr": 0.00046025,
+      "bos_time": "2026-09-27",
+      "bottom": 0.003744,
+      "created_at": "2026-09-27",
+      "direction": "bullish",
+      "fractal_time": "2026-09-22",
+      "id": "PUMPUSDT-1D-bullish-2026-09-24-2026-09-27",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-24",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 5,
+      "status": "armed",
+      "symbol": "PUMPUSDT",
+      "timeframe": "1D",
+      "top": 0.004002
+    },
     "QTUMUSDT-1D-bullish-2026-08-30-2026-09-12": {
       "atr": 0.04828500000000001,
       "bos_time": "2026-09-12",
@@ -2979,6 +3222,33 @@
       "direction": "bullish",
       "fractal_time": "2026-06-01",
       "id": "SEIUSDT-1D-bullish-2026-08-18-2026-09-25",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-08-18",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "SEIUSDT",
+      "timeframe": "1D",
+      "top": 0.03966
+    },
+    "SEIUSDT-1D-bullish-2026-08-18-2026-09-27": {
+      "atr": 0.004843000000000002,
+      "bos_time": "2026-09-27",
+      "bottom": 0.03816,
+      "created_at": "2026-09-27",
+      "direction": "bullish",
+      "fractal_time": "2026-02-17",
+      "id": "SEIUSDT-1D-bullish-2026-08-18-2026-09-27",
       "notifications": {
         "approach": false,
         "confirmed": false,
