@@ -525,6 +525,33 @@
       "timeframe": "1D",
       "top": 0.07988
     },
+    "ALGOUSDT-1D-bullish-2026-07-29-2026-09-28": {
+      "atr": 0.008956500000000001,
+      "bos_time": "2026-09-28",
+      "bottom": 0.07557,
+      "created_at": "2026-09-28",
+      "direction": "bullish",
+      "fractal_time": "2026-01-17",
+      "id": "ALGOUSDT-1D-bullish-2026-07-29-2026-09-28",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-07-29",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "ALGOUSDT",
+      "timeframe": "1D",
+      "top": 0.07988
+    },
     "ALGOUSDT-1D-bullish-2026-08-30-2026-09-19": {
       "atr": 0.006362500000000002,
       "bos_time": "2026-09-19",
@@ -1763,6 +1790,33 @@
       "id": "HBARUSDT-1D-bullish-2026-08-16-2026-09-20",
       "last_checked_at": "2026-09-28T15:23:54.232521+00:00",
       "last_price": 0.11709,
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-08-16",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "HBARUSDT",
+      "timeframe": "1D",
+      "top": 0.06543
+    },
+    "HBARUSDT-1D-bullish-2026-08-16-2026-09-28": {
+      "atr": 0.006999500000000001,
+      "bos_time": "2026-09-28",
+      "bottom": 0.06438,
+      "created_at": "2026-09-28",
+      "direction": "bullish",
+      "fractal_time": "2026-05-30",
+      "id": "HBARUSDT-1D-bullish-2026-08-16-2026-09-28",
       "notifications": {
         "approach": false,
         "confirmed": false,
@@ -4412,6 +4466,33 @@
       "symbol": "XLMUSDT",
       "timeframe": "1D",
       "top": 0.15804
+    },
+    "XLMUSDT-1D-bullish-2026-09-02-2026-09-28": {
+      "atr": 0.013963500000000007,
+      "bos_time": "2026-09-28",
+      "bottom": 0.17119,
+      "created_at": "2026-09-28",
+      "direction": "bullish",
+      "fractal_time": "2026-08-22",
+      "id": "XLMUSDT-1D-bullish-2026-09-02-2026-09-28",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-02",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "XLMUSDT",
+      "timeframe": "1D",
+      "top": 0.17564
     }
   }
 }
