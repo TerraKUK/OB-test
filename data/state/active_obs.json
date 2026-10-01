@@ -180,6 +180,21 @@
       "symbol": "IMXUSDT",
       "timeframe": "1D"
     },
+    "INJUSDT-1D-rsi-tv-regular-bearish-2026-09-19-2026-09-25": {
+      "confirmed_time": "2026-09-30",
+      "created_at": "2026-09-30",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-19",
+      "first_price": 8.351,
+      "first_rsi": 72.85371955025595,
+      "id": "INJUSDT-1D-rsi-tv-regular-bearish-2026-09-19-2026-09-25",
+      "kind": "regular",
+      "pivot_time": "2026-09-25",
+      "price": 8.405,
+      "rsi": 72.56682583982142,
+      "symbol": "INJUSDT",
+      "timeframe": "1D"
+    },
     "KSMUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-08": {
       "confirmed_time": "2026-09-13",
       "created_at": "2026-09-13",
@@ -208,6 +223,21 @@
       "price": 4.751,
       "rsi": 73.85916104750294,
       "symbol": "KSMUSDT",
+      "timeframe": "1D"
+    },
+    "LDOUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-25": {
+      "confirmed_time": "2026-09-30",
+      "created_at": "2026-09-30",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-06",
+      "first_price": 0.4339,
+      "first_rsi": 69.86646920432861,
+      "id": "LDOUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-25",
+      "kind": "regular",
+      "pivot_time": "2026-09-25",
+      "price": 0.5064,
+      "rsi": 69.04887759787064,
+      "symbol": "LDOUSDT",
       "timeframe": "1D"
     },
     "LTCUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-07": {
@@ -1224,6 +1254,33 @@
       "symbol": "COMPUSDT",
       "timeframe": "1D",
       "top": 19.54
+    },
+    "CRVUSDT-1D-bullish-2026-09-15-2026-09-30": {
+      "atr": 0.03028000000000001,
+      "bos_time": "2026-09-30",
+      "bottom": 0.3088,
+      "created_at": "2026-09-30",
+      "direction": "bullish",
+      "fractal_time": "2026-09-02",
+      "id": "CRVUSDT-1D-bullish-2026-09-15-2026-09-30",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-15",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "CRVUSDT",
+      "timeframe": "1D",
+      "top": 0.3471
     },
     "DOGEUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.004692,
