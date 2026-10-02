@@ -3575,6 +3575,34 @@
       "timeframe": "1D",
       "top": 0.06525
     },
+    "SKYUSDT-1D-bullish-2026-06-27-2026-10-01": {
+      "atr": 0.006131000000000001,
+      "bos_time": "2026-10-01",
+      "bottom": 0.04852,
+      "created_at": "2026-10-01",
+      "direction": "bullish",
+      "fractal_time": "2026-05-05",
+      "id": "SKYUSDT-1D-bullish-2026-06-27-2026-10-01",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-06-27",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 5,
+      "status": "armed",
+      "symbol": "SKYUSDT",
+      "timeframe": "1D",
+      "top": 0.04988
+    },
     "SNXUSDT-1D-bearish-2026-09-06-2026-09-10": {
       "atr": 0.007974999999999996,
       "bos_time": "2026-09-10",
