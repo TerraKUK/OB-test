@@ -60,6 +60,21 @@
       "symbol": "AVAXUSDT",
       "timeframe": "1D"
     },
+    "AVAXUSDT-1D-rsi-tv-regular-bearish-2026-09-20-2026-09-29": {
+      "confirmed_time": "2026-10-04",
+      "created_at": "2026-10-04",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-20",
+      "first_price": 11.469,
+      "first_rsi": 83.83173962322428,
+      "id": "AVAXUSDT-1D-rsi-tv-regular-bearish-2026-09-20-2026-09-29",
+      "kind": "regular",
+      "pivot_time": "2026-09-29",
+      "price": 12.005,
+      "rsi": 71.73589728280646,
+      "symbol": "AVAXUSDT",
+      "timeframe": "1D"
+    },
     "BLURUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-22": {
       "confirmed_time": "2026-09-27",
       "created_at": "2026-09-27",
@@ -178,6 +193,21 @@
       "price": 97.799,
       "rsi": 70.4682251458274,
       "symbol": "HYPEUSDT",
+      "timeframe": "1D"
+    },
+    "ICPUSDT-1D-rsi-tv-regular-bearish-2026-09-07-2026-09-29": {
+      "confirmed_time": "2026-10-04",
+      "created_at": "2026-10-04",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-07",
+      "first_price": 3.126,
+      "first_rsi": 74.56173105058983,
+      "id": "ICPUSDT-1D-rsi-tv-regular-bearish-2026-09-07-2026-09-29",
+      "kind": "regular",
+      "pivot_time": "2026-09-29",
+      "price": 3.551,
+      "rsi": 72.81515634312032,
+      "symbol": "ICPUSDT",
       "timeframe": "1D"
     },
     "IMXUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-07": {
