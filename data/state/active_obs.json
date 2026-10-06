@@ -270,6 +270,21 @@
       "symbol": "KSMUSDT",
       "timeframe": "1D"
     },
+    "KSMUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-09-30": {
+      "confirmed_time": "2026-10-05",
+      "created_at": "2026-10-05",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-22",
+      "first_price": 4.751,
+      "first_rsi": 73.85916104616967,
+      "id": "KSMUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-09-30",
+      "kind": "regular",
+      "pivot_time": "2026-09-30",
+      "price": 5.367,
+      "rsi": 71.58778296421835,
+      "symbol": "KSMUSDT",
+      "timeframe": "1D"
+    },
     "LDOUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-25": {
       "confirmed_time": "2026-09-30",
       "created_at": "2026-09-30",
@@ -343,6 +358,21 @@
       "price": 5.364e-06,
       "rsi": 76.74990112769994,
       "symbol": "PEPEUSDT",
+      "timeframe": "1D"
+    },
+    "PUMPUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-30": {
+      "confirmed_time": "2026-10-05",
+      "created_at": "2026-10-05",
+      "direction": "bearish",
+      "first_pivot_time": "2026-08-23",
+      "first_price": 0.005459,
+      "first_rsi": 88.30672110236455,
+      "id": "PUMPUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-30",
+      "kind": "regular",
+      "pivot_time": "2026-09-30",
+      "price": 0.006016,
+      "rsi": 70.4932677929549,
+      "symbol": "PUMPUSDT",
       "timeframe": "1D"
     },
     "QTUMUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-13": {
