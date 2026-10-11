@@ -1,5 +1,35 @@
 {
   "divergences": {
+    "1INCHUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-05": {
+      "confirmed_time": "2026-10-10",
+      "created_at": "2026-10-10",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-22",
+      "first_price": 0.10465,
+      "first_rsi": 68.61504846656409,
+      "id": "1INCHUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-05",
+      "kind": "regular",
+      "pivot_time": "2026-10-05",
+      "price": 0.10783,
+      "rsi": 66.24996117357114,
+      "symbol": "1INCHUSDT",
+      "timeframe": "1D"
+    },
+    "ADAUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-05": {
+      "confirmed_time": "2026-10-10",
+      "created_at": "2026-10-10",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-22",
+      "first_price": 0.2579,
+      "first_rsi": 71.79668474067454,
+      "id": "ADAUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-05",
+      "kind": "regular",
+      "pivot_time": "2026-10-05",
+      "price": 0.277,
+      "rsi": 69.19610101322944,
+      "symbol": "ADAUSDT",
+      "timeframe": "1D"
+    },
     "ALGOUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-08": {
       "confirmed_time": "2026-09-13",
       "created_at": "2026-09-13",
@@ -42,6 +72,21 @@
       "pivot_time": "2026-09-08",
       "price": 0.6723,
       "rsi": 62.3067241820787,
+      "symbol": "APTUSDT",
+      "timeframe": "1D"
+    },
+    "APTUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-05": {
+      "confirmed_time": "2026-10-10",
+      "created_at": "2026-10-10",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-22",
+      "first_price": 0.8398,
+      "first_rsi": 75.1079820077373,
+      "id": "APTUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-05",
+      "kind": "regular",
+      "pivot_time": "2026-10-05",
+      "price": 0.8596,
+      "rsi": 63.51276746871337,
       "symbol": "APTUSDT",
       "timeframe": "1D"
     },
@@ -225,6 +270,21 @@
       "symbol": "FILUSDT",
       "timeframe": "1D"
     },
+    "FILUSDT-1D-rsi-tv-regular-bearish-2026-09-27-2026-10-05": {
+      "confirmed_time": "2026-10-10",
+      "created_at": "2026-10-10",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-27",
+      "first_price": 1.1594,
+      "first_rsi": 68.98372107526308,
+      "id": "FILUSDT-1D-rsi-tv-regular-bearish-2026-09-27-2026-10-05",
+      "kind": "regular",
+      "pivot_time": "2026-10-05",
+      "price": 1.2038,
+      "rsi": 67.91420636400946,
+      "symbol": "FILUSDT",
+      "timeframe": "1D"
+    },
     "HBARUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-07": {
       "confirmed_time": "2026-09-12",
       "created_at": "2026-09-12",
@@ -403,6 +463,21 @@
       "price": 2.233,
       "rsi": 63.17750696944105,
       "symbol": "NEOUSDT",
+      "timeframe": "1D"
+    },
+    "OPUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-05": {
+      "confirmed_time": "2026-10-10",
+      "created_at": "2026-10-10",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-22",
+      "first_price": 0.13808,
+      "first_rsi": 73.26498688173987,
+      "id": "OPUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-05",
+      "kind": "regular",
+      "pivot_time": "2026-10-05",
+      "price": 0.14096,
+      "rsi": 60.579783301484625,
+      "symbol": "OPUSDT",
       "timeframe": "1D"
     },
     "PEPEUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-22": {
@@ -5064,6 +5139,33 @@
       "id": "TIAUSDT-1D-bullish-2026-06-05-2026-09-22",
       "last_checked_at": "2026-10-10T02:21:59.656735+00:00",
       "last_price": 0.4851,
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-06-05",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "TIAUSDT",
+      "timeframe": "1D",
+      "top": 0.3369
+    },
+    "TIAUSDT-1D-bullish-2026-06-05-2026-10-10": {
+      "atr": 0.053845,
+      "bos_time": "2026-10-10",
+      "bottom": 0.2843,
+      "created_at": "2026-10-10",
+      "direction": "bullish",
+      "fractal_time": "2026-05-13",
+      "id": "TIAUSDT-1D-bullish-2026-06-05-2026-10-10",
       "notifications": {
         "approach": false,
         "confirmed": false,
