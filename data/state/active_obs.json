@@ -555,6 +555,21 @@
       "symbol": "RENDERUSDT",
       "timeframe": "1D"
     },
+    "RENDERUSDT-1D-rsi-tv-regular-bearish-2026-09-27-2026-10-06": {
+      "confirmed_time": "2026-10-11",
+      "created_at": "2026-10-11",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-27",
+      "first_price": 2.093,
+      "first_rsi": 74.73538476689473,
+      "id": "RENDERUSDT-1D-rsi-tv-regular-bearish-2026-09-27-2026-10-06",
+      "kind": "regular",
+      "pivot_time": "2026-10-06",
+      "price": 2.199,
+      "rsi": 72.84092992627455,
+      "symbol": "RENDERUSDT",
+      "timeframe": "1D"
+    },
     "SOLUSDT-1D-rsi-tv-regular-bearish-2026-09-21-2026-10-04": {
       "confirmed_time": "2026-10-09",
       "created_at": "2026-10-09",
@@ -583,6 +598,21 @@
       "price": 1.2951,
       "rsi": 76.94741662036384,
       "symbol": "SUIUSDT",
+      "timeframe": "1D"
+    },
+    "THETAUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-06": {
+      "confirmed_time": "2026-10-11",
+      "created_at": "2026-10-11",
+      "direction": "bearish",
+      "first_pivot_time": "2026-09-22",
+      "first_price": 0.2349,
+      "first_rsi": 70.06764643039276,
+      "id": "THETAUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-06",
+      "kind": "regular",
+      "pivot_time": "2026-10-06",
+      "price": 0.2454,
+      "rsi": 63.492492271004366,
+      "symbol": "THETAUSDT",
       "timeframe": "1D"
     },
     "UNIUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-22": {
@@ -2009,7 +2039,7 @@
       "last_price": 2533.77,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -2021,7 +2051,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "ETHUSDT",
       "timeframe": "1D",
       "top": 2514.18,
@@ -4964,6 +4994,33 @@
       "id": "SUSDT-1D-bullish-2026-06-25-2026-09-22",
       "last_checked_at": "2026-10-11T22:48:32.434540+00:00",
       "last_price": 0.06064,
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-06-25",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "SUSDT",
+      "timeframe": "1D",
+      "top": 0.0209
+    },
+    "SUSDT-1D-bullish-2026-06-25-2026-10-11": {
+      "atr": 0.0052245,
+      "bos_time": "2026-10-11",
+      "bottom": 0.01895,
+      "created_at": "2026-10-11",
+      "direction": "bullish",
+      "fractal_time": "2026-05-22",
+      "id": "SUSDT-1D-bullish-2026-06-25-2026-10-11",
       "notifications": {
         "approach": false,
         "confirmed": false,
