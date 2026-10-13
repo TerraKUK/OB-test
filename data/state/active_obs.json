@@ -1777,7 +1777,7 @@
       "last_price": 0.01445,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -1789,7 +1789,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "CHZUSDT",
       "timeframe": "1D",
       "top": 0.0145,
@@ -2088,6 +2088,34 @@
       "symbol": "FILUSDT",
       "timeframe": "1D",
       "top": 0.6819
+    },
+    "FLOKIUSDT-1D-bearish-2026-10-05-2026-10-12": {
+      "atr": 1.924e-06,
+      "bos_time": "2026-10-12",
+      "bottom": 2.898e-05,
+      "created_at": "2026-10-12",
+      "direction": "bearish",
+      "fractal_time": "2026-09-29",
+      "id": "FLOKIUSDT-1D-bearish-2026-10-05-2026-10-12",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-05",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 5,
+      "status": "armed",
+      "symbol": "FLOKIUSDT",
+      "timeframe": "1D",
+      "top": 2.998e-05
     },
     "FLOKIUSDT-1D-bullish-2026-09-15-2026-09-21": {
       "atr": 1.691e-06,
@@ -2599,7 +2627,7 @@
       "last_price": 3.091,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -2611,7 +2639,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "ICPUSDT",
       "timeframe": "1D",
       "top": 3.609,
