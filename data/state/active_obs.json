@@ -675,6 +675,21 @@
       "symbol": "WLDUSDT",
       "timeframe": "1D"
     },
+    "WLFIUSDT-1D-rsi-tv-regular-bullish-2026-09-30-2026-10-08": {
+      "confirmed_time": "2026-10-13",
+      "created_at": "2026-10-13",
+      "direction": "bullish",
+      "first_pivot_time": "2026-09-30",
+      "first_price": 0.05432,
+      "first_rsi": 42.620615528723874,
+      "id": "WLFIUSDT-1D-rsi-tv-regular-bullish-2026-09-30-2026-10-08",
+      "kind": "regular",
+      "pivot_time": "2026-10-08",
+      "price": 0.05362,
+      "rsi": 42.67626783331308,
+      "symbol": "WLFIUSDT",
+      "timeframe": "1D"
+    },
     "XRPUSDT-1D-rsi-tv-regular-bearish-2026-09-03-2026-09-14": {
       "confirmed_time": "2026-09-19",
       "created_at": "2026-09-19",
@@ -3705,6 +3720,33 @@
       "symbol": "OPUSDT",
       "timeframe": "1D",
       "top": 0.10215
+    },
+    "OPUSDT-1D-bullish-2026-10-08-2026-10-13": {
+      "atr": 0.013349,
+      "bos_time": "2026-10-13",
+      "bottom": 0.1108,
+      "created_at": "2026-10-13",
+      "direction": "bullish",
+      "fractal_time": "2026-09-28",
+      "id": "OPUSDT-1D-bullish-2026-10-08-2026-10-13",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-08",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "OPUSDT",
+      "timeframe": "1D",
+      "top": 0.123
     },
     "PEPEUSDT-1D-bullish-2026-07-01-2026-09-21": {
       "atr": 3.1645e-07,
