@@ -4185,6 +4185,33 @@
       "timeframe": "1D",
       "top": 4.091e-06
     },
+    "PEPEUSDT-1D-bullish-2026-10-08-2026-10-21": {
+      "atr": 3.1185000000000003e-07,
+      "bos_time": "2026-10-21",
+      "bottom": 3.636e-06,
+      "created_at": "2026-10-21",
+      "direction": "bullish",
+      "fractal_time": "2026-10-05",
+      "id": "PEPEUSDT-1D-bullish-2026-10-08-2026-10-21",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-08",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "PEPEUSDT",
+      "timeframe": "1D",
+      "top": 4.091e-06
+    },
     "PEPEUSDT-1D-bullish-2026-10-17-2026-10-20": {
       "atr": 3.057e-07,
       "bos_time": "2026-10-20",
@@ -6293,6 +6320,33 @@
       "symbol": "XRPUSDT",
       "timeframe": "1D",
       "top": 1.4258
+    },
+    "ZECUSDT-1D-bullish-2026-10-17-2026-10-21": {
+      "atr": 111.82150000000001,
+      "bos_time": "2026-10-21",
+      "bottom": 1097.19,
+      "created_at": "2026-10-21",
+      "direction": "bullish",
+      "fractal_time": "2026-10-14",
+      "id": "ZECUSDT-1D-bullish-2026-10-17-2026-10-21",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-17",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "ZECUSDT",
+      "timeframe": "1D",
+      "top": 1148.43
     }
   }
 }
