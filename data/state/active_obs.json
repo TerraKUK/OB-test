@@ -1882,6 +1882,33 @@
       "timeframe": "1D",
       "top": 0.01804
     },
+    "CHZUSDT-1D-bearish-2026-10-03-2026-10-22": {
+      "atr": 0.0008830000000000001,
+      "bos_time": "2026-10-22",
+      "bottom": 0.01687,
+      "created_at": "2026-10-22",
+      "direction": "bearish",
+      "fractal_time": "2026-09-16",
+      "id": "CHZUSDT-1D-bearish-2026-10-03-2026-10-22",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-03",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "CHZUSDT",
+      "timeframe": "1D",
+      "top": 0.01804
+    },
     "CHZUSDT-1D-bearish-2026-10-11-2026-10-14": {
       "atr": 0.0009485000000000003,
       "bos_time": "2026-10-14",
@@ -2147,6 +2174,33 @@
       "timeframe": "1D",
       "top": 0.08361,
       "touched_at": "2026-10-08T15:24:29.596909+00:00"
+    },
+    "EGLDUSDT-1D-bearish-2026-10-13-2026-10-22": {
+      "atr": 0.24334999999999987,
+      "bos_time": "2026-10-22",
+      "bottom": 3.694,
+      "created_at": "2026-10-22",
+      "direction": "bearish",
+      "fractal_time": "2026-10-13",
+      "id": "EGLDUSDT-1D-bearish-2026-10-13-2026-10-22",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-13",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "EGLDUSDT",
+      "timeframe": "1D",
+      "top": 3.897
     },
     "ENAUSDT-1D-bullish-2026-09-13-2026-09-19": {
       "atr": 0.016245499999999993,
