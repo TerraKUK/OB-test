@@ -1180,6 +1180,33 @@
       "top": 0.14797,
       "touched_at": "2026-09-21T10:20:48.154406+00:00"
     },
+    "APEUSDT-1D-bearish-2026-10-21-2026-10-23": {
+      "atr": 0.011820999999999996,
+      "bos_time": "2026-10-23",
+      "bottom": 0.14613,
+      "created_at": "2026-10-23",
+      "direction": "bearish",
+      "fractal_time": "2026-10-18",
+      "id": "APEUSDT-1D-bearish-2026-10-21-2026-10-23",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "APEUSDT",
+      "timeframe": "1D",
+      "top": 0.15134
+    },
     "APEUSDT-1D-bullish-2026-09-15-2026-09-21": {
       "atr": 0.008086499999999996,
       "bos_time": "2026-09-21",
@@ -1470,6 +1497,33 @@
       "timeframe": "1D",
       "top": 0.9867,
       "touched_at": "2026-09-18T00:26:17.766572+00:00"
+    },
+    "AXSUSDT-1D-bearish-2026-10-21-2026-10-23": {
+      "atr": 0.08569999999999998,
+      "bos_time": "2026-10-23",
+      "bottom": 1.0442,
+      "created_at": "2026-10-23",
+      "direction": "bearish",
+      "fractal_time": "2026-10-15",
+      "id": "AXSUSDT-1D-bearish-2026-10-21-2026-10-23",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "AXSUSDT",
+      "timeframe": "1D",
+      "top": 1.0762
     },
     "AXSUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.04775,
@@ -2823,6 +2877,33 @@
       "symbol": "GRTUSDT",
       "timeframe": "1D",
       "top": 0.01831
+    },
+    "HBARUSDT-1D-bearish-2026-10-18-2026-10-23": {
+      "atr": 0.005091000000000002,
+      "bos_time": "2026-10-23",
+      "bottom": 0.08524,
+      "created_at": "2026-10-23",
+      "direction": "bearish",
+      "fractal_time": "2026-10-15",
+      "id": "HBARUSDT-1D-bearish-2026-10-18-2026-10-23",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-18",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "HBARUSDT",
+      "timeframe": "1D",
+      "top": 0.0897
     },
     "HBARUSDT-1D-bullish-2026-08-16-2026-09-20": {
       "atr": 0.003977,
@@ -6208,6 +6289,33 @@
       "timeframe": "1D",
       "top": 0.2268
     },
+    "WIFUSDT-1D-bearish-2026-10-21-2026-10-23": {
+      "atr": 0.014825000000000005,
+      "bos_time": "2026-10-23",
+      "bottom": 0.2055,
+      "created_at": "2026-10-23",
+      "direction": "bearish",
+      "fractal_time": "2026-10-13",
+      "id": "WIFUSDT-1D-bearish-2026-10-21-2026-10-23",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "WIFUSDT",
+      "timeframe": "1D",
+      "top": 0.2148
+    },
     "WIFUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.014224999999999998,
       "bos_time": "2026-09-18",
@@ -6220,7 +6328,7 @@
       "last_price": 0.1875,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -6232,7 +6340,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "WIFUSDT",
       "timeframe": "1D",
       "top": 0.1876,
@@ -6250,7 +6358,7 @@
       "last_price": 0.1875,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -6262,7 +6370,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "WIFUSDT",
       "timeframe": "1D",
       "top": 0.1876,
