@@ -768,6 +768,33 @@
   },
   "version": 1,
   "zones": {
+    "1INCHUSDT-1D-bearish-2026-10-21-2026-10-24": {
+      "atr": 0.0041474999999999975,
+      "bos_time": "2026-10-24",
+      "bottom": 0.09378,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-20",
+      "id": "1INCHUSDT-1D-bearish-2026-10-21-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "1INCHUSDT",
+      "timeframe": "1D",
+      "top": 0.09617
+    },
     "AAVEUSDT-1D-bullish-2026-09-16-2026-09-18": {
       "atr": 7.935,
       "bos_time": "2026-09-18",
@@ -913,6 +940,33 @@
       "symbol": "ADAUSDT",
       "timeframe": "1D",
       "top": 0.2594
+    },
+    "ADAUSDT-1D-bearish-2026-10-21-2026-10-24": {
+      "atr": 0.015320000000000004,
+      "bos_time": "2026-10-24",
+      "bottom": 0.2238,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-18",
+      "id": "ADAUSDT-1D-bearish-2026-10-21-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "ADAUSDT",
+      "timeframe": "1D",
+      "top": 0.2304
     },
     "ADAUSDT-1D-bullish-2026-08-30-2026-09-21": {
       "atr": 0.014189999999999994,
@@ -1271,6 +1325,33 @@
       "top": 0.13078,
       "touched_at": "2026-10-24T14:27:12.499249+00:00"
     },
+    "APTUSDT-1D-bearish-2026-10-20-2026-10-24": {
+      "atr": 0.08047000000000001,
+      "bos_time": "2026-10-24",
+      "bottom": 0.7686,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-18",
+      "id": "APTUSDT-1D-bearish-2026-10-20-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-20",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "APTUSDT",
+      "timeframe": "1D",
+      "top": 0.8446
+    },
     "APTUSDT-1D-bullish-2026-08-30-2026-09-18": {
       "atr": 0.04889500000000001,
       "bos_time": "2026-09-18",
@@ -1533,6 +1614,33 @@
       "timeframe": "1D",
       "top": 1.0762
     },
+    "AXSUSDT-1D-bearish-2026-10-21-2026-10-24": {
+      "atr": 0.07632,
+      "bos_time": "2026-10-24",
+      "bottom": 1.0442,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-20",
+      "id": "AXSUSDT-1D-bearish-2026-10-21-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "AXSUSDT",
+      "timeframe": "1D",
+      "top": 1.0762
+    },
     "AXSUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.04775,
       "bos_time": "2026-09-18",
@@ -1545,7 +1653,7 @@
       "last_price": 0.9418,
       "notifications": {
         "approach": false,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -1557,7 +1665,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "AXSUSDT",
       "timeframe": "1D",
       "top": 0.9508,
@@ -1974,6 +2082,33 @@
       "timeframe": "1D",
       "top": 0.01804
     },
+    "CHZUSDT-1D-bearish-2026-10-03-2026-10-24": {
+      "atr": 0.0008635000000000002,
+      "bos_time": "2026-10-24",
+      "bottom": 0.01687,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-09-04",
+      "id": "CHZUSDT-1D-bearish-2026-10-03-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-03",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "CHZUSDT",
+      "timeframe": "1D",
+      "top": 0.01804
+    },
     "CHZUSDT-1D-bearish-2026-10-11-2026-10-14": {
       "atr": 0.0009485000000000003,
       "bos_time": "2026-10-14",
@@ -2002,6 +2137,33 @@
       "symbol": "CHZUSDT",
       "timeframe": "1D",
       "top": 0.01581
+    },
+    "CHZUSDT-1D-bearish-2026-10-21-2026-10-24": {
+      "atr": 0.0008635000000000002,
+      "bos_time": "2026-10-24",
+      "bottom": 0.01384,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-18",
+      "id": "CHZUSDT-1D-bearish-2026-10-21-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "CHZUSDT",
+      "timeframe": "1D",
+      "top": 0.01444
     },
     "CHZUSDT-1D-bullish-2026-08-18-2026-09-21": {
       "atr": 0.0008379999999999999,
@@ -2180,6 +2342,33 @@
       "top": 0.3471,
       "touched_at": "2026-10-08T16:25:50.418455+00:00"
     },
+    "DOGEUSDT-1D-bearish-2026-10-21-2026-10-24": {
+      "atr": 0.003980000000000001,
+      "bos_time": "2026-10-24",
+      "bottom": 0.08183,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-20",
+      "id": "DOGEUSDT-1D-bearish-2026-10-21-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "DOGEUSDT",
+      "timeframe": "1D",
+      "top": 0.08379
+    },
     "DOGEUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.004692,
       "bos_time": "2026-09-18",
@@ -2240,6 +2429,33 @@
       "top": 0.08361,
       "touched_at": "2026-10-08T15:24:29.596909+00:00"
     },
+    "DOTUSDT-1D-bearish-2026-10-16-2026-10-24": {
+      "atr": 0.08883999999999999,
+      "bos_time": "2026-10-24",
+      "bottom": 1.1499,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-15",
+      "id": "DOTUSDT-1D-bearish-2026-10-16-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-16",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "DOTUSDT",
+      "timeframe": "1D",
+      "top": 1.213
+    },
     "EGLDUSDT-1D-bearish-2026-10-13-2026-10-22": {
       "atr": 0.24334999999999987,
       "bos_time": "2026-10-22",
@@ -2268,6 +2484,33 @@
       "symbol": "EGLDUSDT",
       "timeframe": "1D",
       "top": 3.897
+    },
+    "EGLDUSDT-1D-bearish-2026-10-21-2026-10-24": {
+      "atr": 0.26034999999999997,
+      "bos_time": "2026-10-24",
+      "bottom": 3.708,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-18",
+      "id": "EGLDUSDT-1D-bearish-2026-10-21-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "EGLDUSDT",
+      "timeframe": "1D",
+      "top": 3.809
     },
     "ENAUSDT-1D-bullish-2026-09-13-2026-09-19": {
       "atr": 0.016245499999999993,
@@ -2654,6 +2897,33 @@
       "symbol": "GALAUSDT",
       "timeframe": "1D",
       "top": 0.002511
+    },
+    "GALAUSDT-1D-bearish-2026-10-20-2026-10-24": {
+      "atr": 0.00015945000000000008,
+      "bos_time": "2026-10-24",
+      "bottom": 0.001936,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-18",
+      "id": "GALAUSDT-1D-bearish-2026-10-20-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-20",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "GALAUSDT",
+      "timeframe": "1D",
+      "top": 0.002023
     },
     "GALAUSDT-1D-bullish-2026-08-18-2026-10-02": {
       "atr": 0.00019620000000000003,
@@ -3638,7 +3908,7 @@
       "last_price": 11.427,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -3650,7 +3920,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "LINKUSDT",
       "timeframe": "1D",
       "top": 11.51,
@@ -3668,7 +3938,7 @@
       "last_price": 11.427,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -3680,7 +3950,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "LINKUSDT",
       "timeframe": "1D",
       "top": 11.51,
@@ -3773,6 +4043,33 @@
       "timeframe": "1D",
       "top": 0.07756,
       "touched_at": "2026-09-14T06:43:27.411271+00:00"
+    },
+    "MANAUSDT-1D-bearish-2026-10-20-2026-10-24": {
+      "atr": 0.006715999999999998,
+      "bos_time": "2026-10-24",
+      "bottom": 0.08231,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-20",
+      "id": "MANAUSDT-1D-bearish-2026-10-20-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-20",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "MANAUSDT",
+      "timeframe": "1D",
+      "top": 0.08922
     },
     "MANAUSDT-1D-bullish-2026-06-30-2026-09-19": {
       "atr": 0.0036915000000000003,
@@ -4068,6 +4365,60 @@
       "symbol": "NEOUSDT",
       "timeframe": "1D",
       "top": 2.732
+    },
+    "NEOUSDT-1D-bearish-2026-10-16-2026-10-24": {
+      "atr": 0.1446,
+      "bos_time": "2026-10-24",
+      "bottom": 2.32,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-15",
+      "id": "NEOUSDT-1D-bearish-2026-10-16-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-16",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "NEOUSDT",
+      "timeframe": "1D",
+      "top": 2.378
+    },
+    "NEOUSDT-1D-bearish-2026-10-21-2026-10-24": {
+      "atr": 0.1446,
+      "bos_time": "2026-10-24",
+      "bottom": 2.277,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-18",
+      "id": "NEOUSDT-1D-bearish-2026-10-21-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "NEOUSDT",
+      "timeframe": "1D",
+      "top": 2.308
     },
     "ONDOUSDT-1D-bearish-2026-09-06-2026-09-15": {
       "atr": 0.020445000000000005,
@@ -5288,6 +5639,33 @@
       "timeframe": "1D",
       "top": 0.2488
     },
+    "SNXUSDT-1D-bearish-2026-10-21-2026-10-24": {
+      "atr": 0.014955000000000001,
+      "bos_time": "2026-10-24",
+      "bottom": 0.2238,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-18",
+      "id": "SNXUSDT-1D-bearish-2026-10-21-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "SNXUSDT",
+      "timeframe": "1D",
+      "top": 0.2321
+    },
     "SNXUSDT-1D-bullish-2026-08-18-2026-09-24": {
       "atr": 0.015339999999999998,
       "bos_time": "2026-09-24",
@@ -5300,7 +5678,7 @@
       "last_price": 0.1976,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -5312,7 +5690,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "SNXUSDT",
       "timeframe": "1D",
       "top": 0.196,
@@ -6334,6 +6712,33 @@
       "timeframe": "1D",
       "top": 0.2148
     },
+    "WIFUSDT-1D-bearish-2026-10-21-2026-10-24": {
+      "atr": 0.014815000000000005,
+      "bos_time": "2026-10-24",
+      "bottom": 0.2055,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-18",
+      "id": "WIFUSDT-1D-bearish-2026-10-21-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "WIFUSDT",
+      "timeframe": "1D",
+      "top": 0.2148
+    },
     "WIFUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.014224999999999998,
       "bos_time": "2026-09-18",
@@ -6423,6 +6828,33 @@
       "timeframe": "1D",
       "top": 0.492,
       "touched_at": "2026-10-24T00:35:23.080428+00:00"
+    },
+    "XLMUSDT-1D-bearish-2026-10-21-2026-10-24": {
+      "atr": 0.009216499999999999,
+      "bos_time": "2026-10-24",
+      "bottom": 0.18198,
+      "created_at": "2026-10-24",
+      "direction": "bearish",
+      "fractal_time": "2026-10-18",
+      "id": "XLMUSDT-1D-bearish-2026-10-21-2026-10-24",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-21",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "XLMUSDT",
+      "timeframe": "1D",
+      "top": 0.18698
     },
     "XLMUSDT-1D-bullish-2026-08-18-2026-09-21": {
       "atr": 0.011450000000000005,
@@ -6524,7 +6956,7 @@
       "last_price": 1162.91,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -6536,7 +6968,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "ZECUSDT",
       "timeframe": "1D",
       "top": 1148.43,
