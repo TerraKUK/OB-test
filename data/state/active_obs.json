@@ -5041,7 +5041,7 @@
       "last_price": 0.82,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -5053,7 +5053,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "QTUMUSDT",
       "timeframe": "1D",
       "top": 0.8211,
