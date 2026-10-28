@@ -2562,6 +2562,33 @@
       "top": 0.08361,
       "touched_at": "2026-10-08T15:24:29.596909+00:00"
     },
+    "DOTUSDT-1D-bearish-2026-10-10-2026-10-27": {
+      "atr": 0.08316,
+      "bos_time": "2026-10-27",
+      "bottom": 1.2359,
+      "created_at": "2026-10-27",
+      "direction": "bearish",
+      "fractal_time": "2026-10-08",
+      "id": "DOTUSDT-1D-bearish-2026-10-10-2026-10-27",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-10",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "DOTUSDT",
+      "timeframe": "1D",
+      "top": 1.2968
+    },
     "DOTUSDT-1D-bearish-2026-10-16-2026-10-24": {
       "atr": 0.08883999999999999,
       "bos_time": "2026-10-24",
@@ -3134,7 +3161,7 @@
       "last_price": 0.001736,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -3146,7 +3173,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "GALAUSDT",
       "timeframe": "1D",
       "top": 0.001701,
