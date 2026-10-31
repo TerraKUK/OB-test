@@ -828,6 +828,33 @@
       "timeframe": "1D",
       "top": 0.10833
     },
+    "1INCHUSDT-1D-bearish-2026-10-04-2026-10-30": {
+      "atr": 0.004033999999999999,
+      "bos_time": "2026-10-30",
+      "bottom": 0.10515,
+      "created_at": "2026-10-30",
+      "direction": "bearish",
+      "fractal_time": "2026-08-22",
+      "id": "1INCHUSDT-1D-bearish-2026-10-04-2026-10-30",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-04",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "1INCHUSDT",
+      "timeframe": "1D",
+      "top": 0.10833
+    },
     "1INCHUSDT-1D-bearish-2026-10-21-2026-10-24": {
       "atr": 0.0041474999999999975,
       "bos_time": "2026-10-24",
@@ -1598,6 +1625,33 @@
       "symbol": "ARBUSDT",
       "timeframe": "1D",
       "top": 0.14041
+    },
+    "ASTERUSDT-1D-bearish-2026-10-26-2026-10-30": {
+      "atr": 0.027589999999999983,
+      "bos_time": "2026-10-30",
+      "bottom": 0.7014,
+      "created_at": "2026-10-30",
+      "direction": "bearish",
+      "fractal_time": "2026-10-22",
+      "id": "ASTERUSDT-1D-bearish-2026-10-26-2026-10-30",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-26",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "ASTERUSDT",
+      "timeframe": "1D",
+      "top": 0.7177
     },
     "ATOMUSDT-1D-bullish-2026-08-01-2026-10-09": {
       "atr": 0.13320000000000004,
