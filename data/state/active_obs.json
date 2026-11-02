@@ -2265,7 +2265,7 @@
       "last_price": 78368.0,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -2277,7 +2277,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "BTCUSDT",
       "timeframe": "1D",
       "top": 78158.3,
