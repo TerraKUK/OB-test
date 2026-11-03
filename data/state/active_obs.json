@@ -857,6 +857,33 @@
       "timeframe": "1D",
       "top": 0.10833
     },
+    "1INCHUSDT-1D-bearish-2026-10-04-2026-11-02": {
+      "atr": 0.003967,
+      "bos_time": "2026-11-02",
+      "bottom": 0.10515,
+      "created_at": "2026-11-02",
+      "direction": "bearish",
+      "fractal_time": "2026-08-03",
+      "id": "1INCHUSDT-1D-bearish-2026-10-04-2026-11-02",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-04",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "1INCHUSDT",
+      "timeframe": "1D",
+      "top": 0.10833
+    },
     "1INCHUSDT-1D-bearish-2026-10-21-2026-10-24": {
       "atr": 0.0041474999999999975,
       "bos_time": "2026-10-24",
@@ -1658,6 +1685,33 @@
       "timeframe": "1D",
       "top": 0.7177,
       "touched_at": "2026-10-31T17:39:30.101024+00:00"
+    },
+    "ATOMUSDT-1D-bearish-2026-10-30-2026-11-02": {
+      "atr": 0.08879999999999996,
+      "bos_time": "2026-11-02",
+      "bottom": 1.499,
+      "created_at": "2026-11-02",
+      "direction": "bearish",
+      "fractal_time": "2026-10-30",
+      "id": "ATOMUSDT-1D-bearish-2026-10-30-2026-11-02",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-30",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "ATOMUSDT",
+      "timeframe": "1D",
+      "top": 1.552
     },
     "ATOMUSDT-1D-bullish-2026-08-01-2026-10-09": {
       "atr": 0.13320000000000004,
@@ -2782,6 +2836,33 @@
       "symbol": "DOGEUSDT",
       "timeframe": "1D",
       "top": 0.08379
+    },
+    "DOGEUSDT-1D-bearish-2026-10-28-2026-11-02": {
+      "atr": 0.003403500000000001,
+      "bos_time": "2026-11-02",
+      "bottom": 0.07902,
+      "created_at": "2026-11-02",
+      "direction": "bearish",
+      "fractal_time": "2026-10-24",
+      "id": "DOGEUSDT-1D-bearish-2026-10-28-2026-11-02",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-28",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "DOGEUSDT",
+      "timeframe": "1D",
+      "top": 0.08087
     },
     "DOGEUSDT-1D-bullish-2026-09-15-2026-09-18": {
       "atr": 0.004692,
@@ -5661,6 +5742,33 @@
       "top": 0.004002,
       "touched_at": "2026-10-18T20:33:28.458533+00:00"
     },
+    "QTUMUSDT-1D-bearish-2026-10-30-2026-11-02": {
+      "atr": 0.040685000000000006,
+      "bos_time": "2026-11-02",
+      "bottom": 0.7727,
+      "created_at": "2026-11-02",
+      "direction": "bearish",
+      "fractal_time": "2026-10-30",
+      "id": "QTUMUSDT-1D-bearish-2026-10-30-2026-11-02",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-30",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "QTUMUSDT",
+      "timeframe": "1D",
+      "top": 0.7928
+    },
     "QTUMUSDT-1D-bullish-2026-08-30-2026-09-12": {
       "atr": 0.04828500000000001,
       "bos_time": "2026-09-12",
@@ -7175,6 +7283,33 @@
       "symbol": "THETAUSDT",
       "timeframe": "1D",
       "top": 0.2454
+    },
+    "THETAUSDT-1D-bearish-2026-10-30-2026-11-02": {
+      "atr": 0.012085000000000004,
+      "bos_time": "2026-11-02",
+      "bottom": 0.1596,
+      "created_at": "2026-11-02",
+      "direction": "bearish",
+      "fractal_time": "2026-10-30",
+      "id": "THETAUSDT-1D-bearish-2026-10-30-2026-11-02",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-30",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "THETAUSDT",
+      "timeframe": "1D",
+      "top": 0.1618
     },
     "THETAUSDT-1D-bullish-2026-08-30-2026-09-18": {
       "atr": 0.013329999999999998,
