@@ -210,6 +210,21 @@
       "symbol": "BONKUSDT",
       "timeframe": "1D"
     },
+    "BONKUSDT-1D-rsi-tv-regular-bullish-2026-10-18-2026-10-29": {
+      "confirmed_time": "2026-11-03",
+      "created_at": "2026-11-03",
+      "direction": "bullish",
+      "first_pivot_time": "2026-10-18",
+      "first_price": 2.799e-06,
+      "first_rsi": 37.9156376857252,
+      "id": "BONKUSDT-1D-rsi-tv-regular-bullish-2026-10-18-2026-10-29",
+      "kind": "regular",
+      "pivot_time": "2026-10-29",
+      "price": 2.779e-06,
+      "rsi": 38.06910738040604,
+      "symbol": "BONKUSDT",
+      "timeframe": "1D"
+    },
     "CHZUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-13": {
       "confirmed_time": "2026-09-18",
       "created_at": "2026-09-18",
