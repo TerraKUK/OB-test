@@ -1386,7 +1386,7 @@
       "last_price": 0.09135,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -1398,7 +1398,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "ALGOUSDT",
       "timeframe": "1D",
       "top": 0.09589,
@@ -4309,7 +4309,7 @@
       "last_price": 6.957,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -4322,7 +4322,7 @@
         "compact zone"
       ],
       "score": 5,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "INJUSDT",
       "timeframe": "1D",
       "top": 7.457,
@@ -4340,7 +4340,7 @@
       "last_price": 6.957,
       "notifications": {
         "approach": true,
-        "confirmed": false,
+        "confirmed": true,
         "new": true,
         "touch": true
       },
@@ -4352,7 +4352,7 @@
         "compact zone"
       ],
       "score": 4,
-      "status": "touched",
+      "status": "confirmed",
       "symbol": "INJUSDT",
       "timeframe": "1D",
       "top": 7.457,
