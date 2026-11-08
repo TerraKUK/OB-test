@@ -735,6 +735,21 @@
       "symbol": "USELESSUSDT",
       "timeframe": "1D"
     },
+    "USELESSUSDT-1D-rsi-tv-regular-bullish-2026-10-19-2026-11-02": {
+      "confirmed_time": "2026-11-07",
+      "created_at": "2026-11-07",
+      "direction": "bullish",
+      "first_pivot_time": "2026-10-19",
+      "first_price": 0.13657,
+      "first_rsi": 33.144755898361325,
+      "id": "USELESSUSDT-1D-rsi-tv-regular-bullish-2026-10-19-2026-11-02",
+      "kind": "regular",
+      "pivot_time": "2026-11-02",
+      "price": 0.11881,
+      "rsi": 36.24048399344918,
+      "symbol": "USELESSUSDT",
+      "timeframe": "1D"
+    },
     "WLDUSDT-1D-rsi-tv-regular-bearish-2026-09-07-2026-09-27": {
       "confirmed_time": "2026-10-02",
       "created_at": "2026-10-02",
@@ -1729,6 +1744,33 @@
       "top": 0.7177,
       "touched_at": "2026-10-31T17:39:30.101024+00:00"
     },
+    "ASTERUSDT-1D-bearish-2026-10-26-2026-11-07": {
+      "atr": 0.02336499999999999,
+      "bos_time": "2026-11-07",
+      "bottom": 0.7014,
+      "created_at": "2026-11-07",
+      "direction": "bearish",
+      "fractal_time": "2026-10-24",
+      "id": "ASTERUSDT-1D-bearish-2026-10-26-2026-11-07",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-26",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "ASTERUSDT",
+      "timeframe": "1D",
+      "top": 0.7177
+    },
     "ATOMUSDT-1D-bearish-2026-10-30-2026-11-02": {
       "atr": 0.08879999999999996,
       "bos_time": "2026-11-02",
@@ -2023,6 +2065,33 @@
       "symbol": "BCHUSDT",
       "timeframe": "1D",
       "top": 322.3
+    },
+    "BCHUSDT-1D-bearish-2026-10-30-2026-11-07": {
+      "atr": 16.202500000000008,
+      "bos_time": "2026-11-07",
+      "bottom": 273.65,
+      "created_at": "2026-11-07",
+      "direction": "bearish",
+      "fractal_time": "2026-10-30",
+      "id": "BCHUSDT-1D-bearish-2026-10-30-2026-11-07",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-30",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "BCHUSDT",
+      "timeframe": "1D",
+      "top": 297.77
     },
     "BCHUSDT-1D-bullish-2026-09-15-2026-09-22": {
       "atr": 19.61500000000001,
