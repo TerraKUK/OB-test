@@ -5991,6 +5991,33 @@
       "timeframe": "1D",
       "top": 2.326e-06
     },
+    "PEPEUSDT-1D-bullish-2026-07-01-2026-11-09": {
+      "atr": 4.7982e-07,
+      "bos_time": "2026-11-09",
+      "bottom": 2.224e-06,
+      "created_at": "2026-11-09",
+      "direction": "bullish",
+      "fractal_time": "2026-02-15",
+      "id": "PEPEUSDT-1D-bullish-2026-07-01-2026-11-09",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-07-01",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "PEPEUSDT",
+      "timeframe": "1D",
+      "top": 2.326e-06
+    },
     "PEPEUSDT-1D-bullish-2026-10-08-2026-10-20": {
       "atr": 3.057e-07,
       "bos_time": "2026-10-20",
@@ -6135,6 +6162,33 @@
         "compact zone"
       ],
       "score": 5,
+      "status": "armed",
+      "symbol": "PEPEUSDT",
+      "timeframe": "1D",
+      "top": 4.505e-06
+    },
+    "PEPEUSDT-1D-bullish-2026-10-25-2026-11-09": {
+      "atr": 4.7982e-07,
+      "bos_time": "2026-11-09",
+      "bottom": 4.227e-06,
+      "created_at": "2026-11-09",
+      "direction": "bullish",
+      "fractal_time": "2026-10-23",
+      "id": "PEPEUSDT-1D-bullish-2026-10-25-2026-11-09",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-25",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
       "status": "armed",
       "symbol": "PEPEUSDT",
       "timeframe": "1D",
