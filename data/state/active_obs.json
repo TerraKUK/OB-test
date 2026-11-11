@@ -90,6 +90,21 @@
       "symbol": "APTUSDT",
       "timeframe": "1D"
     },
+    "APTUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-05": {
+      "confirmed_time": "2026-11-10",
+      "created_at": "2026-11-10",
+      "direction": "bullish",
+      "first_pivot_time": "2026-10-29",
+      "first_price": 0.6012,
+      "first_rsi": 32.989297009061715,
+      "id": "APTUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-05",
+      "kind": "regular",
+      "pivot_time": "2026-11-05",
+      "price": 0.568,
+      "rsi": 33.71570475194021,
+      "symbol": "APTUSDT",
+      "timeframe": "1D"
+    },
     "ARBUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-18": {
       "confirmed_time": "2026-09-23",
       "created_at": "2026-09-23",
@@ -328,6 +343,21 @@
       "price": 1.2769,
       "rsi": 66.16532940274318,
       "symbol": "FILUSDT",
+      "timeframe": "1D"
+    },
+    "GALAUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-05": {
+      "confirmed_time": "2026-11-10",
+      "created_at": "2026-11-10",
+      "direction": "bullish",
+      "first_pivot_time": "2026-10-29",
+      "first_price": 0.001595,
+      "first_rsi": 31.457827555846748,
+      "id": "GALAUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-05",
+      "kind": "regular",
+      "pivot_time": "2026-11-05",
+      "price": 0.001505,
+      "rsi": 32.07146358420343,
+      "symbol": "GALAUSDT",
       "timeframe": "1D"
     },
     "HBARUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-07": {
@@ -6018,6 +6048,33 @@
       "timeframe": "1D",
       "top": 2.326e-06
     },
+    "PEPEUSDT-1D-bullish-2026-07-01-2026-11-10": {
+      "atr": 4.891e-07,
+      "bos_time": "2026-11-10",
+      "bottom": 2.224e-06,
+      "created_at": "2026-11-10",
+      "direction": "bullish",
+      "fractal_time": "2026-01-27",
+      "id": "PEPEUSDT-1D-bullish-2026-07-01-2026-11-10",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-07-01",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "PEPEUSDT",
+      "timeframe": "1D",
+      "top": 2.326e-06
+    },
     "PEPEUSDT-1D-bullish-2026-10-08-2026-10-20": {
       "atr": 3.057e-07,
       "bos_time": "2026-10-20",
@@ -6102,6 +6159,33 @@
         "compact zone"
       ],
       "score": 5,
+      "status": "armed",
+      "symbol": "PEPEUSDT",
+      "timeframe": "1D",
+      "top": 4.091e-06
+    },
+    "PEPEUSDT-1D-bullish-2026-10-08-2026-11-10": {
+      "atr": 4.891e-07,
+      "bos_time": "2026-11-10",
+      "bottom": 3.636e-06,
+      "created_at": "2026-11-10",
+      "direction": "bullish",
+      "fractal_time": "2026-09-22",
+      "id": "PEPEUSDT-1D-bullish-2026-10-08-2026-11-10",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-08",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
       "status": "armed",
       "symbol": "PEPEUSDT",
       "timeframe": "1D",
@@ -8884,6 +8968,33 @@
       "symbol": "XRPUSDT",
       "timeframe": "1D",
       "top": 1.3421
+    },
+    "ZECUSDT-1D-bearish-2026-09-26-2026-11-10": {
+      "atr": 119.22500000000002,
+      "bos_time": "2026-11-10",
+      "bottom": 1555.05,
+      "created_at": "2026-11-10",
+      "direction": "bearish",
+      "fractal_time": "2026-09-11",
+      "id": "ZECUSDT-1D-bearish-2026-09-26-2026-11-10",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-09-26",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "strong BOS",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "ZECUSDT",
+      "timeframe": "1D",
+      "top": 1695.5
     },
     "ZECUSDT-1D-bullish-2026-10-17-2026-10-21": {
       "atr": 111.82150000000001,
