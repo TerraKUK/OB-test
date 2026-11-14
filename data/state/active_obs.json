@@ -150,6 +150,21 @@
       "symbol": "AVAXUSDT",
       "timeframe": "1D"
     },
+    "AVAXUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08": {
+      "confirmed_time": "2026-11-13",
+      "created_at": "2026-11-13",
+      "direction": "bullish",
+      "first_pivot_time": "2026-10-29",
+      "first_price": 8.235,
+      "first_rsi": 29.609490666340278,
+      "id": "AVAXUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08",
+      "kind": "regular",
+      "pivot_time": "2026-11-08",
+      "price": 7.745,
+      "rsi": 33.61060637922367,
+      "symbol": "AVAXUSDT",
+      "timeframe": "1D"
+    },
     "AXSUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-04": {
       "confirmed_time": "2026-10-09",
       "created_at": "2026-10-09",
@@ -240,6 +255,21 @@
       "symbol": "BONKUSDT",
       "timeframe": "1D"
     },
+    "BONKUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08": {
+      "confirmed_time": "2026-11-13",
+      "created_at": "2026-11-13",
+      "direction": "bullish",
+      "first_pivot_time": "2026-10-29",
+      "first_price": 2.779e-06,
+      "first_rsi": 38.06910738027027,
+      "id": "BONKUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08",
+      "kind": "regular",
+      "pivot_time": "2026-11-08",
+      "price": 2.615e-06,
+      "rsi": 38.994530249214584,
+      "symbol": "BONKUSDT",
+      "timeframe": "1D"
+    },
     "CHZUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-13": {
       "confirmed_time": "2026-09-18",
       "created_at": "2026-09-18",
@@ -283,6 +313,21 @@
       "price": 29.16,
       "rsi": 63.99435012829854,
       "symbol": "COMPUSDT",
+      "timeframe": "1D"
+    },
+    "ENSUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08": {
+      "confirmed_time": "2026-11-13",
+      "created_at": "2026-11-13",
+      "direction": "bullish",
+      "first_pivot_time": "2026-10-29",
+      "first_price": 4.831,
+      "first_rsi": 27.60309720083609,
+      "id": "ENSUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08",
+      "kind": "regular",
+      "pivot_time": "2026-11-08",
+      "price": 4.178,
+      "rsi": 27.68057484176971,
+      "symbol": "ENSUSDT",
       "timeframe": "1D"
     },
     "ETCUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-08": {
@@ -405,6 +450,21 @@
       "symbol": "ICPUSDT",
       "timeframe": "1D"
     },
+    "ICPUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08": {
+      "confirmed_time": "2026-11-13",
+      "created_at": "2026-11-13",
+      "direction": "bullish",
+      "first_pivot_time": "2026-10-29",
+      "first_price": 2.354,
+      "first_rsi": 31.0583059697084,
+      "id": "ICPUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08",
+      "kind": "regular",
+      "pivot_time": "2026-11-08",
+      "price": 2.257,
+      "rsi": 34.56856667245381,
+      "symbol": "ICPUSDT",
+      "timeframe": "1D"
+    },
     "IMXUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-07": {
       "confirmed_time": "2026-09-12",
       "created_at": "2026-09-12",
@@ -448,6 +508,21 @@
       "price": 9.176,
       "rsi": 63.29222836564173,
       "symbol": "INJUSDT",
+      "timeframe": "1D"
+    },
+    "JUPUSDT-1D-rsi-tv-regular-bullish-2026-11-02-2026-11-08": {
+      "confirmed_time": "2026-11-13",
+      "created_at": "2026-11-13",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-02",
+      "first_price": 0.2411,
+      "first_rsi": 33.12132901120509,
+      "id": "JUPUSDT-1D-rsi-tv-regular-bullish-2026-11-02-2026-11-08",
+      "kind": "regular",
+      "pivot_time": "2026-11-08",
+      "price": 0.2251,
+      "rsi": 34.48560196122288,
+      "symbol": "JUPUSDT",
       "timeframe": "1D"
     },
     "KSMUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-08": {
@@ -675,6 +750,21 @@
       "symbol": "RENDERUSDT",
       "timeframe": "1D"
     },
+    "SEIUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08": {
+      "confirmed_time": "2026-11-13",
+      "created_at": "2026-11-13",
+      "direction": "bullish",
+      "first_pivot_time": "2026-10-29",
+      "first_price": 0.04709,
+      "first_rsi": 29.811814565643672,
+      "id": "SEIUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08",
+      "kind": "regular",
+      "pivot_time": "2026-11-08",
+      "price": 0.0416,
+      "rsi": 31.123228209701708,
+      "symbol": "SEIUSDT",
+      "timeframe": "1D"
+    },
     "SOLUSDT-1D-rsi-tv-regular-bearish-2026-09-21-2026-10-04": {
       "confirmed_time": "2026-10-09",
       "created_at": "2026-10-09",
@@ -703,6 +793,21 @@
       "price": 1.2951,
       "rsi": 76.94741662036384,
       "symbol": "SUIUSDT",
+      "timeframe": "1D"
+    },
+    "SUSDT-1D-rsi-tv-regular-bullish-2026-11-02-2026-11-08": {
+      "confirmed_time": "2026-11-13",
+      "created_at": "2026-11-13",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-02",
+      "first_price": 0.03706,
+      "first_rsi": 34.935118801711496,
+      "id": "SUSDT-1D-rsi-tv-regular-bullish-2026-11-02-2026-11-08",
+      "kind": "regular",
+      "pivot_time": "2026-11-08",
+      "price": 0.03466,
+      "rsi": 35.8721355509159,
+      "symbol": "SUSDT",
       "timeframe": "1D"
     },
     "THETAUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-06": {
@@ -967,6 +1072,33 @@
         "compact zone"
       ],
       "score": 5,
+      "status": "armed",
+      "symbol": "1INCHUSDT",
+      "timeframe": "1D",
+      "top": 0.10833
+    },
+    "1INCHUSDT-1D-bearish-2026-10-04-2026-11-13": {
+      "atr": 0.0039915,
+      "bos_time": "2026-11-13",
+      "bottom": 0.10515,
+      "created_at": "2026-11-13",
+      "direction": "bearish",
+      "fractal_time": "2026-07-20",
+      "id": "1INCHUSDT-1D-bearish-2026-10-04-2026-11-13",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-10-04",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
       "status": "armed",
       "symbol": "1INCHUSDT",
       "timeframe": "1D",
@@ -3802,6 +3934,33 @@
       "timeframe": "1D",
       "top": 2.83e-05
     },
+    "FLOKIUSDT-1D-bearish-2026-11-10-2026-11-13": {
+      "atr": 1.3359999999999998e-06,
+      "bos_time": "2026-11-13",
+      "bottom": 2.087e-05,
+      "created_at": "2026-11-13",
+      "direction": "bearish",
+      "fractal_time": "2026-11-08",
+      "id": "FLOKIUSDT-1D-bearish-2026-11-10-2026-11-13",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-11-10",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "FLOKIUSDT",
+      "timeframe": "1D",
+      "top": 2.14e-05
+    },
     "FLOKIUSDT-1D-bullish-2026-09-15-2026-09-21": {
       "atr": 1.691e-06,
       "bos_time": "2026-09-21",
@@ -6361,6 +6520,33 @@
       "timeframe": "1D",
       "top": 0.09574,
       "touched_at": "2026-10-30T23:39:19.552086+00:00"
+    },
+    "POLUSDT-1D-bearish-2026-11-04-2026-11-13": {
+      "atr": 0.0053634999999999985,
+      "bos_time": "2026-11-13",
+      "bottom": 0.09194,
+      "created_at": "2026-11-13",
+      "direction": "bearish",
+      "fractal_time": "2026-11-03",
+      "id": "POLUSDT-1D-bearish-2026-11-04-2026-11-13",
+      "notifications": {
+        "approach": false,
+        "confirmed": false,
+        "new": true,
+        "touch": false
+      },
+      "ob_time": "2026-11-04",
+      "reasons": [
+        "BOS",
+        "FVG",
+        "EMA trend",
+        "compact zone"
+      ],
+      "score": 4,
+      "status": "armed",
+      "symbol": "POLUSDT",
+      "timeframe": "1D",
+      "top": 0.09761
     },
     "PUMPUSDT-1D-bullish-2026-09-15-2026-09-27": {
       "atr": 0.00046025,
