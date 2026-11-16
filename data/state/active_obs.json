@@ -660,6 +660,21 @@
       "symbol": "PEPEUSDT",
       "timeframe": "1D"
     },
+    "PEPEUSDT-1D-rsi-tv-regular-bearish-2026-10-28-2026-11-10": {
+      "confirmed_time": "2026-11-15",
+      "created_at": "2026-11-15",
+      "direction": "bearish",
+      "first_pivot_time": "2026-10-28",
+      "first_price": 5.2338e-06,
+      "first_rsi": 65.32462494055726,
+      "id": "PEPEUSDT-1D-rsi-tv-regular-bearish-2026-10-28-2026-11-10",
+      "kind": "regular",
+      "pivot_time": "2026-11-10",
+      "price": 5.62e-06,
+      "rsi": 64.72210911375217,
+      "symbol": "PEPEUSDT",
+      "timeframe": "1D"
+    },
     "PUMPUSDT-1D-rsi-tv-regular-bearish-2026-08-23-2026-09-30": {
       "confirmed_time": "2026-10-05",
       "created_at": "2026-10-05",
