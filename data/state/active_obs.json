@@ -45,6 +45,21 @@
       "symbol": "ADAUSDT",
       "timeframe": "1D"
     },
+    "ADAUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 0.143,
+      "first_rsi": 20.794286483373057,
+      "id": "ADAUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 0.1377,
+      "rsi": 25.052922802011395,
+      "symbol": "ADAUSDT",
+      "timeframe": "1D"
+    },
     "ALGOUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-08": {
       "confirmed_time": "2026-09-13",
       "created_at": "2026-09-13",
@@ -210,6 +225,36 @@
       "symbol": "AXSUSDT",
       "timeframe": "1D"
     },
+    "AXSUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 0.6383,
+      "first_rsi": 23.10255172643717,
+      "id": "AXSUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 0.6026,
+      "rsi": 23.447162184409876,
+      "symbol": "AXSUSDT",
+      "timeframe": "1D"
+    },
+    "BCHUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 196.27,
+      "first_rsi": 22.408929955298632,
+      "id": "BCHUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 187.7,
+      "rsi": 25.790344425455473,
+      "symbol": "BCHUSDT",
+      "timeframe": "1D"
+    },
     "BLURUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-22": {
       "confirmed_time": "2026-09-27",
       "created_at": "2026-09-27",
@@ -267,6 +312,21 @@
       "pivot_time": "2026-09-21",
       "price": 807.4,
       "rsi": 72.375001152902,
+      "symbol": "BNBUSDT",
+      "timeframe": "1D"
+    },
+    "BNBUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 568.31,
+      "first_rsi": 20.6943591030453,
+      "id": "BNBUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 530.46,
+      "rsi": 20.710398003187223,
       "symbol": "BNBUSDT",
       "timeframe": "1D"
     },
@@ -360,6 +420,21 @@
       "symbol": "COMPUSDT",
       "timeframe": "1D"
     },
+    "DOGEUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 0.05534,
+      "first_rsi": 19.45667225442223,
+      "id": "DOGEUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 0.05251,
+      "rsi": 23.021441210211407,
+      "symbol": "DOGEUSDT",
+      "timeframe": "1D"
+    },
     "ENSUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08": {
       "confirmed_time": "2026-11-13",
       "created_at": "2026-11-13",
@@ -388,6 +463,36 @@
       "price": 8.868,
       "rsi": 71.43885132235417,
       "symbol": "ETCUSDT",
+      "timeframe": "1D"
+    },
+    "ETCUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 5.606,
+      "first_rsi": 25.607813955784195,
+      "id": "ETCUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 5.306,
+      "rsi": 26.970687909633313,
+      "symbol": "ETCUSDT",
+      "timeframe": "1D"
+    },
+    "ETHUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 1727.83,
+      "first_rsi": 19.17952153078427,
+      "id": "ETHUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 1578.91,
+      "rsi": 19.242344234235645,
+      "symbol": "ETHUSDT",
       "timeframe": "1D"
     },
     "FILUSDT-1D-rsi-tv-regular-bearish-2026-09-13-2026-09-27": {
@@ -477,6 +582,21 @@
       "pivot_time": "2026-09-22",
       "price": 97.799,
       "rsi": 70.4682251458274,
+      "symbol": "HYPEUSDT",
+      "timeframe": "1D"
+    },
+    "HYPEUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 59.96,
+      "first_rsi": 26.66834160094203,
+      "id": "HYPEUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 59.762,
+      "rsi": 28.738803299700734,
       "symbol": "HYPEUSDT",
       "timeframe": "1D"
     },
@@ -645,6 +765,21 @@
       "symbol": "LINKUSDT",
       "timeframe": "1D"
     },
+    "LINKUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 8.567,
+      "first_rsi": 26.42541799077921,
+      "id": "LINKUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 8.238,
+      "rsi": 28.553332293815046,
+      "symbol": "LINKUSDT",
+      "timeframe": "1D"
+    },
     "LTCUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-07": {
       "confirmed_time": "2026-09-12",
       "created_at": "2026-09-12",
@@ -660,6 +795,21 @@
       "symbol": "LTCUSDT",
       "timeframe": "1D"
     },
+    "NEARUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 2.865,
+      "first_rsi": 29.854257337422055,
+      "id": "NEARUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 2.762,
+      "rsi": 32.0256422200748,
+      "symbol": "NEARUSDT",
+      "timeframe": "1D"
+    },
     "NEOUSDT-1D-rsi-tv-regular-bearish-2026-08-21-2026-09-08": {
       "confirmed_time": "2026-09-13",
       "created_at": "2026-09-13",
@@ -673,6 +823,21 @@
       "price": 2.233,
       "rsi": 63.17750696944105,
       "symbol": "NEOUSDT",
+      "timeframe": "1D"
+    },
+    "ONDOUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 0.2846,
+      "first_rsi": 28.262886616039268,
+      "id": "ONDOUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 0.2713,
+      "rsi": 28.69484458230768,
+      "symbol": "ONDOUSDT",
       "timeframe": "1D"
     },
     "OPUSDT-1D-rsi-tv-regular-bearish-2026-09-22-2026-10-05": {
@@ -825,6 +990,21 @@
       "symbol": "RENDERUSDT",
       "timeframe": "1D"
     },
+    "RENDERUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 1.312,
+      "first_rsi": 33.32025529544265,
+      "id": "RENDERUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 1.229,
+      "rsi": 33.92390001544432,
+      "symbol": "RENDERUSDT",
+      "timeframe": "1D"
+    },
     "SEIUSDT-1D-rsi-tv-regular-bullish-2026-10-29-2026-11-08": {
       "confirmed_time": "2026-11-13",
       "created_at": "2026-11-13",
@@ -838,6 +1018,21 @@
       "price": 0.0416,
       "rsi": 31.123228209701708,
       "symbol": "SEIUSDT",
+      "timeframe": "1D"
+    },
+    "SHIBUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 3.692e-06,
+      "first_rsi": 22.995242908083384,
+      "id": "SHIBUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 3.478e-06,
+      "rsi": 23.086667345311838,
+      "symbol": "SHIBUSDT",
       "timeframe": "1D"
     },
     "SOLUSDT-1D-rsi-tv-regular-bearish-2026-09-21-2026-10-04": {
@@ -945,6 +1140,21 @@
       "symbol": "UNIUSDT",
       "timeframe": "1D"
     },
+    "UNIUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 4.61,
+      "first_rsi": 28.05286276233778,
+      "id": "UNIUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 4.308,
+      "rsi": 28.183665077904735,
+      "symbol": "UNIUSDT",
+      "timeframe": "1D"
+    },
     "USELESSUSDT-1D-rsi-tv-regular-bearish-2026-09-04-2026-09-22": {
       "confirmed_time": "2026-09-27",
       "created_at": "2026-09-27",
@@ -1020,6 +1230,21 @@
       "symbol": "WLFIUSDT",
       "timeframe": "1D"
     },
+    "XLMUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 0.1302,
+      "first_rsi": 26.410392517368777,
+      "id": "XLMUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 0.12473,
+      "rsi": 28.093938777223798,
+      "symbol": "XLMUSDT",
+      "timeframe": "1D"
+    },
     "XRPUSDT-1D-rsi-tv-regular-bearish-2026-09-03-2026-09-14": {
       "confirmed_time": "2026-09-19",
       "created_at": "2026-09-19",
@@ -1035,6 +1260,21 @@
       "symbol": "XRPUSDT",
       "timeframe": "1D"
     },
+    "XRPUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 0.8922,
+      "first_rsi": 16.153715955727506,
+      "id": "XRPUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 0.8836,
+      "rsi": 25.572875627503734,
+      "symbol": "XRPUSDT",
+      "timeframe": "1D"
+    },
     "ZECUSDT-1D-rsi-tv-regular-bearish-2026-09-06-2026-09-18": {
       "confirmed_time": "2026-09-23",
       "created_at": "2026-09-23",
@@ -1047,6 +1287,21 @@
       "pivot_time": "2026-09-18",
       "price": 1583.53,
       "rsi": 74.75294781019002,
+      "symbol": "ZECUSDT",
+      "timeframe": "1D"
+    },
+    "ZECUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20": {
+      "confirmed_time": "2026-11-25",
+      "created_at": "2026-11-25",
+      "direction": "bullish",
+      "first_pivot_time": "2026-11-14",
+      "first_price": 800.48,
+      "first_rsi": 29.248156770108693,
+      "id": "ZECUSDT-1D-rsi-tv-regular-bullish-2026-11-14-2026-11-20",
+      "kind": "regular",
+      "pivot_time": "2026-11-20",
+      "price": 725.96,
+      "rsi": 29.375055498147873,
       "symbol": "ZECUSDT",
       "timeframe": "1D"
     }
